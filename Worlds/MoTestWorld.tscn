@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://65tkp4i51twv"]
+[gd_scene load_steps=3 format=3 uid="uid://65tkp4i51twv"]
 
 [ext_resource type="PackedScene" uid="uid://glakh53sg2yi" path="res://Actors/GarbageTruck.tscn" id="1_850m4"]
+[ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="2_u085m"]
 
 [node name="MoTestWorld" type="Node2D"]
 
 [node name="car" parent="." instance=ExtResource("1_850m4")]
+
+[node name="Garbage" parent="." instance=ExtResource("2_u085m")]
+position = Vector2(-262, -165)
+scale = Vector2(0.27539277, 0.27539277)

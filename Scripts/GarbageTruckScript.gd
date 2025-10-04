@@ -34,7 +34,7 @@ func get_input():
 	steer_direction = turn * deg_to_rad(steering_angle)
 	if Input.is_action_pressed("forward"):
 		acceleration = transform.x * acceleration_power
-	if Input.is_action_pressed(\"backward\"):
+	if Input.is_action_pressed("backward"):
 		acceleration = transform.x * braking
 
 func calculate_steering(delta):
