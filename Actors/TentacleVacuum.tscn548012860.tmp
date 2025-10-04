@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3hodl73dbyq7"]
+
+[ext_resource type="Script" uid="uid://dp5toe6eh13em" path="res://Scripts/TentacleVacuum.gd" id="1_dieoe"]
+[ext_resource type="Texture2D" uid="uid://dqqjgw3yo44di" path="res://Images/test_map.jpg" id="2_ejb31"]
+[ext_resource type="Script" uid="uid://ihrxr54pwauo" path="res://Scripts/TentacleApparition.gd" id="2_evu2y"]
+
+[sub_resource type="Curve2D" id="Curve2D_47a0t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 33, 0)
+}
+point_count = 3
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_v76nv"]
+
+[node name="Vacuum" type="Node2D"]
+script = ExtResource("1_dieoe")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_47a0t")
+
+[node name="PathLine2D" type="Line2D" parent="." node_paths=PackedStringArray("path")]
+texture = ExtResource("2_ejb31")
+script = ExtResource("2_evu2y")
+path = NodePath("../Path2D")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
+modification_stack = SubResource("SkeletonModificationStack2D_v76nv")
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2(15, 0)
+rest = Transform2D(1, 0, 0, 1, 15, 0)
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D"]
+position = Vector2(18, 0)
+rest = Transform2D(1, 0, 0, 1, 18, 0)
+
+[node name="Marker2D" type="Marker2D" parent="Skeleton2D"]

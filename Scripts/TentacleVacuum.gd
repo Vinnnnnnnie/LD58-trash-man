@@ -10,3 +10,5 @@ func _process(delta: float) -> void:
 		var bone : Bone2D = skeleton.get_bone(i)
 		var point : Vector2 = bone.global_position
 		curve.set_point_position(i, to_local(point))
+		
+	#skeleton.

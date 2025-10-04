@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LD58-New-Trash_City"
-run/main_scene="uid://glakh53sg2yi"
+run/main_scene="uid://65tkp4i51twv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
