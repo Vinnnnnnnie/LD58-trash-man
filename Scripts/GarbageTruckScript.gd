@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://glakh53sg2yi"]
-
-[ext_resource type="Texture2D" uid="uid://r2aex2hxhqtd" path="res://icon.svg" id="1_7822p"]
-
-[sub_resource type="GDScript" id="GDScript_7822p"]
-script/source = "extends CharacterBody2D
+extends CharacterBody2D
 
 @export var wheel_base = 70
 @export var steering_angle = 15
 @export var speed = 300.0
 @export var acceleration_power = 600
+@export var friction = -55
+@export var drag = -0.06
+@export var braking = -450
+@export var max_speed_reverse = 250
+
+
 var acceleration = Vector2.ZERO
 var steer_direction
 
@@ -16,18 +17,25 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	acceleration = Vector2.ZERO
 	get_input()
+	apply_friction(delta)
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	move_and_slide()
-
+func apply_friction(delta):
+	if acceleration == Vector2.ZERO and velocity.length() < 50:
+		velocity = Vector2.ZERO
+	var friction_force = velocity * friction * delta
+	var drag_force = velocity * velocity.length() * drag * delta
+	acceleration += drag_force + friction_force
 func get_input():
 	var turn = Input.get_axis('turn_left', 'turn_right')
 	steer_direction = turn * deg_to_rad(steering_angle)
-	if Input.is_action_pressed(\"forward\"):
+	if Input.is_action_pressed("forward"):
 		acceleration = transform.x * acceleration_power
-	
+	if Input.is_action_pressed(\"backward\"):
+		acceleration = transform.x * braking
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2
@@ -37,21 +45,10 @@ func calculate_steering(delta):
 	front_wheel += velocity.rotated(steer_direction) * delta
 	
 	var new_heading = rear_wheel.direction_to(front_wheel)
-	
-	velocity = new_heading * velocity.length()
+	var d = new_heading.dot(velocity.normalized())
+	if d > 0:
+		velocity = new_heading * velocity.length()
+	if d< 0:
+		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 	
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uoj53"]
-size = Vector2(14, 20)
-
-[node name="car" type="CharacterBody2D"]
-script = SubResource("GDScript_7822p")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.109375, 0.15625)
-texture = ExtResource("1_7822p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_uoj53")
