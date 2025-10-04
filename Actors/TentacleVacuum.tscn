@@ -89,12 +89,12 @@ rest = Transform2D(1.0000013, 0, 0, 1.0000013, 18, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D"]
-position = Vector2(15.000919, 0)
+position = Vector2(15.000912, 0)
 rest = Transform2D(1, 0, 0, 1, 15.000934, 0)
 metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone2D" type="Bone2D" parent="Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D"]
-position = Vector2(16.000305, 0)
+position = Vector2(16.000313, 0)
 rest = Transform2D(1, 0, 0, 1, 16.000288, 0)
 metadata/_local_pose_override_enabled_ = true
 

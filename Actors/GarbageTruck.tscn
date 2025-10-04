@@ -11,13 +11,14 @@ script/source = "extends CharacterBody2D
 
 @export var wheel_base = 70
 @export var steering_angle = 20
-@export var speed = 800
+@export var speed = 1000
 @export var acceleration_power = 500
-@export var friction = -42
+@export var friction = -40
 @export var drag = -0.06
 @export var braking = -450
 @export var max_speed_reverse = 250
 @export var slip_speed = 400  # Speed where traction is reduced
+
 var traction_fast = 0.5 # High-speed traction
 var traction_slow = 10  # Low-speed traction
 signal drift
@@ -65,7 +66,6 @@ func calculate_steering(delta):
 	var traction = traction_slow
 	
 	var wheel_direction = rear_wheel.direction_to(front_wheel)
-	print('test',wheel_direction.angle_to(velocity.normalized()))
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 		print(wheel_direction)
