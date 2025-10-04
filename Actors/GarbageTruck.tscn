@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://glakh53sg2yi"]
+[gd_scene load_steps=11 format=3 uid="uid://glakh53sg2yi"]
 
-[ext_resource type="Texture2D" uid="uid://b2xgl5e070syl" path="res://Images/garbagetruck.png" id="1_h4y3w"]
+[ext_resource type="Texture2D" uid="uid://cds3exyraywkp" path="res://Images/Top_Down_View.png" id="1_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="2_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://she2eapydd2m" path="res://GameUI/MainCamera.tscn" id="2_vigmq"]
+[ext_resource type="AudioStream" uid="uid://ce05x7voh6ai2" path="res://Sounds/tyre_screech.mp3" id="3_ih7wc"]
+[ext_resource type="Script" path="res://Actors/audio_stream_player_2d.gd" id="4_vsqci"]
 
 [sub_resource type="GDScript" id="GDScript_7822p"]
 script/source = "extends CharacterBody2D
@@ -111,7 +113,22 @@ func new_calculate_steering(delta):
 	rotation = new_heading.angle()
 
 	
+
+
+func _on_drift() -> void:
+	pass # Replace with function body.
 "
+
+[sub_resource type="Gradient" id="Gradient_eo6ux"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vigmq"]
+noise_type = 4
+frequency = 0.267
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ih7wc"]
+noise = SubResource("FastNoiseLite_vigmq")
+color_ramp = SubResource("Gradient_eo6ux")
+seamless = true
 
 [sub_resource type="GDScript" id="GDScript_h4y3w"]
 resource_name = "skid"
@@ -135,6 +152,7 @@ func _on_car_drift() -> void:
 	global_position = Vector2.ZERO
 	global_rotation = 0
 	point = target.global_position
+	print(target)
 	add_point(point)
 	if trailLength != -1:
 		while get_point_count() > trailLength:
@@ -161,13 +179,14 @@ func _on_car_not_drift() -> void:
 "
 
 [node name="car" type="CharacterBody2D"]
+z_index = 10
 script = SubResource("GDScript_7822p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
 rotation = 1.5707964
-scale = Vector2(0.109375, 0.15625)
-texture = ExtResource("1_h4y3w")
+scale = Vector2(0.28381437, 0.36483884)
+texture = ExtResource("1_eo6ux")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 1.5707964
@@ -175,13 +194,20 @@ scale = Vector2(0.109375, 0.15625)
 polygon = PackedVector2Array(53.5, -231.5, -54.5, -231.5, -54.5, -228.5, -56, -223.5, -93.3, -223.5, -96.5, -220.3, -96.5, -215, -101.6, -213.5, -104.5, -213.5, -104.5, -111.5, -109.3, -111.5, -112.5, -108.3, -112.5, -103.5, -117.3, -103.5, -120.5, -100.3, -120.5, -95, -125.6, -93.5, -126.5, -93.5, -126.5, -73.399994, -126.3, -71.5, -104.5, -71.5, -104.5, 221.29999, -101.3, 224.5, -96.5, 224.5, -96.5, 229.29999, -93.3, 232.5, -88, 232.5, -86.5, 237.5, -86.5, 240.5, 84.3, 240.5, 87.5, 237.29999, 87.5, 232.5, 92.3, 232.5, 95.5, 229.29999, 95.5, 223.9, 100.600006, 222.5, 103.5, 222.5, 103.5, -71.7, 124.7, -73.5, 126.5, -73.5, 126.5, -93.3, 124.3, -95.5, 119.5, -95.5, 119.5, -100.3, 116.3, -103.5, 111, -103.5, 109.100006, -111.5, 103.5, -111.5, 103.5, -212.3, 100.3, -215.5, 95, -215.5, 93.5, -220.5, 93.5, -223.5, 55, -223.5, 53.5, -228.5)
 
 [node name="SkidRight" type="Line2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(-1, 28)
 points = PackedVector2Array(-27, 0)
 default_color = Color(0.043137256, 0.043137256, 0.043137256, 0.4392157)
+texture = SubResource("NoiseTexture2D_ih7wc")
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 1
+end_cap_mode = 1
 script = SubResource("GDScript_h4y3w")
 target = NodePath("../RearRightWheel")
 wheel = "Right"
 
 [node name="SkidLeft" type="Line2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(0, -17)
 points = PackedVector2Array(-29, -7)
 default_color = Color(0.043137256, 0.043137256, 0.043137256, 0.4392157)
 script = SubResource("GDScript_h4y3w")
@@ -194,10 +220,18 @@ position = Vector2(-30, 9)
 position = Vector2(-30, -8)
 
 [node name="MainCamera" parent="." instance=ExtResource("2_vigmq")]
-position_smoothing_enabled = true
 
 [node name="Vacuum" parent="." instance=ExtResource("2_eo6ux")]
+z_index = 30
 position = Vector2(-25, 0)
 
+[node name="TyreScreech" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ih7wc")
+script = ExtResource("4_vsqci")
+
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
+[connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
+[connection signal="drift" from="." to="TyreScreech" method="_on_car_drift"]
 [connection signal="not_drift" from="." to="SkidRight" method="_on_car_not_drift"]
+[connection signal="not_drift" from="." to="SkidLeft" method="_on_car_not_drift"]
+[connection signal="not_drift" from="." to="TyreScreech" method="_on_car_not_drift"]
