@@ -160,6 +160,7 @@ func _on_car_not_drift() -> void:
 "
 
 [node name="car" type="CharacterBody2D"]
+z_index = 10
 script = SubResource("GDScript_7822p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
