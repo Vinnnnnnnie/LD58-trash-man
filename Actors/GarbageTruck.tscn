@@ -90,7 +90,8 @@ func new_calculate_steering(delta):
 	
 	if velocity.length() > slip_speed:
 		traction = traction_fast
-		emit_signal('drift')
+		if turn != 0:
+			emit_signal('drift')
 	else:
 		emit_signal('not_drift')
 		
@@ -138,8 +139,6 @@ func _on_car_drift() -> void:
 		while get_point_count() > trailLength:
 			remove_point(0)
 	
-	
-	
 func on_car_stop_drift():
 	var skidNode = duplicate()
 	
@@ -175,15 +174,15 @@ scale = Vector2(0.109375, 0.15625)
 polygon = PackedVector2Array(53.5, -231.5, -54.5, -231.5, -54.5, -228.5, -56, -223.5, -93.3, -223.5, -96.5, -220.3, -96.5, -215, -101.6, -213.5, -104.5, -213.5, -104.5, -111.5, -109.3, -111.5, -112.5, -108.3, -112.5, -103.5, -117.3, -103.5, -120.5, -100.3, -120.5, -95, -125.6, -93.5, -126.5, -93.5, -126.5, -73.399994, -126.3, -71.5, -104.5, -71.5, -104.5, 221.29999, -101.3, 224.5, -96.5, 224.5, -96.5, 229.29999, -93.3, 232.5, -88, 232.5, -86.5, 237.5, -86.5, 240.5, 84.3, 240.5, 87.5, 237.29999, 87.5, 232.5, 92.3, 232.5, 95.5, 229.29999, 95.5, 223.9, 100.600006, 222.5, 103.5, 222.5, 103.5, -71.7, 124.7, -73.5, 126.5, -73.5, 126.5, -93.3, 124.3, -95.5, 119.5, -95.5, 119.5, -100.3, 116.3, -103.5, 111, -103.5, 109.100006, -111.5, 103.5, -111.5, 103.5, -212.3, 100.3, -215.5, 95, -215.5, 93.5, -220.5, 93.5, -223.5, 55, -223.5, 53.5, -228.5)
 
 [node name="SkidRight" type="Line2D" parent="." node_paths=PackedStringArray("target")]
-points = PackedVector2Array(-28, 7)
-default_color = Color(0.043137256, 0.043137256, 0.043137256, 0.57254905)
+points = PackedVector2Array(-27, 0)
+default_color = Color(0.043137256, 0.043137256, 0.043137256, 0.4392157)
 script = SubResource("GDScript_h4y3w")
 target = NodePath("../RearRightWheel")
 wheel = "Right"
 
 [node name="SkidLeft" type="Line2D" parent="." node_paths=PackedStringArray("target")]
 points = PackedVector2Array(-29, -7)
-default_color = Color(0.04303915, 0.043039158, 0.04303913, 0.57254905)
+default_color = Color(0.043137256, 0.043137256, 0.043137256, 0.4392157)
 script = SubResource("GDScript_h4y3w")
 target = NodePath("../RearLeftWheel")
 
