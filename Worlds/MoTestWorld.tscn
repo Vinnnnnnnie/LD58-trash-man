@@ -5,6 +5,7 @@
 [node name="MoTestWorld" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.725, 2.725)
 
 [node name="Vacuum" parent="." instance=ExtResource("1_850m4")]
 position = Vector2(1, 0)
