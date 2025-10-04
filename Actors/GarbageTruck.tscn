@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://glakh53sg2yi"]
+[gd_scene load_steps=5 format=3 uid="uid://glakh53sg2yi"]
 
 [ext_resource type="Texture2D" uid="uid://b2xgl5e070syl" path="res://Images/garbagetruck.png" id="1_h4y3w"]
+[ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="2_eo6ux"]
 
 [sub_resource type="GDScript" id="GDScript_7822p"]
 script/source = "extends CharacterBody2D
@@ -191,6 +192,16 @@ position = Vector2(-30, 9)
 
 [node name="RearLeftWheel" type="Marker2D" parent="."]
 position = Vector2(-30, -8)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.36, 1.36)
+process_callback = 0
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="Vacuum" parent="." instance=ExtResource("2_eo6ux")]
+position = Vector2(-25, 0)
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="not_drift" from="." to="SkidRight" method="_on_car_not_drift"]

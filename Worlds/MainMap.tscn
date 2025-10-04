@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cq8dodue411k5"]
+[gd_scene load_steps=2 format=3 uid="uid://cq8dodue411k5"]
+
+[ext_resource type="PackedScene" uid="uid://glakh53sg2yi" path="res://Actors/GarbageTruck.tscn" id="1_foosq"]
 
 [node name="MainMap" type="Node2D"]
+
+[node name="car" parent="." instance=ExtResource("1_foosq")]
