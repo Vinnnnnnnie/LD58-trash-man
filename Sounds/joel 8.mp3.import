@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3dahfcserw3w"
+path="res://.godot/imported/joel 8.mp3-8ceb86b3fc5f56eb682d8bede772bd5f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/joel 8.mp3"
+dest_files=["res://.godot/imported/joel 8.mp3-8ceb86b3fc5f56eb682d8bede772bd5f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
