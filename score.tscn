@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://dltpxjflpwa5s"]
+[gd_scene load_steps=4 format=3 uid="uid://dltpxjflpwa5s"]
+
+[ext_resource type="Script" uid="uid://1ldncoi3fwi0" path="res://score.gd" id="1_ceanc"]
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="1_t1x8i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ceanc"]
+font = ExtResource("1_t1x8i")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Score" type="Control"]
 layout_mode = 3
@@ -7,3 +16,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(574, 28)
+script = ExtResource("1_ceanc")
+
+[node name="ScoreNumber" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+rotation = -6.2831855
+pivot_offset = Vector2(62.42456, 27.76949)
+text = "5000"
+label_settings = SubResource("LabelSettings_ceanc")
+horizontal_alignment = 1
+vertical_alignment = 1

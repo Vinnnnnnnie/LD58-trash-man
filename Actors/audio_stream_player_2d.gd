@@ -18,7 +18,7 @@ func _on_car_drift() -> void:
 
 func screech_tyre():
 	if screech == true:
-		pitch_scale = randf_range(0.8, 1.2)
+		pitch_scale = randf_range(1, 1.2)
 		play(0)
 		
 		

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://she2eapydd2m"]
+[gd_scene load_steps=6 format=3 uid="uid://she2eapydd2m"]
 
 [ext_resource type="Script" uid="uid://blg3hpd6xk6aw" path="res://GameUI/control.gd" id="1_0o8tf"]
 [ext_resource type="Script" uid="uid://ba3ahtcrtmn1y" path="res://GameUI/main_camera.gd" id="1_gxubn"]
 [ext_resource type="PackedScene" uid="uid://o2n6ytyv7d7i" path="res://GameUI/CallLayout.tscn" id="1_qu4sq"]
+[ext_resource type="PackedScene" uid="uid://dltpxjflpwa5s" path="res://score.tscn" id="4_6ppvl"]
+[ext_resource type="PackedScene" uid="uid://dngxrrp5nlqm2" path="res://timer.tscn" id="5_r63es"]
 
 [node name="MainCamera" type="Camera2D"]
 zoom = Vector2(1.36, 1.36)
@@ -13,7 +15,7 @@ script = ExtResource("1_gxubn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,10 +26,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_0o8tf")
 
-[node name="CallLayout" parent="CanvasLayer/Control" instance=ExtResource("1_qu4sq")]
+[node name="CallLayout" parent="CanvasLayer/UI" instance=ExtResource("1_qu4sq")]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 155.0
 offset_right = 154.0
 offset_bottom = 155.0
 scale = Vector2(0.7218662, 0.7218662)
+
+[node name="Score" parent="CanvasLayer/UI" instance=ExtResource("4_6ppvl")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_top = 18.0
+offset_bottom = 18.0
+grow_vertical = 1
+pivot_offset = Vector2(-2, 28)
+
+[node name="Timer" parent="CanvasLayer/UI" instance=ExtResource("5_r63es")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+grow_horizontal = 1

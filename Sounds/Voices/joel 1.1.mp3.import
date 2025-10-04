@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpuahmuhl2keh"
+path="res://.godot/imported/joel 1.1.mp3-32c00ac1abd4ce56440ebe0d61e79fd9.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Voices/joel 1.1.mp3"
+dest_files=["res://.godot/imported/joel 1.1.mp3-32c00ac1abd4ce56440ebe0d61e79fd9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
