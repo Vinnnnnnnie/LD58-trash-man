@@ -4,22 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="2_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://she2eapydd2m" path="res://GameUI/MainCamera.tscn" id="2_vigmq"]
 [ext_resource type="AudioStream" uid="uid://ce05x7voh6ai2" path="res://Sounds/tyre_screech.mp3" id="3_ih7wc"]
-[ext_resource type="Script" path="res://Actors/audio_stream_player_2d.gd" id="4_vsqci"]
+[ext_resource type="Script" uid="uid://d3dfn18pw7md6" path="res://Actors/audio_stream_player_2d.gd" id="4_vsqci"]
 
 [sub_resource type="GDScript" id="GDScript_7822p"]
 script/source = "extends CharacterBody2D
 
 @export var wheel_base = 70
-@export var steering_angle = 30
-@export var speed = 1000
-@export var acceleration_power = 800
-@export var friction = -55
+@export var steering_angle = 20
+@export var speed = 800
+@export var acceleration_power = 500
+@export var friction = -42
 @export var drag = -0.06
 @export var braking = -450
 @export var max_speed_reverse = 250
-var slip_speed = 350  # Speed where traction is reduced
+@export var slip_speed = 400  # Speed where traction is reduced
 var traction_fast = 0.5 # High-speed traction
-var traction_slow = 5  # Low-speed traction
+var traction_slow = 10  # Low-speed traction
 signal drift
 signal not_drift
 var lastFrameTurn
@@ -65,6 +65,7 @@ func calculate_steering(delta):
 	var traction = traction_slow
 	
 	var wheel_direction = rear_wheel.direction_to(front_wheel)
+	print('test',wheel_direction.angle_to(velocity.normalized()))
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 		print(wheel_direction)
@@ -219,8 +220,6 @@ position = Vector2(-30, 9)
 [node name="RearLeftWheel" type="Marker2D" parent="."]
 position = Vector2(-30, -8)
 
-[node name="MainCamera" parent="." instance=ExtResource("2_vigmq")]
-
 [node name="Vacuum" parent="." instance=ExtResource("2_eo6ux")]
 z_index = 30
 position = Vector2(-25, 0)
@@ -228,6 +227,8 @@ position = Vector2(-25, 0)
 [node name="TyreScreech" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ih7wc")
 script = ExtResource("4_vsqci")
+
+[node name="MainCamera" parent="." instance=ExtResource("2_vigmq")]
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
