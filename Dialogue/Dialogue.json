@@ -1,0 +1,19 @@
+{
+	"random": [
+		{
+			"event_name": "Joels wife hates him",
+			"character": "Joel",
+			"audio_name": "joel_random_1.mp3",
+			"subtitle": "Ooooh my wife left me oooh"
+		}
+	],
+	"story": [
+		{
+			"sequence": 1,
+			"event_name": "Joels wife hates him",
+			"character": "Joel",
+			"audio_name": "joel_story_1.mp3",
+			"subtitle": "Ooooh my gabagool oooh"
+		}
+	]
+}
