@@ -7,20 +7,21 @@ script/source = "extends CharacterBody2D
 
 @export var wheel_base = 70
 @export var steering_angle = 30
-@export var speed = 800
-@export var acceleration_power = 600
+@export var speed = 1000
+@export var acceleration_power = 800
 @export var friction = -55
 @export var drag = -0.06
 @export var braking = -450
 @export var max_speed_reverse = 250
-var slip_speed = 400  # Speed where traction is reduced
+var slip_speed = 350  # Speed where traction is reduced
 var traction_fast = 0.5 # High-speed traction
 var traction_slow = 5  # Low-speed traction
 signal drift
-
+signal not_drift
+var lastFrameTurn
 var acceleration = Vector2.ZERO
 var steer_direction
-
+var turn
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	acceleration = Vector2.ZERO
@@ -28,9 +29,10 @@ func _physics_process(delta: float) -> void:
 	apply_friction(delta)
 	new_calculate_steering(delta)
 	velocity += acceleration * delta
-	print('Velocity',velocity)
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	move_and_slide()
+	lastFrameTurn = turn
+
 func apply_friction(delta):
 	if acceleration == Vector2.ZERO and velocity.length() < 50:
 		velocity = Vector2.ZERO
@@ -38,7 +40,11 @@ func apply_friction(delta):
 	var drag_force = velocity * velocity.length() * drag * delta
 	acceleration += drag_force + friction_force
 func get_input():
-	var turn = Input.get_axis('turn_left', 'turn_right')
+
+	turn = Input.get_axis('turn_left', 'turn_right')
+	if (turn != lastFrameTurn):
+		emit_signal('not_drift')
+	
 	steer_direction = turn * deg_to_rad(steering_angle)
 	if Input.is_action_pressed(\"forward\"):
 		acceleration = transform.x * acceleration_power
@@ -79,10 +85,14 @@ func new_calculate_steering(delta):
 
 	# Choose the traction model based on the current speed
 	var traction = traction_slow
+
+	
 	if velocity.length() > slip_speed:
 		traction = traction_fast
 		emit_signal('drift')
-
+	else:
+		emit_signal('not_drift')
+		
 	# Dot product represents how aligned the new heading is with the current velocity direction
 	var d = new_heading.dot(velocity.normalized())
 
@@ -107,32 +117,53 @@ script/source = "extends Line2D
 var point
 @export var target = get_parent()
 @export var wheel = 'Left'
-@export var trailLength := 20          # -1: endless trail, 0: no trail, n: points in trail
+@export var trailLength := 400          # -1: endless trail, 0: no trail, n: points in trail
 var start_drift
-
+var stop_drift
 func _ready() -> void:
 	print('ready')
 
 
 func _process(delta:float) -> void:
-	if (start_drift == true):
-		global_position = Vector2.ZERO
-		global_rotation = 0
-		point = target.global_position
-		add_point(point)
-		if trailLength != -1:
-			while get_point_count() > trailLength:
-				remove_point(0)
-	start_drift = false
+	pass
 func _on_car_drift() -> void:
 	start_drift = true
+	stop_drift = false
+	global_position = Vector2.ZERO
+	global_rotation = 0
+	point = target.global_position
+	add_point(point)
+	if trailLength != -1:
+		while get_point_count() > trailLength:
+			remove_point(0)
 	
+	
+	
+func on_car_stop_drift():
+	var skidNode = duplicate()
+	
+	skidNode.global_position = global_position
+	skidNode.global_rotation = global_rotation
+	clear_points()
+	#skidNode.rotation = target.rotation
+	#skidNode.global_position = target.global_position
+	print('Not drifting')
+	get_parent().get_parent().add_child(skidNode)
+	points.clear()
+func _on_car_not_drift() -> void:
+	if (start_drift == true and stop_drift == false):
+		on_car_stop_drift()
+	start_drift = false
+	stop_drift = true
+	
+	pass # Replace with function body.
 "
 
 [node name="car" type="CharacterBody2D"]
 script = SubResource("GDScript_7822p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
 rotation = 1.5707964
 scale = Vector2(0.109375, 0.15625)
 texture = ExtResource("1_h4y3w")
@@ -144,12 +175,14 @@ polygon = PackedVector2Array(53.5, -231.5, -54.5, -231.5, -54.5, -228.5, -56, -2
 
 [node name="SkidRight" type="Line2D" parent="." node_paths=PackedStringArray("target")]
 points = PackedVector2Array(-28, 7)
+default_color = Color(0.043137256, 0.043137256, 0.043137256, 0.57254905)
 script = SubResource("GDScript_h4y3w")
 target = NodePath("../RearRightWheel")
 wheel = "Right"
 
 [node name="SkidLeft" type="Line2D" parent="." node_paths=PackedStringArray("target")]
 points = PackedVector2Array(-29, -7)
+default_color = Color(0.04303915, 0.043039158, 0.04303913, 0.57254905)
 script = SubResource("GDScript_h4y3w")
 target = NodePath("../RearLeftWheel")
 
@@ -160,3 +193,4 @@ position = Vector2(-30, 9)
 position = Vector2(-30, -8)
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
+[connection signal="not_drift" from="." to="SkidRight" method="_on_car_not_drift"]

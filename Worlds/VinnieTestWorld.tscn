@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://2bpr1ofcn26e"]
+
+[ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="1_1oyoe"]
+[ext_resource type="PackedScene" uid="uid://glakh53sg2yi" path="res://Actors/GarbageTruck.tscn" id="2_ydkga"]
+
+[node name="VinnieTestWorld" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Vacuum" parent="." instance=ExtResource("1_1oyoe")]
+position = Vector2(1, 0)
+
+[node name="car" parent="." instance=ExtResource("2_ydkga")]
