@@ -6,16 +6,16 @@
 script/source = "extends CharacterBody2D
 
 @export var wheel_base = 70
-@export var steering_angle = 15
-@export var speed = 300.0
+@export var steering_angle = 30
+@export var speed = 800
 @export var acceleration_power = 600
 @export var friction = -55
 @export var drag = -0.06
 @export var braking = -450
 @export var max_speed_reverse = 250
 var slip_speed = 400  # Speed where traction is reduced
-var traction_fast = 2.5 # High-speed traction
-var traction_slow = 10  # Low-speed traction
+var traction_fast = 0.5 # High-speed traction
+var traction_slow = 5  # Low-speed traction
 
 var acceleration = Vector2.ZERO
 var steer_direction
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	apply_friction(delta)
 	new_calculate_steering(delta)
 	velocity += acceleration * delta
-	
+	print('Velocity',velocity)
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	move_and_slide()
 func apply_friction(delta):
@@ -51,7 +51,14 @@ func calculate_steering(delta):
 	rear_wheel += velocity * delta
 	front_wheel += velocity.rotated(steer_direction) * delta
 	
-	var new_heading = rear_wheel.direction_to(front_wheel)
+	var traction = traction_slow
+	
+	var wheel_direction = rear_wheel.direction_to(front_wheel)
+	if velocity.length() > slip_speed:
+		traction = traction_fast
+		print(wheel_direction)
+		wheel_direction = 1.1 * wheel_direction
+	var new_heading = wheel_direction
 	var d = new_heading.dot(velocity.normalized())
 	if d > 0:
 		velocity = new_heading * velocity.length()
@@ -60,21 +67,32 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 	
 func new_calculate_steering(delta):
+	# Calculate the positions of the rear and front wheel
 	var rear_wheel = position - transform.x * wheel_base / 2.0
 	var front_wheel = position + transform.x * wheel_base / 2.0
+	# Advance the wheels' positions based on the current velocity, applying rotation to the front wheel
 	rear_wheel += velocity * delta
-	front_wheel += velocity.rotated(steering_angle) * delta
+	front_wheel += velocity.rotated(steer_direction) * delta
+	# Calculate the new heading based on the wheels' positions
 	var new_heading = rear_wheel.direction_to(front_wheel)
-	var d = new_heading.dot(velocity.normalized())
 
-	# choose which traction value to use - at lower speeds, slip should be low
+	# Choose the traction model based on the current speed
 	var traction = traction_slow
 	if velocity.length() > slip_speed:
 		traction = traction_fast
+
+	# Dot product represents how aligned the new heading is with the current velocity direction
+	var d = new_heading.dot(velocity.normalized())
+
+	# If not braking (d > 0), adjust the car velocity smoothly towards the new heading
 	if d > 0:
 		velocity = lerp(velocity, new_heading * velocity.length(), traction * delta)
+
+	# If braking (d < 0), reverse the direction and limit the speed
 	if d < 0:
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
+
+	# Update the car's rotation to face in the direction of the new heading
 	rotation = new_heading.angle()
 
 	
