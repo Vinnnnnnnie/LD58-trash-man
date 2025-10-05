@@ -79,8 +79,8 @@ func _ready() -> void:
 	upgrade_effect = upgrade['effect']
 	upgrade_level = upgrade['level']
 	upgrade_description = upgrade['description']
-	var image = Image.load_from_file(upgrade_image)
-	$TextureRect.texture = ImageTexture.create_from_image(image)
+	var image = load(upgrade_image)
+	$TextureRect.texture = image
 	$Title.text = upgrade_effect.replace('_', ' ')
 	$Description.text = upgrade_description
 	$Level.text = str(upgrade_level)
