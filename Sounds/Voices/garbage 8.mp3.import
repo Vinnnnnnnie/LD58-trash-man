@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bq52ssdsgjcjs"
+path="res://.godot/imported/garbage 8.mp3-93e27f84cb0fb5780ad79efe04921c7f.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Voices/garbage 8.mp3"
+dest_files=["res://.godot/imported/garbage 8.mp3-93e27f84cb0fb5780ad79efe04921c7f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdr1ud8vxot32"
+path="res://.godot/imported/garbage 5.mp3-a75cd399a11e0de76710bb0e7ff0236d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Voices/garbage 5.mp3"
+dest_files=["res://.godot/imported/garbage 5.mp3-a75cd399a11e0de76710bb0e7ff0236d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

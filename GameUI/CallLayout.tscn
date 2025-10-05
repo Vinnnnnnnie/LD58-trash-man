@@ -1,159 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://o2n6ytyv7d7i"]
+[gd_scene load_steps=12 format=3 uid="uid://o2n6ytyv7d7i"]
 
 [ext_resource type="Texture2D" uid="uid://b6jcpeu6hxvhp" path="res://Images/ui_art/trashmans_boss_jole_final.png" id="1_8m1gh"]
 [ext_resource type="Script" uid="uid://b8khw6sasq54m" path="res://Scripts/DialogueSystem.gd" id="1_padce"]
+[ext_resource type="Script" uid="uid://junncipdmep" path="res://GameUI/in_call.gd" id="2_2va6q"]
 [ext_resource type="Texture2D" uid="uid://dmrt61k04n282" path="res://Images/ui_art/dialogue_background.png" id="2_hwvmr"]
 [ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="3_padce"]
 [ext_resource type="Texture2D" uid="uid://bpg41hol63uhd" path="res://Images/ui_art/Phone.png" id="4_hwvmr"]
-[ext_resource type="Script" path="res://GameUI/receiving_call.gd" id="6_axps0"]
+[ext_resource type="Script" uid="uid://bvrad0qggkoad" path="res://GameUI/receiving_call.gd" id="6_axps0"]
 [ext_resource type="PackedScene" uid="uid://dqlpr01adabrv" path="res://GameUI/KeyIconUI.tscn" id="6_jx7lv"]
+[ext_resource type="AudioStream" uid="uid://bpuahmuhl2keh" path="res://Sounds/Voices/joel 1.1.mp3" id="7_as0j1"]
+[ext_resource type="AnimationLibrary" uid="uid://xhaqhog2ht12" path="res://Animations/CallLayoutAnimations.res" id="8_cijr2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jx7lv"]
 font = ExtResource("3_padce")
-font_size = 41
+font_size = 31
 
-[sub_resource type="Animation" id="Animation_axps0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReceivingCall/Phone:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReceivingCall/KeyIconUI:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(211.99998, 233.99998)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ReceivingCall/Phone:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(99, 235)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ReceivingCall/Phone:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.67059225, 0.67059225)]
-}
-
-[sub_resource type="Animation" id="Animation_cijr2"]
-resource_name = "qte_passed"
-length = 1.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReceivingCall/KeyIconUI:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(211.99998, 233.99998), Vector2(230, 234), Vector2(-180, 234)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReceivingCall/Phone:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.70000005, 1.3666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(99, 235), Vector2(99, 235), Vector2(66, 547)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ReceivingCall/Phone:skew")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.3666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ReceivingCall/Phone:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.70000005, 1.3666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.67059225, 0.67059225), Vector2(0.67059225, 0.67059225), Vector2(1.0552961, 1.0552961)]
-}
-
-[sub_resource type="Animation" id="Animation_jx7lv"]
-resource_name = "ringing_animation"
-length = 13.0
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReceivingCall/Phone:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.18, 1.38, 1.5799999, 1.78, 1.98, 2.1799998, 2.33, 2.53, 2.73, 2.9299998, 3.1299999, 3.33, 3.49, 3.69, 3.89, 4.09, 4.29, 4.49, 4.65, 4.85, 5.05, 5.25, 5.4500003, 5.65, 5.83, 6.03, 6.23, 6.4300003, 6.63, 6.83, 6.98, 7.1800003, 7.38, 7.58, 7.7799997, 7.98, 8.14, 8.34, 8.54, 8.74, 8.940001, 9.139999, 9.31, 9.51, 9.71, 9.910001, 10.110001, 10.31, 10.490001, 10.690001, 10.89, 11.09, 11.290001, 11.49, 11.64, 11.84, 12.040001, 12.24, 12.440001, 12.64, 12.8, 13, 13.200001, 13.400001, 13.6, 13.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323, 0.0, -0.23212878, 0.25132743, -0.27227136, 0.19198622, -0.04363323]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start_key_qte"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_axps0"]
-_data = {
-&"RESET": SubResource("Animation_axps0"),
-&"qte_passed": SubResource("Animation_cijr2"),
-&"ringing_animation": SubResource("Animation_jx7lv")
-}
-
-[node name="CallLayout" type="Control"]
+[node name="CallLayout" type="Control" groups=["dialogue_system"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -170,8 +32,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_2va6q")
 
-[node name="TrashmansBossJoleFinal" type="Sprite2D" parent="InCall"]
+[node name="CharacterLogo" type="Sprite2D" parent="InCall"]
 position = Vector2(982, 536.00006)
 scale = Vector2(0.04610967, 0.046109665)
 texture = ExtResource("1_8m1gh")
@@ -187,16 +50,19 @@ offset_left = 174.0
 offset_top = 512.0
 offset_right = 738.0
 offset_bottom = 599.0
-text = "fucking work harder dumb cunt"
 label_settings = SubResource("LabelSettings_jx7lv")
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 3
 
 [node name="Phone" type="Sprite2D" parent="InCall"]
 position = Vector2(68, 549)
 texture = ExtResource("4_hwvmr")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="InCall"]
+stream = ExtResource("7_as0j1")
+
 [node name="ReceivingCall" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,11 +84,13 @@ label = "D"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_axps0")
+&"": ExtResource("8_cijr2")
 }
 
 [node name="RandomEventTimer" type="Timer" parent="."]
 wait_time = 1.54
 autostart = true
 
+[connection signal="dialogue_finished" from="InCall" to="." method="_on_in_call_dialogue_finished"]
+[connection signal="finished" from="InCall/AudioStreamPlayer" to="InCall" method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="RandomEventTimer" to="." method="_on_random_event_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://doudaywjutc7l"
+path="res://.godot/imported/Another rough day 1.mp3-cc7083d0b02af1b641d51b9644198a68.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Voices/Another rough day 1.mp3"
+dest_files=["res://.godot/imported/Another rough day 1.mp3-cc7083d0b02af1b641d51b9644198a68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

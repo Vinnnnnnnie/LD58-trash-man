@@ -2,80 +2,80 @@
 	"random": [
 		{
 			"event_name": "Joels wife asks about the milk",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 1.1.mp3",
 			"subtitle": "Joel, ask him to bring the milk. Ask him to bring the milk, Joel."
 		},
 		{
 			"event_name": "Joels wife asks about the slippers",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 2.mp3",
 			"subtitle": "Joel, have you seen my slippers? Have you seen my slippers, Joel? The ones with the faux leather bunny ears? Oh I found them Joel. Tell him I found them."
 		},
 		{
 			"event_name": "The rat eats the hot dogs",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 3.1.mp3",
 			"subtitle": "Joel, it's that rat again eating my gourmet gold plated hot dogs. It's not even pairing them with the manatee caviar Joel, they're going to waste."
 		},
 		{
 			"event_name": "Joels wife invites the garbage man to dinner",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 4.mp3",
 			"subtitle": "Joel, ask him if he wants to come to dinner. Joel JR, Joel JR JR, Joel JR JR JR, Joelina, Joelina 2, and Bob are asking if he wants to come to dinner. We'll have those gourmet gold plated hot dogs that the rat keeps stealing."
 		},
 		{
 			"event_name": "Joels wife requests Joel gets off the phone",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 5.mp3",
 			"subtitle": "Joel, get off the phone. Get off the phone, Joel."
 		},
 		{
 			"event_name": "Joels wife asks about the lottery numbers",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 6.mp3",
 			"subtitle": "Joel, can you ask him if he's seen the lottery numbers today. Has he seen the lottery numbers, Joel?"
 		},
 		{
 			"event_name": "Joels wife loses her hair",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 8.mp3",
 			"subtitle": "Joel, the rat is back. The rat is back for my 100% gorilla hair extensions, Joel. Stop him, Joel, he's getting away. He's getting away, Joel."
 		},
 		{
 			"event_name": "Joels wife requests fridge maintenance",
-			"character": "Joel's Wife",
+			"character": "Joels Wife",
 			"audio_name": "joel 9.mp3",
 			"subtitle": "Joel, the fridge is broken. Joel, the elephant seal lard is melting into the manatee caviar. It's melting, Joel."
 		},
 		{
 			"event_name": "Joel talks about his dad.",
 			"character": "Joel",
-			"audio_name": "garbage 2.mp3",
+			"audio_name": "joel 2.mp3",
 			"subtitle": "The streets are still dirtier than my papa's secret stash. Try and keep your eyes open this time around."
 		},
 		{
 			"event_name": "Joel needs noise protection.",
 			"character": "Joel",
-			"audio_name": "garbage 3.mp3",
+			"audio_name": "joel 3.mp3",
 			"subtitle": "Mailman can’t get through all the gahbage to deliver by extra thick cheetah print angora wool earplugs. What am I supposed to do in the meantime? Listen to my wife asking me to play with the kids?"
 		},
 		{
 			"event_name": "Joel is coping.",
 			"character": "Joel",
-			"audio_name": "garbage 4.mp3",
+			"audio_name": "joel 4.mp3",
 			"subtitle": "All this trash is makin’ my lungs rattle. I’m smokin’ three extra packs a day just to cope with the emotional toll. Not good for da mental health all this garbage is, pal."
 		},
 		{
 			"event_name": "Joel talks about his brother.",
 			"character": "Joel",
-			"audio_name": "garbage 5.mp3",
+			"audio_name": "joel 5.mp3",
 			"subtitle": "There’s more garbage on these here streets than at the cemetery after my uncle’s sister’s son’s funeral. Not as much as in his grave though."
 		},
 		{
 			"event_name": "Joel's soft spot.",
 			"character": "Joel",
-			"audio_name": "garbage 6.mp3",
+			"audio_name": "joel 6.mp3",
 			"subtitle": "Holy Mother Teresa’s doilies. I could make a garbage man outta you garbage boy yet."
 		},
 		{
