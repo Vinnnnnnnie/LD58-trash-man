@@ -109,7 +109,8 @@
 			"event_name": "Introduction",
 			"character": "Joel",
 			"audio_name": "garbage 1.2.mp3",
-			"subtitle": "Callin' me in the middle of the night?! Wakin' up my wife and kids to tell me you forgot how to do your job again? WASD to drive. Mouse to move the vacuum and pick up garbage. Shift to go faster. Now get suckin'!"
+			"subtitle": "Callin' me in the middle of the night?! Wakin' up my wife and kids to tell me you forgot how to do your job again? WASD to drive. Mouse to move the vacuum and pick up garbage. Shift to go faster. Now get suckin'!",
+			"next_event": 2
 		},
 		{
 			"sequence": 1,
@@ -145,6 +146,34 @@
 			"character": "Joel",
 			"audio_name": "bargain 5.mp3",
 			"subtitle": "I got my cleanest pair of weasel skin britches on to go see da big boss about that promotion today, pal. If ya get off shift with enough to get new tires, he’ll give you that raise on the spot, swear on my mama’s crooked shoulderblade."
-		}
+		},
+		{
+			"sequence": 1,
+			"event name": "Quit attempt 1",
+			"character": "The Rat",
+			"audio_name": "Why ya putting up 1.mp3",
+			"subtitle": "Why ya putin’ up with all this garbage, eh chum? I can just save you aaaaall that effort. We could have an agreement. Five dollarinos from me and you tell Joel you’re leaving and never coming back."
+		},
+		{
+			"sequence": 2,
+			"event name": "Quit attempt 2",
+			"character": "The Rat",
+			"audio_name": "You're lookin might stressed 1.mp3",
+			"subtitle": "You’re lookin’ mighty stressed doing all that driving day in and day out. Always at someone else’s beck and call. Think about it again, chum: I give you fifty dollaroos and you give Joel your resignation."
+		},
+		{
+			"sequence": 3,
+			"event name": "Quit attempt 3",
+			"character": "The Rat",
+			"audio_name": "Another rough day 1.mp3",
+			"subtitle": "Another rough day? Skipping lunch breaks? Heart jumping every time that phone rings? Don’t worry. I’ll always be here for you. One hundred dollary-doos and your freedom. Doesn’t that sound nice?"
+		},
+		{
+			"sequence": 4,
+			"event name": "Quit attempt 4",
+			"character": "The Rat",
+			"audio_name": "You do nothing but eat 1.mp3",
+			"subtitle": "You do nothing but eat, sleep, work, eat, sleep, work and the garbage just keeps piling up. It never ends. It never will end. The five hundred dollarees are still on the table. All you have to do is tell Joel you quit."
+		} 
 	]
 }

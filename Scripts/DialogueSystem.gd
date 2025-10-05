@@ -62,6 +62,7 @@ func start_key_qte() -> void:
 	key_icon.qte_start(difficulty_level)
 
 func qte_passed() -> void:
+	$InCall/AudioStreamPlayer.stop()
 	anim_play.play("qte_passed")
 	
 func qte_failed() -> void:
