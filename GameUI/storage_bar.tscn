@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3b8uyxwxqkri"]
+
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="1_ivmwv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1yjbj"]
+font = ExtResource("1_ivmwv")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3x8yj"]
+bg_color = Color(0.37655127, 0.6310274, 0.8068658, 1)
+
+[sub_resource type="Theme" id="Theme_vaf2s"]
+resource_local_to_scene = true
+ProgressBar/styles/Background = SubResource("StyleBoxFlat_3x8yj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s82c5"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5wgk"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.8117647, 0.8352941, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[node name="StorageBar" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_top = 35.0
+offset_right = -124.0
+offset_bottom = 35.0
+grow_horizontal = 0
+
+[node name="StorageLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 28.0
+offset_bottom = -11.0
+grow_horizontal = 0
+pivot_offset = Vector2(19, 8)
+text = "Storage"
+label_settings = SubResource("LabelSettings_1yjbj")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -13.5
+offset_right = 215.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.52, 0.76)
+pivot_offset = Vector2(215, 13)
+theme = SubResource("Theme_vaf2s")
+theme_override_styles/background = SubResource("StyleBoxFlat_s82c5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n5wgk")
+value = 100.0
+show_percentage = false

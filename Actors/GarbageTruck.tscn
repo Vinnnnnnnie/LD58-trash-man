@@ -154,7 +154,11 @@ func _on_garbage_sucked_in_garbage() -> void:
 	
 func garbage_sucked():
 	$HoseSuckSounds.play()
-	score += randi() % 20 
+	var new_score = (randi() % 10) + 10
+	modify_score(new_score)
+	
+func modify_score(new_score):
+	score += new_score 
 	scoreNode.text = '$'+str(score)
 	
 func boosting():
