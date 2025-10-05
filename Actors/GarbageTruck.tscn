@@ -27,6 +27,7 @@ var boostHeld = false
 @onready var vacuum = get_tree().get_first_node_in_group('vacuum_scene')
 var traction_fast = 0.5 # High-speed traction
 var traction_slow = 10  # Low-speed traction
+var stop_boosting_once = false
 signal drift
 signal not_drift
 var lastFrameTurn
@@ -34,6 +35,8 @@ var acceleration = Vector2.ZERO
 var steer_direction
 var turn
 var boost = 0
+var can_boost = true
+
 
 @onready var level = get_tree().get_first_node_in_group('')
 	
@@ -71,13 +74,19 @@ func get_input():
 	if Input.is_action_pressed(\"backward\"):
 		acceleration = transform.x * braking
 	boost = 100
-	
-	if boost_bar.get_node('ProgressBar').value < 5:
+	var boost_value = boost_bar.get_node('ProgressBar').value
+	if boost_value == 0:
+		print('I cant boost')
+		can_boost = false
+	elif boost_value > 10:
+		can_boost = true
+		
+
+	if boostHeld == true and (Input.is_action_just_released(\"boost\") or can_boost == false):
 		stop_boosting()
-	if Input.is_action_pressed(\"boost\") and boostHeld == false and boost_bar.get_node('ProgressBar').value > 5:
+	elif Input.is_action_pressed(\"boost\") and boostHeld == false and can_boost == true:
 		boosting()
-	elif Input.is_action_just_released(\"boost\") and boostHeld == true:
-		stop_boosting()
+	
 	
 
 func calculate_steering(delta):
