@@ -25,10 +25,11 @@ garbage=""
 player_vacuum=""
 player=""
 upgrade_menu=""
-dialogue_system=""
 vacuum_scene=""
 boost_bar_scene=""
 Score=""
+dialogue_system=""
+storage_bar=""
 
 [input]
 

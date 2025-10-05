@@ -37,10 +37,17 @@ var turn
 var boost = 0
 var can_boost = true
 var score = 0
+var label
+var bar
+var storageTotal = 5
+@onready var storageNode = get_tree().get_first_node_in_group('storage_bar')
+var storage = 0
 @onready var scoreNode = get_node('MainCamera/CanvasLayer/UI/Score/ScoreNumber')
 
 @onready var level = get_tree().get_first_node_in_group('')
-	
+func _ready() -> void:
+	label = storageNode.get_node('StorageLabel')
+	bar = storageNode.get_node('ProgressBar')
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	acceleration = Vector2.ZERO
@@ -80,7 +87,6 @@ func get_input():
 	elif boost_value > 10:
 		can_boost = true
 		
-
 	if boostHeld == true and (Input.is_action_just_released(\"boost\") or can_boost == false):
 		stop_boosting()
 	elif Input.is_action_pressed(\"boost\") and boostHeld == false and can_boost == true:
@@ -152,10 +158,22 @@ func _on_garbage_sucked_in_garbage() -> void:
 	$HoseSuckSounds.play()
 	
 	
+
 func garbage_sucked():
 	$HoseSuckSounds.play()
+	add_garbage()
 	var new_score = (randi() % 10) + 10
 	modify_score(new_score)
+
+func add_garbage():
+	storage += 1
+	label.text = str(storage) + '/' + str(storageTotal)
+	bar.value = storage
+	
+func empty_garbage():
+	storage = 0
+	label = storageNode.get_node('StorageLabel')
+	bar = storageNode.get_node('ProgressBar')
 	
 func modify_score(new_score):
 	score += new_score 
@@ -191,7 +209,9 @@ func upgrade(upgrade):
 		'Steering_Upgrade':
 			steering_angle += 5
 		'Storage_Upgrade':
-			acceleration_power += 100
+			storageTotal += 5
+			label.text = str(storage) + '/' + str(storageTotal)
+			bar.max_value = storageTotal
 		'Suction_Upgrade':
 			vacuum.sucking_force += 2
 		'Suction_Distance_Upgrade':

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3b8uyxwxqkri"]
+[gd_scene load_steps=8 format=3 uid="uid://c3b8uyxwxqkri"]
 
+[ext_resource type="Script" uid="uid://c6y6ctribk0uw" path="res://GameUI/storage_bar.gd" id="1_1yjbj"]
 [ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="1_ivmwv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1yjbj"]
@@ -38,7 +39,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[node name="StorageBar" type="Control"]
+[node name="StorageBar" type="Control" groups=["storage_bar"]]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -48,8 +49,24 @@ offset_top = 35.0
 offset_right = -124.0
 offset_bottom = 35.0
 grow_horizontal = 0
+script = ExtResource("1_1yjbj")
 
 [node name="StorageLabel" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 8.0
+grow_horizontal = 0
+pivot_offset = Vector2(19, 8)
+text = "0/5"
+label_settings = SubResource("LabelSettings_1yjbj")
+
+[node name="StorageLabel2" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -81,5 +98,6 @@ pivot_offset = Vector2(215, 13)
 theme = SubResource("Theme_vaf2s")
 theme_override_styles/background = SubResource("StyleBoxFlat_s82c5")
 theme_override_styles/fill = SubResource("StyleBoxFlat_n5wgk")
-value = 100.0
+max_value = 5.0
+step = 1.0
 show_percentage = false
