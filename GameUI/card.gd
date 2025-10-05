@@ -1,4 +1,9 @@
 extends TextureButton
+var upgrade_effect
+var upgrade_image
+var upgrade
+var player
+var upgrade_ui
 const UPGRADES := [
 	{
 		"image":"res://Images/upgrades/Brake_Upgrade.png",
@@ -41,10 +46,11 @@ const UPGRADES := [
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var upgrade_json = UPGRADES
-	
-	var upgrade = upgrade_json[randi() % upgrade_json.size()] 
-	var upgrade_image = upgrade['image']
-	var upgrade_effect = upgrade['effect']
+	player = get_tree().get_first_node_in_group('player')
+	upgrade_ui = get_tree().get_first_node_in_group('upgrade_menu')
+	upgrade = upgrade_json[randi() % upgrade_json.size()] 
+	upgrade_image = upgrade['image']
+	upgrade_effect = upgrade['effect']
 	var image = Image.load_from_file(upgrade_image)
 	$TextureRect.texture = ImageTexture.create_from_image(image)
 	$Title.text = upgrade_effect.replace('_', ' ')
@@ -52,3 +58,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_button_down() -> void:
+	player.upgrade(upgrade)
+	upgrade_ui.hide()
+	
+	
