@@ -28,6 +28,7 @@ upgrade_menu=""
 dialogue_system=""
 vacuum_scene=""
 boost_bar_scene=""
+Score=""
 
 [input]
 

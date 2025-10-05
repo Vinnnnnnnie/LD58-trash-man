@@ -27,7 +27,6 @@ var boostHeld = false
 @onready var vacuum = get_tree().get_first_node_in_group('vacuum_scene')
 var traction_fast = 0.5 # High-speed traction
 var traction_slow = 10  # Low-speed traction
-var stop_boosting_once = false
 signal drift
 signal not_drift
 var lastFrameTurn
@@ -35,9 +34,6 @@ var acceleration = Vector2.ZERO
 var steer_direction
 var turn
 var boost = 0
-var can_boost = true
-var score = 0
-@onready var scoreNode = get_node('MainCamera/CanvasLayer/UI/Score/ScoreNumber')
 
 @onready var level = get_tree().get_first_node_in_group('')
 	
@@ -75,19 +71,15 @@ func get_input():
 	if Input.is_action_pressed(\"backward\"):
 		acceleration = transform.x * braking
 	boost = 100
-	var boost_value = boost_bar.get_node('ProgressBar').value
-	if boost_value == 0:
-		print('I cant boost')
-		can_boost = false
-	elif boost_value > 10:
-		can_boost = true
-		
-
-	if boostHeld == true and (Input.is_action_just_released(\"boost\") or can_boost == false):
+	print('PROGREESS',boost_bar.get_node('ProgressBar').value)
+	if boost_bar.get_node('ProgressBar').value < 5:
+		print('IM HERE')
+	if boost_bar.get_node('ProgressBar').value < 4:
 		stop_boosting()
-	elif Input.is_action_pressed(\"boost\") and boostHeld == false and can_boost == true:
+	if Input.is_action_pressed(\"boost\") and boostHeld == false and boost_bar.get_node('ProgressBar').value > 5:
 		boosting()
-	
+	elif Input.is_action_just_released(\"boost\") and boostHeld == true:
+		stop_boosting()
 	
 
 func calculate_steering(delta):
@@ -149,16 +141,9 @@ func new_calculate_steering(delta):
 	
 func _on_drift() -> void:
 	pass # Replace with function body.
-	
 func _on_garbage_sucked_in_garbage() -> void:
 	print('car_receiving_suck')
 	$HoseSuckSounds.play()
-	
-	
-func garbage_sucked():
-	$HoseSuckSounds.play()
-	score += randi() % 20 
-	scoreNode.text = '$'+str(score)
 	
 func boosting():
 	boostHeld = true

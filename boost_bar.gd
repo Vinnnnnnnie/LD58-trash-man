@@ -30,14 +30,16 @@ func deplete():
 	
 func regain():
 	$DepleteTimer.stop()
-	$RegainTimer.start(0)
+	$RegainDelay.start()
 	pass
 
 func _on_regain_timer_timeout() -> void:
 	$ProgressBar.value += 0.2
-	pass # Replace with function body.
 
 
 func _on_deplete_timer_timeout() -> void:
-	$ProgressBar.value -= 2
-	pass # Replace with function body.
+	$ProgressBar.value -= 3
+
+
+func _on_regain_delay_timeout() -> void:
+	$RegainTimer.start(0)
