@@ -61,18 +61,18 @@ tile_map_data = PackedByteArray("AAACAP7/FQACAAAAAAD///3/FQADAAAAAAD+//7/FQABAAA
 tile_set = SubResource("TileSet_tg3ck")
 
 [node name="Garbage" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(85, 311)
+position = Vector2(-71, -291)
 
 [node name="Garbage2" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(-622, -112)
+position = Vector2(-55, 161)
 
 [node name="Garbage3" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(90, -494)
+position = Vector2(254, 135)
 
 [node name="Garbage4" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(975, -128)
+position = Vector2(220, -319)
 
 [node name="Garbage5" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(1644, -133)
+position = Vector2(342, -86)
 
 [connection signal="sucked_in_garbage" from="Garbage" to="car" method="_on_garbage_sucked_in_garbage"]

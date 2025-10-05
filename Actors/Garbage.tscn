@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://drccq6fkpgosi"]
+[gd_scene load_steps=8 format=3 uid="uid://drccq6fkpgosi"]
 
 [ext_resource type="Texture2D" uid="uid://c118ecght81ss" path="res://Images/atlases/Garbage_Atlas.png" id="1_0cw4x"]
 [ext_resource type="Script" uid="uid://uaqow8xvb0r1" path="res://Scripts/GarbageLogic.gd" id="1_n3opu"]
+[ext_resource type="AudioStream" uid="uid://c37cvfutd051a" path="res://Sounds/Effects/bottle pop 1.mp3" id="3_vtsen"]
+[ext_resource type="AudioStream" uid="uid://by6aumwr3lgcc" path="res://Sounds/Effects/bottle pop 2.mp3" id="4_sqjqv"]
+[ext_resource type="AudioStream" uid="uid://bi88lrxxdwfco" path="res://Sounds/Effects/bottle pop 3.mp3" id="5_nlepa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82t7b"]
 size = Vector2(134, 116)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vtsen"]
+random_pitch = 1.11
+streams_count = 3
+stream_0/stream = ExtResource("3_vtsen")
+stream_1/stream = ExtResource("4_sqjqv")
+stream_2/stream = ExtResource("5_nlepa")
 
 [node name="Garbage" type="Node2D" groups=["garbage"]]
 script = ExtResource("1_n3opu")
@@ -19,5 +29,8 @@ region_rect = Rect2(-1, -0.5, 199, 167)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(6, 8)
 shape = SubResource("RectangleShape2D_82t7b")
+
+[node name="GarbageNoise" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_vtsen")
 
 [connection signal="sucked_in_garbage" from="." to="." method="_on_sucked_in_garbage"]

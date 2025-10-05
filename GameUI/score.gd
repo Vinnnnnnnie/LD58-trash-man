@@ -11,7 +11,6 @@ func _process(delta: float) -> void:
 
 func cool_rotation():
 	var label_font_size = $ScoreNumber.get('label_settings').font_size
-	print('FONT SIZER',label_font_size)
 	var tween = get_tree().create_tween()
 	var tween2 = get_tree().create_tween()
 	tween.tween_property(self, 'rotation', -PI/28, 1)

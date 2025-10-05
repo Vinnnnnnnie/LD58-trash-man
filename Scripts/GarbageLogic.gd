@@ -12,6 +12,8 @@ signal sucked_in_garbage
 func _ready() -> void:
 	if player_vacuum == null:
 		player_vacuum = get_tree().get_first_node_in_group('player_vacuum')
+	
+	#connect('sucked_in_garbage', get_parent().get_node("/car")._on_garbage_sucked_in_garbage())
 
 func _physics_process(delta: float) -> void:
 	if getting_sucked:
@@ -24,5 +26,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_sucked_in_garbage() -> void:
+	$GarbageNoise.play()
 	player_vacuum.get_node("../../../../../../../../../").create_suck_in_effect()
 	queue_free()

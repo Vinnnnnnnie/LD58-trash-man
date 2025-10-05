@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c37cvfutd051a"
+path="res://.godot/imported/bottle pop 1.mp3-3b6a9871cd6c9f40d4d80086b92c2538.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Effects/bottle pop 1.mp3"
+dest_files=["res://.godot/imported/bottle pop 1.mp3-3b6a9871cd6c9f40d4d80086b92c2538.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

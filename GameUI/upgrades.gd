@@ -1,16 +1,17 @@
 extends Control
+@onready var upgrade_card = load("res://card.tscn")
 
-
+var card
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	generate_upgrades()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	rotation = 0
 	pass
-
-
-func _on_timer_game_over() -> void:
-	pass # Replace with function body.
+	
+func generate_upgrades():
+	for n in 3:
+		var card_instance = upgrade_card.instantiate()
+		$Grid.add_child(card_instance)
+	

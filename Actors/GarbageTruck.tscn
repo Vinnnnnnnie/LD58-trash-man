@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://glakh53sg2yi"]
+[gd_scene load_steps=15 format=3 uid="uid://glakh53sg2yi"]
 
 [ext_resource type="Texture2D" uid="uid://cds3exyraywkp" path="res://Images/cars/Top_Down_View.png" id="1_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="2_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://she2eapydd2m" path="res://GameUI/MainCamera.tscn" id="2_vigmq"]
 [ext_resource type="AudioStream" uid="uid://ce05x7voh6ai2" path="res://Sounds/Effects/tyre_screech.mp3" id="3_ih7wc"]
 [ext_resource type="Script" uid="uid://d3dfn18pw7md6" path="res://Actors/audio_stream_player_2d.gd" id="4_vsqci"]
+[ext_resource type="AudioStream" uid="uid://c37cvfutd051a" path="res://Sounds/Effects/bottle pop 1.mp3" id="6_emm83"]
+[ext_resource type="AudioStream" uid="uid://by6aumwr3lgcc" path="res://Sounds/Effects/bottle pop 2.mp3" id="7_e2tdl"]
+[ext_resource type="AudioStream" uid="uid://bi88lrxxdwfco" path="res://Sounds/Effects/bottle pop 3.mp3" id="8_33fjo"]
 
 [sub_resource type="GDScript" id="GDScript_7822p"]
 script/source = "extends CharacterBody2D
@@ -121,7 +124,8 @@ func _on_drift() -> void:
 
 
 func _on_garbage_sucked_in_garbage() -> void:
-	pass # Replace with function body.
+	print('car_receiving_suck')
+	$HoseSuckSounds.play()
 "
 
 [sub_resource type="Gradient" id="Gradient_eo6ux"]
@@ -183,6 +187,14 @@ func _on_car_not_drift() -> void:
 	pass # Replace with function body.
 "
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gvevi"]
+random_pitch = 1.16
+random_volume_offset_db = 0.56
+streams_count = 3
+stream_0/stream = ExtResource("6_emm83")
+stream_1/stream = ExtResource("7_e2tdl")
+stream_2/stream = ExtResource("8_33fjo")
+
 [node name="car" type="CharacterBody2D"]
 z_index = 10
 script = SubResource("GDScript_7822p")
@@ -233,6 +245,9 @@ stream = ExtResource("3_ih7wc")
 script = ExtResource("4_vsqci")
 
 [node name="MainCamera" parent="." instance=ExtResource("2_vigmq")]
+
+[node name="HoseSuckSounds" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_gvevi")
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
