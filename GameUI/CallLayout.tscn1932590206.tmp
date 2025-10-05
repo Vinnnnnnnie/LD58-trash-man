@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://o2n6ytyv7d7i"]
+
+[ext_resource type="Texture2D" uid="uid://b6jcpeu6hxvhp" path="res://Images/ui_art/trashmans_boss_jole_final.png" id="1_8m1gh"]
+[ext_resource type="Script" uid="uid://b8khw6sasq54m" path="res://Scripts/DialogueSystem.gd" id="1_padce"]
+[ext_resource type="Script" uid="uid://junncipdmep" path="res://GameUI/in_call.gd" id="2_2va6q"]
+[ext_resource type="Texture2D" uid="uid://dmrt61k04n282" path="res://Images/ui_art/dialogue_background.png" id="2_hwvmr"]
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="3_padce"]
+[ext_resource type="Texture2D" uid="uid://bpg41hol63uhd" path="res://Images/ui_art/Phone.png" id="4_hwvmr"]
+[ext_resource type="Script" uid="uid://bvrad0qggkoad" path="res://GameUI/receiving_call.gd" id="6_axps0"]
+[ext_resource type="PackedScene" uid="uid://dqlpr01adabrv" path="res://GameUI/KeyIconUI.tscn" id="6_jx7lv"]
+[ext_resource type="AnimationLibrary" uid="uid://xhaqhog2ht12" path="res://Animations/CallLayoutAnimations.res" id="8_cijr2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jx7lv"]
+font = ExtResource("3_padce")
+font_size = 41
+
+[node name="CallLayout" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_padce")
+
+[node name="InCall" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2va6q")
+
+[node name="TrashmansBossJoleFinal" type="Sprite2D" parent="InCall"]
+position = Vector2(982, 536.00006)
+scale = Vector2(0.04610967, 0.046109665)
+texture = ExtResource("1_8m1gh")
+
+[node name="DialogueBackground" type="Sprite2D" parent="InCall"]
+position = Vector2(462, 553.00006)
+scale = Vector2(3.3, 2.7699997)
+texture = ExtResource("2_hwvmr")
+
+[node name="Label" type="Label" parent="InCall"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 512.0
+offset_right = 738.0
+offset_bottom = 599.0
+text = "fucking work harder dumb cunt"
+label_settings = SubResource("LabelSettings_jx7lv")
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Phone" type="Sprite2D" parent="InCall"]
+position = Vector2(68, 549)
+texture = ExtResource("4_hwvmr")
+
+[node name="ReceivingCall" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_axps0")
+
+[node name="Phone" type="Sprite2D" parent="ReceivingCall"]
+position = Vector2(99, 235)
+scale = Vector2(0.67059225, 0.67059225)
+texture = ExtResource("4_hwvmr")
+
+[node name="KeyIconUI" parent="ReceivingCall" instance=ExtResource("6_jx7lv")]
+visible = false
+position = Vector2(211.99998, 233.99998)
+scale = Vector2(0.3046389, 0.3046389)
+label = "D"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("8_cijr2")
+}
+
+[node name="RandomEventTimer" type="Timer" parent="."]
+wait_time = 1.54
+autostart = true
+
+[connection signal="timeout" from="RandomEventTimer" to="." method="_on_random_event_timer_timeout"]
