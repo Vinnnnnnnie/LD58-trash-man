@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://o2n6ytyv7d7i" path="res://GameUI/CallLayout.tscn" id="1_qu4sq"]
 [ext_resource type="PackedScene" uid="uid://ccjthwgcve3op" path="res://GameUI/score.tscn" id="4_6ppvl"]
 [ext_resource type="PackedScene" uid="uid://dhwccd7toqgfh" path="res://GameUI/timer.tscn" id="5_r63es"]
-[ext_resource type="PackedScene" uid="uid://dh7r2ecwpnmed" path="res://upgrades.tscn" id="6_nj31o"]
+[ext_resource type="PackedScene" uid="uid://bc6nchnd8t6tg" path="res://GameUI/upgrades.tscn" id="6_nj31o"]
 
 [node name="MainCamera" type="Camera2D"]
 zoom = Vector2(1.36, 1.36)
@@ -33,10 +33,19 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_top = 18.0
-offset_bottom = 18.0
 grow_vertical = 1
 pivot_offset = Vector2(-2, 28)
+
+[node name="CallLayout" parent="CanvasLayer/UI" instance=ExtResource("1_qu4sq")]
+layout_mode = 1
+
+[node name="Upgrades" parent="CanvasLayer/UI" instance=ExtResource("6_nj31o")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Timer" parent="CanvasLayer/UI" instance=ExtResource("5_r63es")]
 layout_mode = 1
@@ -44,12 +53,3 @@ anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
 grow_horizontal = 1
-script = null
-
-[node name="CallLayout" parent="CanvasLayer/UI" instance=ExtResource("1_qu4sq")]
-layout_mode = 1
-
-[node name="Upgrades" parent="CanvasLayer/UI" groups=["upgrade_menu"] instance=ExtResource("6_nj31o")]
-layout_mode = 1
-
-[connection signal="game_over" from="CanvasLayer/UI/Timer" to="CanvasLayer/UI" method="_on_timer_game_over"]

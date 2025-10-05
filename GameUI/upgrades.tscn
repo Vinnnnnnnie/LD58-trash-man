@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bc6nchnd8t6tg"]
 
-[ext_resource type="Script" uid="uid://bqofomrfdjs8q" path="res://upgrades.gd" id="1_alr6r"]
+[ext_resource type="Script" uid="uid://bqofomrfdjs8q" path="res://GameUI/upgrades.gd" id="1_alr6r"]
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -12,6 +12,11 @@ grow_vertical = 2
 script = ExtResource("1_alr6r")
 
 [node name="Grid" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
