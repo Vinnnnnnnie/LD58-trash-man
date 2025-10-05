@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://glakh53sg2yi"]
+[gd_scene load_steps=24 format=3 uid="uid://glakh53sg2yi"]
 
 [ext_resource type="Texture2D" uid="uid://cds3exyraywkp" path="res://Images/cars/Top_Down_View.png" id="1_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="2_eo6ux"]
@@ -12,11 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://c5ysk7c3dl33y" path="res://Sounds/Effects/bin shake.mp3" id="10_u2d1m"]
 [ext_resource type="AudioStream" uid="uid://cmkrmkriosg61" path="res://Sounds/Effects/bin 3.mp3" id="11_1atvp"]
 [ext_resource type="AudioStream" uid="uid://cf8e3uqii0h2d" path="res://Sounds/Effects/bins 4.mp3" id="12_hsprs"]
-[ext_resource type="AudioStream" uid="uid://0r814g2j2lo2" path="res://Sounds/Effects/Duct Tape 1.mp3" id="13_j682p"]
-[ext_resource type="AudioStream" uid="uid://cyc8n6f658l" path="res://Sounds/Effects/Duct tape 2.mp3" id="14_x5fgk"]
-[ext_resource type="AudioStream" uid="uid://h5uond3sqbt0" path="res://Sounds/Effects/Cordless drill 1.mp3" id="15_f3eam"]
-[ext_resource type="AudioStream" uid="uid://ilghyk4o4ukv" path="res://Sounds/Effects/Banging 2.mp3" id="16_xm68d"]
-[ext_resource type="AudioStream" uid="uid://ys8i7663hf3a" path="res://Sounds/Effects/Banging 1.mp3" id="17_5sts4"]
+[ext_resource type="AudioStream" uid="uid://xxxaota8i3xk" path="res://Sounds/Effects/Upgrade_Sound_1.mp3" id="13_hsprs"]
+[ext_resource type="AudioStream" uid="uid://0ajrsdlpurh7" path="res://Sounds/Effects/Upgrade_Sound_2.mp3" id="14_nmbvf"]
 
 [sub_resource type="GDScript" id="GDScript_7822p"]
 script/source = "extends CharacterBody2D
@@ -318,12 +315,9 @@ stream_1/stream = ExtResource("11_1atvp")
 stream_2/stream = ExtResource("12_hsprs")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m66w2"]
-streams_count = 5
-stream_0/stream = ExtResource("13_j682p")
-stream_1/stream = ExtResource("14_x5fgk")
-stream_2/stream = ExtResource("15_f3eam")
-stream_3/stream = ExtResource("16_xm68d")
-stream_4/stream = ExtResource("17_5sts4")
+streams_count = 2
+stream_0/stream = ExtResource("13_hsprs")
+stream_1/stream = ExtResource("14_nmbvf")
 
 [node name="car" type="CharacterBody2D" groups=["player"]]
 z_index = 10
@@ -395,7 +389,7 @@ stream = SubResource("AudioStreamRandomizer_nmbvf")
 
 [node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_m66w2")
-volume_db = -24.913
+volume_db = -10.0
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
