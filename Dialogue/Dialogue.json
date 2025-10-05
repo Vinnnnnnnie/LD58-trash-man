@@ -1,19 +1,150 @@
 {
 	"random": [
 		{
-			"event_name": "Joels wife hates him",
+			"event_name": "Joels wife asks about the milk",
+			"character": "Joel's Wife",
+			"audio_name": "joel 1.1.mp3",
+			"subtitle": "Joel, ask him to bring the milk. Ask him to bring the milk, Joel."
+		},
+		{
+			"event_name": "Joels wife asks about the slippers",
+			"character": "Joel's Wife",
+			"audio_name": "joel 2.mp3",
+			"subtitle": "Joel, have you seen my slippers? Have you seen my slippers, Joel? The ones with the faux leather bunny ears? Oh I found them Joel. Tell him I found them."
+		},
+		{
+			"event_name": "The rat eats the hot dogs",
+			"character": "Joel's Wife",
+			"audio_name": "joel 3.1.mp3",
+			"subtitle": "Joel, it's that rat again eating my gourmet gold plated hot dogs. It's not even pairing them with the manatee caviar Joel, they're going to waste."
+		},
+		{
+			"event_name": "Joels wife invites the garbage man to dinner",
+			"character": "Joel's Wife",
+			"audio_name": "joel 4.mp3",
+			"subtitle": "Joel, ask him if he wants to come to dinner. Joel JR, Joel JR JR, Joel JR JR JR, Joelina, Joelina 2, and Bob are asking if he wants to come to dinner. We'll have those gourmet gold plated hot dogs that the rat keeps stealing."
+		},
+		{
+			"event_name": "Joels wife requests Joel gets off the phone",
+			"character": "Joel's Wife",
+			"audio_name": "joel 5.mp3",
+			"subtitle": "Joel, get off the phone. Get off the phone, Joel."
+		},
+		{
+			"event_name": "Joels wife asks about the lottery numbers",
+			"character": "Joel's Wife",
+			"audio_name": "joel 6.mp3",
+			"subtitle": "Joel, can you ask him if he's seen the lottery numbers today. Has he seen the lottery numbers, Joel?"
+		},
+		{
+			"event_name": "Joels wife loses her hair",
+			"character": "Joel's Wife",
+			"audio_name": "joel 8.mp3",
+			"subtitle": "Joel, the rat is back. The rat is back for my 100% gorilla hair extensions, Joel. Stop him, Joel, he's getting away. He's getting away, Joel."
+		},
+		{
+			"event_name": "Joels wife requests fridge maintenance",
+			"character": "Joel's Wife",
+			"audio_name": "joel 9.mp3",
+			"subtitle": "Joel, the fridge is broken. Joel, the elephant seal lard is melting into the manatee caviar. It's melting, Joel."
+		},
+		{
+			"event_name": "Joel talks about his dad.",
 			"character": "Joel",
-			"audio_name": "joel_random_1.mp3",
-			"subtitle": "Ooooh my wife left me oooh"
+			"audio_name": "garbage 2.mp3",
+			"subtitle": "The streets are still dirtier than my papa's secret stash. Try and keep your eyes open this time around."
+		},
+		{
+			"event_name": "Joel needs noise protection.",
+			"character": "Joel",
+			"audio_name": "garbage 3.mp3",
+			"subtitle": "Mailman can’t get through all the gahbage to deliver by extra thick cheetah print angora wool earplugs. What am I supposed to do in the meantime? Listen to my wife asking me to play with the kids?"
+		},
+		{
+			"event_name": "Joel is coping.",
+			"character": "Joel",
+			"audio_name": "garbage 4.mp3",
+			"subtitle": "All this trash is makin’ my lungs rattle. I’m smokin’ three extra packs a day just to cope with the emotional toll. Not good for da mental health all this garbage is, pal."
+		},
+		{
+			"event_name": "Joel talks about his brother.",
+			"character": "Joel",
+			"audio_name": "garbage 5.mp3",
+			"subtitle": "There’s more garbage on these here streets than at the cemetery after my uncle’s sister’s son’s funeral. Not as much as in his grave though."
+		},
+		{
+			"event_name": "Joel's soft spot.",
+			"character": "Joel",
+			"audio_name": "garbage 6.mp3",
+			"subtitle": "Holy Mother Teresa’s doilies. I could make a garbage man outta you garbage boy yet."
+		},
+		{
+			"event_name": "Joel talks about his wife.",
+			"character": "Joel",
+			"audio_name": "garbage 7.mp3",
+			"subtitle": "My two year old daughter drives better than you and she’s got her mother’s crossed eyes. "
+		},
+		{
+			"event_name": "Joel talks about his family.",
+			"character": "Joel",
+			"audio_name": "garbage 8.mp3",
+			"subtitle": "You whine more than my wife and kids when I forget their birthdays. Worse at picking up trash than my 6 month old son too and he was born without arms. "
+		},
+		{
+			"event_name": "Joel cares about schoolchildren.",
+			"character": "Joel",
+			"audio_name": "garbage 9.mp3",
+			"subtitle": "Step on that gas pedal pal! What do you mean you’re in a school zone? I didn’t hire you to read, I hired you to drive! "
+		},
+		{
+			"event_name": "Joel threatens to outsource.",
+			"character": "Joel",
+			"audio_name": "garbage 10.mp3",
+			"subtitle": "There’s so much gahbage on the streets da rats are building their own gahbage trucks to haul it all away. Do you wanna lose your job to a rat, pal?"
 		}
 	],
 	"story": [
 		{
 			"sequence": 1,
-			"event_name": "Joels wife hates him",
+			"event_name": "Introduction",
 			"character": "Joel",
-			"audio_name": "joel_story_1.mp3",
-			"subtitle": "Ooooh my gabagool oooh"
+			"audio_name": "garbage 1.2.mp3",
+			"subtitle": "Callin' me in the middle of the night?! Wakin' up my wife and kids to tell me you forgot how to do your job again? WASD to drive. Mouse to move the vacuum and pick up garbage. Shift to go faster. Now get suckin'!"
+		},
+		{
+			"sequence": 1,
+			"event_name":  "Bargaining part 1",
+			"character": "Joel",
+			"audio_name": "bargain 1.mp3",
+			"subtitle": "Say, if you could pick up enough trash to buy yourself a nice new vacuum sucker thingy by the end of the day, I could do a little schmoozin’ with da big boss, get you a nice promotion, whaddayasay?"
+		},
+		{
+			"sequence": 2,
+			"event_name":  "Bargaining part 2",
+			"character": "Joel",
+			"audio_name": "bargain 2.mp3",
+			"subtitle": "Well a chicken’s gotta lay an egg every day or it’s into da soup, you feel me? Keep suckin’ that garbage for another day or two and I’ll keep the boss happy for ya."
+		},
+		{
+			"sequence": 3,
+			"event_name":  "Bargaining part 3",
+			"character": "Joel",
+			"audio_name": "bargain 3.mp3",
+			"subtitle": "Nothing happens overnight, pal. You gotta work for your success. My grandpappy always used to say “a rat that isn’t happy turning over 100 trash cans isn’t never gonna find the pizza slice in the 101st”."
+		},
+		{
+			"sequence": 4,
+			"event_name":  "Bargaining part 4",
+			"character": "Joel",
+			"audio_name": "bargain 4.mp3",
+			"subtitle": "Oh boy da boss is in a good mood this mornin’, pal. You do extra good on your shift and today’s gonna be the day. I can feel it in the scar that sewer rat left on my big toe when I was fightin’ it for that cigarette butt. "
+		},
+		{
+			"sequence": 5,
+			"event name": "Bargaining part 5",
+			"character": "Joel",
+			"audio_name": "bargain 5.mp3",
+			"subtitle": "I got my cleanest pair of weasel skin britches on to go see da big boss about that promotion today, pal. If ya get off shift with enough to get new tires, he’ll give you that raise on the spot, swear on my mama’s crooked shoulderblade."
 		}
 	]
 }

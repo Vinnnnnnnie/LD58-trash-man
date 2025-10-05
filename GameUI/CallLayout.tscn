@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dmrt61k04n282" path="res://Images/ui_art/dialogue_background.png" id="2_hwvmr"]
 [ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="3_padce"]
 [ext_resource type="Texture2D" uid="uid://bpg41hol63uhd" path="res://Images/ui_art/Phone.png" id="4_hwvmr"]
-[ext_resource type="Script" uid="uid://bvrad0qggkoad" path="res://GameUI/receiving_call.gd" id="6_axps0"]
+[ext_resource type="Script" path="res://GameUI/receiving_call.gd" id="6_axps0"]
 [ext_resource type="PackedScene" uid="uid://dqlpr01adabrv" path="res://GameUI/KeyIconUI.tscn" id="6_jx7lv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jx7lv"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7001jhwki4oe"]
 
-[ext_resource type="Texture2D" uid="uid://bwlnhbhqvl7dd" path="res://Images/Vacuum_Section.png" id="1_gp0p3"]
 [ext_resource type="Script" uid="uid://dfqi605e63c3n" path="res://Scripts/SuckInEffectLogic.gd" id="1_qdgo4"]
+[ext_resource type="Texture2D" uid="uid://cy2u6ori068n8" path="res://Images/Hose_Section_BIG.png" id="2_qdgo4"]
 
 [node name="PathFollow2D" type="PathFollow2D"]
 z_index = 30
@@ -10,5 +10,5 @@ loop = false
 script = ExtResource("1_qdgo4")
 
 [node name="VacuumSection" type="Sprite2D" parent="."]
-scale = Vector2(0.30643332, 0.13453962)
-texture = ExtResource("1_gp0p3")
+scale = Vector2(0.11389083, 0.13453962)
+texture = ExtResource("2_qdgo4")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dltpxjflpwa5s"]
+[gd_scene load_steps=4 format=3 uid="uid://ccjthwgcve3op"]
 
-[ext_resource type="Script" uid="uid://1ldncoi3fwi0" path="res://score.gd" id="1_ceanc"]
+[ext_resource type="Script" path="res://GameUI/score.gd" id="1_ceanc"]
 [ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="1_t1x8i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ceanc"]
