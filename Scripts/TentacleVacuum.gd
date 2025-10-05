@@ -5,7 +5,7 @@ extends Node2D
 @onready var curve : Curve2D = $Path2D.curve
 var sucking_force = 4
 var suck_in_distance = 10
-
+var disabled = false
 @export var suck_in_effect_scene : PackedScene
 
 func create_suck_in_effect() -> void:
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		curve.set_point_position(i, to_local(point))
 
 func _on_vacuum_area_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if area.get_parent().is_in_group('garbage'):
+	if area.get_parent().is_in_group('garbage') and self.disabled == false:
 		area.get_parent().getting_sucked = true
 		area.get_parent().sucking_force = sucking_force
 		area.get_parent().suck_in_distance = suck_in_distance

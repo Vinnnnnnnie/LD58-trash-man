@@ -161,8 +161,6 @@ func _on_drift() -> void:
 func _on_garbage_sucked_in_garbage() -> void:
 	print('car_receiving_suck')
 	$HoseSuckSounds.play()
-	
-	
 
 func garbage_sucked():
 	$HoseSuckSounds.play()
@@ -172,6 +170,8 @@ func add_garbage():
 	storage += 1
 	label.text = str(storage) + '/' + str(storageTotal)
 	bar.value = storage
+	if storage == storageTotal:
+		vacuum.disabled = true
 	
 func empty_garbage():
 	if (storage != 0):
@@ -185,6 +185,7 @@ func empty_garbage():
 		label.text = str(storage) + '/' + str(storageTotal)
 		bar.value = storage
 		$EmptySound.play()
+		vacuum.disabled = false
 func modify_score(new_score):
 	score += new_score 
 	scoreNode.text = '$'+str(score)
@@ -228,8 +229,6 @@ func upgrade(upgrade):
 			vacuum.suck_in_distance += 4
 		'Glasses_Upgrade':
 			$MainCamera.zoom -= Vector2(0.2, 0.2)
-		
-	
 
 func _on_dumping_hitbox_area_entered(area: Area2D) -> void:
 	print('Entered this area', area.name)
