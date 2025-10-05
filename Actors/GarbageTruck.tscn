@@ -126,6 +126,18 @@ func _on_drift() -> void:
 func _on_garbage_sucked_in_garbage() -> void:
 	print('car_receiving_suck')
 	$HoseSuckSounds.play()
+	
+func upgrade(upgrade):
+	match upgrade.effect:
+		'Boost_Speed_Upgrade':
+			speed += 100
+		'Engine_Upgrade':
+			acceleration_power += 300
+		_:
+			speed += 500
+			acceleration_power += 500
+		
+	
 "
 
 [sub_resource type="Gradient" id="Gradient_eo6ux"]
@@ -161,7 +173,6 @@ func _on_car_drift() -> void:
 	global_position = Vector2.ZERO
 	global_rotation = 0
 	point = target.global_position
-	print(target)
 	add_point(point)
 	if trailLength != -1:
 		while get_point_count() > trailLength:
@@ -195,7 +206,7 @@ stream_0/stream = ExtResource("6_emm83")
 stream_1/stream = ExtResource("7_e2tdl")
 stream_2/stream = ExtResource("8_33fjo")
 
-[node name="car" type="CharacterBody2D"]
+[node name="car" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 script = SubResource("GDScript_7822p")
 
