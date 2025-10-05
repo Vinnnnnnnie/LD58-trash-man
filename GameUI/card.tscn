@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://qop6v6bkr1gg"]
+[gd_scene load_steps=8 format=3 uid="uid://qop6v6bkr1gg"]
 
 [ext_resource type="Texture2D" uid="uid://dga4du1pgpl4k" path="res://Images/ui_art/Upgrade_Card.png" id="1_q5obu"]
 [ext_resource type="Texture2D" uid="uid://bkctu2ph78q4w" path="res://Images/ui_art/Upgrade_Card_Hover.png" id="2_e484p"]
@@ -7,8 +7,20 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_fpac0"]
 font = ExtResource("4_e484p")
-font_size = 24
-font_color = Color(0, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu44x"]
+font = ExtResource("4_e484p")
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqwjw"]
+font = ExtResource("4_e484p")
+font_size = 48
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Card" type="TextureButton"]
 anchors_preset = 8
@@ -33,10 +45,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -95.0
-offset_top = -79.0
-offset_right = 96.0
-offset_bottom = -30.0
+offset_left = -96.0
+offset_top = -85.0
+offset_right = 95.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_fpac0")
@@ -50,5 +62,37 @@ offset_left = 12.0
 offset_top = 10.0
 offset_right = 209.0
 offset_bottom = 208.0
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -63.0
+offset_right = 94.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_uu44x")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_top = 11.0
+offset_right = -9.0
+offset_bottom = 37.0
+grow_horizontal = 0
+rotation = 0.23253906
+label_settings = SubResource("LabelSettings_dqwjw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
