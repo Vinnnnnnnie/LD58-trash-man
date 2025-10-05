@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://2bpr1ofcn26e"]
+[gd_scene load_steps=12 format=4 uid="uid://2bpr1ofcn26e"]
 
 [ext_resource type="Texture2D" uid="uid://cxt6bp5av7y64" path="res://Images/atlases/building_atlas.png" id="1_4iu8v"]
 [ext_resource type="Texture2D" uid="uid://b70k48y5dmawo" path="res://Images/atlases/tree_atlas.png" id="2_ixlek"]
@@ -57,6 +57,9 @@ sources/1 = SubResource("TileSetAtlasSource_ixlek")
 sources/5 = SubResource("TileSetAtlasSource_f4ylc")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [5, Vector2i(0, 0)], [1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [5, Vector2i(1, 0)], [3, Vector2i(0, 0)], [5, Vector2i(2, 0)], [4, Vector2i(0, 0)], [5, Vector2i(3, 0)], [5, Vector2i(0, 0)], [6, Vector2i(2, 0)], [6, Vector2i(0, 0)], [9, Vector2i(0, 0)], [6, Vector2i(1, 0)], [9, Vector2i(1, 0)], [6, Vector2i(2, 0)], [9, Vector2i(2, 0)], [7, Vector2i(0, 0)], [21, Vector2i(0, 0)], [7, Vector2i(1, 0)], [21, Vector2i(1, 0)], [7, Vector2i(2, 0)], [21, Vector2i(2, 0)], [8, Vector2i(0, 0)], [9, Vector2i(3, 0)], [9, Vector2i(0, 0)], [1, Vector2i(1, 0)], [9, Vector2i(1, 0)], [1, Vector2i(2, 0)], [9, Vector2i(2, 0)], [1, Vector2i(3, 0)], [9, Vector2i(3, 0)], [1, Vector2i(4, 0)], [9, Vector2i(4, 0)], [1, Vector2i(5, 0)], [9, Vector2i(5, 0)], [1, Vector2i(6, 0)], [20, Vector2i(0, 0)], [21, Vector2i(3, 0)], [22, Vector2i(0, 0)], [25, Vector2i(0, 0)], [23, Vector2i(0, 0)], [25, Vector2i(1, 0)], [24, Vector2i(0, 0)], [25, Vector2i(2, 0)]]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixlek"]
+radius = 310.0
+
 [node name="VinnieTestWorld" type="Node2D"]
 
 [node name="Roads" type="TileMapLayer" parent="."]
@@ -84,5 +87,11 @@ position = Vector2(220, -319)
 
 [node name="Garbage5" parent="." instance=ExtResource("5_ixlek")]
 position = Vector2(342, -86)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(95, -81)
+shape = SubResource("CircleShape2D_ixlek")
 
 [connection signal="sucked_in_garbage" from="Garbage" to="car" method="_on_garbage_sucked_in_garbage"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://she2eapydd2m"]
+[gd_scene load_steps=9 format=3 uid="uid://she2eapydd2m"]
 
 [ext_resource type="Script" uid="uid://blg3hpd6xk6aw" path="res://GameUI/control.gd" id="1_0o8tf"]
 [ext_resource type="Script" uid="uid://ba3ahtcrtmn1y" path="res://GameUI/main_camera.gd" id="1_gxubn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhwccd7toqgfh" path="res://GameUI/timer.tscn" id="5_r63es"]
 [ext_resource type="PackedScene" uid="uid://bc6nchnd8t6tg" path="res://GameUI/upgrades.tscn" id="6_nj31o"]
 [ext_resource type="PackedScene" uid="uid://b7hofxyabktbn" path="res://GameUI/boost_bar.tscn" id="7_o5f5x"]
+[ext_resource type="PackedScene" uid="uid://c3b8uyxwxqkri" path="res://GameUI/storage_bar.tscn" id="8_4lprt"]
 
 [node name="MainCamera" type="Camera2D"]
 zoom = Vector2(1.36, 1.36)
@@ -28,7 +29,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_0o8tf")
 
-[node name="Score" parent="CanvasLayer/UI" instance=ExtResource("4_6ppvl")]
+[node name="Score" parent="CanvasLayer/UI" groups=["Score"] instance=ExtResource("4_6ppvl")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -57,3 +58,10 @@ grow_horizontal = 1
 
 [node name="BoostBar" parent="CanvasLayer/UI" instance=ExtResource("7_o5f5x")]
 layout_mode = 1
+
+[node name="StorageBar" parent="CanvasLayer/UI" instance=ExtResource("8_4lprt")]
+layout_mode = 1
+offset_left = -174.0
+offset_top = 50.0
+offset_right = -174.0
+offset_bottom = 50.0
