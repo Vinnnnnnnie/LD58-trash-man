@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_alr6r")
 
-[node name="Grid" type="HBoxContainer" parent="."]
+[node name="Grid" type="HBoxContainer" parent="." groups=["upgrade_menu"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,3 +20,5 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1

@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_47a0t"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14.999685, 0, 0, 0, 0, 0, 32.999336, 0, 0, 0, 0, 0, 47.999977, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 80, 0, 0, 0, 0, 0, 95, 0, 0, 0, 0, 0, 111, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14.999683, 0, 0, 0, 0, 0, 32.999336, 0, 0, 0, 0, 0, 47.99997, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 80, 0, 0, 0, 0, 0, 95, 0, 0, 0, 0, 0, 111, 0)
 }
 point_count = 8
 
@@ -46,7 +46,7 @@ modifications/0 = SubResource("SkeletonModification2DFABRIK_evu2y")
 [sub_resource type="CircleShape2D" id="CircleShape2D_1hnr3"]
 radius = 39.051247
 
-[node name="Vacuum" type="Node2D"]
+[node name="Vacuum" type="Node2D" groups=["vacuum_scene"]]
 script = ExtResource("1_dieoe")
 suck_in_effect_scene = ExtResource("2_rxxc8")
 

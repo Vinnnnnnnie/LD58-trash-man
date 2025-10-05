@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://she2eapydd2m"]
+[gd_scene load_steps=8 format=3 uid="uid://she2eapydd2m"]
 
 [ext_resource type="Script" uid="uid://blg3hpd6xk6aw" path="res://GameUI/control.gd" id="1_0o8tf"]
 [ext_resource type="Script" uid="uid://ba3ahtcrtmn1y" path="res://GameUI/main_camera.gd" id="1_gxubn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccjthwgcve3op" path="res://GameUI/score.tscn" id="4_6ppvl"]
 [ext_resource type="PackedScene" uid="uid://dhwccd7toqgfh" path="res://GameUI/timer.tscn" id="5_r63es"]
 [ext_resource type="PackedScene" uid="uid://bc6nchnd8t6tg" path="res://GameUI/upgrades.tscn" id="6_nj31o"]
+[ext_resource type="PackedScene" uid="uid://b7hofxyabktbn" path="res://GameUI/boost_bar.tscn" id="7_o5f5x"]
 
 [node name="MainCamera" type="Camera2D"]
 zoom = Vector2(1.36, 1.36)
@@ -53,3 +54,6 @@ anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
 grow_horizontal = 1
+
+[node name="BoostBar" parent="CanvasLayer/UI" instance=ExtResource("7_o5f5x")]
+layout_mode = 1
