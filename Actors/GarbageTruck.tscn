@@ -36,7 +36,8 @@ var steer_direction
 var turn
 var boost = 0
 var can_boost = true
-
+var score = 0
+@onready var scoreNode = get_node('MainCamera/CanvasLayer/UI/Score/ScoreNumber')
 
 @onready var level = get_tree().get_first_node_in_group('')
 	
@@ -148,9 +149,16 @@ func new_calculate_steering(delta):
 	
 func _on_drift() -> void:
 	pass # Replace with function body.
+	
 func _on_garbage_sucked_in_garbage() -> void:
 	print('car_receiving_suck')
 	$HoseSuckSounds.play()
+	
+	
+func garbage_sucked():
+	$HoseSuckSounds.play()
+	score += randi() % 20 
+	scoreNode.text = '$'+str(score)
 	
 func boosting():
 	boostHeld = true

@@ -64,14 +64,6 @@ tile_map_data = PackedByteArray("AAAAAP//AQAAAAAAAAAAAP7/AQAGAAAAADABAP//AQAGAAA
 tile_set = SubResource("TileSet_tg3ck")
 
 [node name="car" parent="." instance=ExtResource("2_ydkga")]
-wheel_base = 70
-steering_angle = 20
-speed = 1000
-acceleration_power = 500
-friction = -40
-drag = -0.06
-braking = -450
-max_speed_reverse = 250
 slip_speed = 325
 
 [node name="Buildings" type="TileMapLayer" parent="."]

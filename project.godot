@@ -23,6 +23,7 @@ player=""
 upgrade_menu=""
 vacuum_scene=""
 boost_bar_scene=""
+Score=""
 
 [input]
 
