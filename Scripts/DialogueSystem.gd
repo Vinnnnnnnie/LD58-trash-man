@@ -78,7 +78,7 @@ func reset_animation_player() -> void:
 func get_current_scenes() -> Array:
 	return current_scenes_at_play
 
-func end_dialogue():
+func end_dialogue() -> void:
 	reset_animation_player()
 	current_scenes_at_play = []
 	difficulty_level += 1

@@ -52,7 +52,6 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	move_and_slide()
 	lastFrameTurn = turn
-	print('Accleeration',acceleration_power)
 
 func pitch_sounds(delta):
 	$EngineSound.pitch_scale = 1+velocity.length()/1000
@@ -77,7 +76,6 @@ func get_input():
 	boost = 100
 	var boost_value = boost_bar.get_node('ProgressBar').value
 	if boost_value == 0:
-		print('I cant boost')
 		can_boost = false
 	elif boost_value > 10:
 		can_boost = true
@@ -102,7 +100,6 @@ func calculate_steering(delta):
 	var wheel_direction = rear_wheel.direction_to(front_wheel)
 	if velocity.length() > slip_speed:
 		traction = traction_fast
-		print(wheel_direction)
 		wheel_direction = 1.1 * wheel_direction
 	var new_heading = wheel_direction
 	var d = new_heading.dot(velocity.normalized())
