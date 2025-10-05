@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5ysk7c3dl33y"
+path="res://.godot/imported/bin shake.mp3-9deb080fb79aca2591fe500a816090a5.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Effects/bin shake.mp3"
+dest_files=["res://.godot/imported/bin shake.mp3-9deb080fb79aca2591fe500a816090a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

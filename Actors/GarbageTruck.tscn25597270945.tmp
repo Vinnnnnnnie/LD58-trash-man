@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://glakh53sg2yi"]
+[gd_scene load_steps=17 format=3 uid="uid://glakh53sg2yi"]
 
 [ext_resource type="Texture2D" uid="uid://cds3exyraywkp" path="res://Images/cars/Top_Down_View.png" id="1_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="2_eo6ux"]
@@ -9,9 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://by6aumwr3lgcc" path="res://Sounds/Effects/bottle pop 2.mp3" id="7_e2tdl"]
 [ext_resource type="AudioStream" uid="uid://bi88lrxxdwfco" path="res://Sounds/Effects/bottle pop 3.mp3" id="8_33fjo"]
 [ext_resource type="AudioStream" uid="uid://bj6p0bn10ie4a" path="res://Sounds/Effects/engine.mp3" id="9_e2tdl"]
-[ext_resource type="AudioStream" uid="uid://c5ysk7c3dl33y" path="res://Sounds/Effects/bin shake.mp3" id="10_u2d1m"]
-[ext_resource type="AudioStream" uid="uid://cmkrmkriosg61" path="res://Sounds/Effects/bin 3.mp3" id="11_1atvp"]
-[ext_resource type="AudioStream" uid="uid://cf8e3uqii0h2d" path="res://Sounds/Effects/bins 4.mp3" id="12_hsprs"]
 
 [sub_resource type="GDScript" id="GDScript_7822p"]
 script/source = "extends CharacterBody2D
@@ -161,31 +158,30 @@ func _on_drift() -> void:
 func _on_garbage_sucked_in_garbage() -> void:
 	print('car_receiving_suck')
 	$HoseSuckSounds.play()
+	
+	
 
 func garbage_sucked():
 	$HoseSuckSounds.play()
 	add_garbage()
+	var new_score = (randi() % 10) + 10
+	modify_score(new_score)
 
 func add_garbage():
 	storage += 1
 	label.text = str(storage) + '/' + str(storageTotal)
 	bar.value = storage
-	if storage == storageTotal:
-		vacuum.disabled = true
 	
 func empty_garbage():
-	if (storage != 0):
-		var temp_score = 0
-		for n in storage:
-			temp_score += (randi() % 10) + 10
-		modify_score(temp_score)
-		storage = 0
-		label = storageNode.get_node('StorageLabel')
-		bar = storageNode.get_node('ProgressBar')
-		label.text = str(storage) + '/' + str(storageTotal)
-		bar.value = storage
-		$EmptySound.play()
-		vacuum.disabled = false
+	var temp_score = 0
+	for n in storage:
+		temp_score += (randi % 20) + 10
+	modify_score()
+	storage = 0
+	label = storageNode.get_node('StorageLabel')
+	bar = storageNode.get_node('ProgressBar')
+	label.text = str(storage) + '/' + str(storageTotal)
+	bar.value = storage
 func modify_score(new_score):
 	score += new_score 
 	scoreNode.text = '$'+str(score)
@@ -229,9 +225,11 @@ func upgrade(upgrade):
 			vacuum.suck_in_distance += 4
 		'Glasses_Upgrade':
 			$MainCamera.zoom -= Vector2(0.2, 0.2)
+		
+	
 
 func _on_dumping_hitbox_area_entered(area: Area2D) -> void:
-	print('Entered this area', area.name)
+	print('Entered this area', area)
 	if area.name == 'DumpingGround':
 		empty_garbage()
 "
@@ -305,15 +303,18 @@ stream_2/stream = ExtResource("8_33fjo")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2tdl"]
 size = Vector2(82, 28)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nmbvf"]
-streams_count = 3
-stream_0/stream = ExtResource("10_u2d1m")
-stream_1/stream = ExtResource("11_1atvp")
-stream_2/stream = ExtResource("12_hsprs")
-
 [node name="car" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 script = SubResource("GDScript_7822p")
+wheel_base = null
+steering_angle = null
+speed = null
+acceleration_power = null
+friction = null
+drag = null
+braking = null
+max_speed_reverse = null
+slip_speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
@@ -375,9 +376,6 @@ autoplay = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DumpingHitbox"]
 shape = SubResource("RectangleShape2D_e2tdl")
-
-[node name="EmptySound" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_nmbvf")
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
