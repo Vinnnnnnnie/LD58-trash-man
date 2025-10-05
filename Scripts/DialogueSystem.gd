@@ -66,6 +66,7 @@ func qte_passed() -> void:
 	anim_play.play("qte_passed")
 	
 func qte_failed() -> void:
+	get_parent().fail_screen_start()
 	print('failed qte')
 	
 func start_main_dialogue() -> void:

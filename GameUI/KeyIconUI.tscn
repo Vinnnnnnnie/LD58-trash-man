@@ -11,6 +11,33 @@ font = ExtResource("2_argc3")
 font_size = 151
 font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
 
+[sub_resource type="Animation" id="Animation_pmyf8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [151]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.110271424, 0.110271424)]
+}
+
 [sub_resource type="Animation" id="Animation_wlihl"]
 resource_name = "new_button_label_anim"
 length = 0.4
@@ -37,33 +64,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.110271424, 0.110271424), Vector2(0.110271424, 0.110271424), Vector2(0.14, 0.14), Vector2(0.165, 0.165), Vector2(0.11, 0.11)]
-}
-
-[sub_resource type="Animation" id="Animation_pmyf8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:label_settings:font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [151]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("KeyIcon:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.110271424, 0.110271424)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pmyf8"]
@@ -95,3 +95,5 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_pmyf8")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

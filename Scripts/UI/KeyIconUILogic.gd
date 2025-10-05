@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var key_label = $Label
 @onready var key_icon = $KeyIcon
+@onready var button_press_tone_audio = preload("res://Sounds/Effects/nokia_button.mp3")
+
 @export var label : String = ""
 
 var random_characters : Array
@@ -11,11 +13,12 @@ var difficulty_level
 
 func _ready() -> void:
 	random_characters.append_array(['l', 'p', 'i', '9'])
+	$AudioStreamPlayer.stream = button_press_tone_audio
 
 func _physics_process(delta: float) -> void:
 	if qte_enabled:
 		if Input.is_physical_key_pressed(OS.find_keycode_from_string(key_label.text)) and difficulty_level != 0:
-			print(difficulty_level)
+			$AudioStreamPlayer.play()
 			difficulty_level -= 1
 			
 			if difficulty_level != 0:

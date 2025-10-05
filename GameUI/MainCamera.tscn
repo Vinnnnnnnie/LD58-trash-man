@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://she2eapydd2m"]
+[gd_scene load_steps=10 format=3 uid="uid://she2eapydd2m"]
 
 [ext_resource type="Script" uid="uid://blg3hpd6xk6aw" path="res://GameUI/control.gd" id="1_0o8tf"]
 [ext_resource type="Script" uid="uid://ba3ahtcrtmn1y" path="res://GameUI/main_camera.gd" id="1_gxubn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bc6nchnd8t6tg" path="res://GameUI/upgrades.tscn" id="6_nj31o"]
 [ext_resource type="PackedScene" uid="uid://b7hofxyabktbn" path="res://GameUI/boost_bar.tscn" id="7_o5f5x"]
 [ext_resource type="PackedScene" uid="uid://c3b8uyxwxqkri" path="res://GameUI/storage_bar.tscn" id="8_4lprt"]
+[ext_resource type="PackedScene" uid="uid://c5l4p36yrt33b" path="res://GameUI/FailScreen.tscn" id="9_0ywo4"]
 
 [node name="MainCamera" type="Camera2D"]
 zoom = Vector2(1.36, 1.36)
@@ -65,3 +66,7 @@ offset_left = -174.0
 offset_top = 50.0
 offset_right = -174.0
 offset_bottom = 50.0
+
+[node name="FailScreen" parent="CanvasLayer/UI" instance=ExtResource("9_0ywo4")]
+process_mode = 1
+layout_mode = 1

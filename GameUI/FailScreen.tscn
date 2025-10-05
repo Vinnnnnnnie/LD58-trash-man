@@ -1,3 +1,92 @@
-[gd_scene format=3 uid="uid://c5l4p36yrt33b"]
+[gd_scene load_steps=6 format=3 uid="uid://c5l4p36yrt33b"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://csk7h6f5cdtbq" path="res://GameUI/fail_screen.gd" id="1_c5w2a"]
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="1_n1v1n"]
+[ext_resource type="AnimationLibrary" uid="uid://bysb8tgdyg4x1" path="res://Animations/FailScreenAnimations.res" id="2_s6pwn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s6pwn"]
+font = ExtResource("1_n1v1n")
+font_size = 181
+
+[sub_resource type="LabelSettings" id="LabelSettings_n1v1n"]
+font = ExtResource("1_n1v1n")
+font_size = 121
+font_color = Color(0.8850959, 0.88488036, 7.70092e-07, 1)
+
+[node name="FailScreen" type="Control"]
+visible = false
+z_index = 200
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.0007324219
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c5w2a")
+
+[node name="YouAreFired" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -543.0
+offset_right = 543.0
+offset_bottom = 182.0
+grow_horizontal = 2
+text = "YOU ARE FIRED"
+label_settings = SubResource("LabelSettings_s6pwn")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.75
+offset_top = -143.0
+offset_right = 158.75
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_n1v1n")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.14509805)
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 335.0
+offset_right = 831.0
+offset_bottom = 410.0
+theme_override_fonts/font = ExtResource("1_n1v1n")
+theme_override_font_sizes/font_size = 66
+text = "BEG FOR JOB BACK"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 454.0
+offset_right = 830.0
+offset_bottom = 529.0
+theme_override_fonts/font = ExtResource("1_n1v1n")
+theme_override_font_sizes/font_size = 66
+text = "JUMP OFF BRIDGE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": ExtResource("2_s6pwn")
+}
+
+[connection signal="button_up" from="Retry" to="." method="_on_retry_button_up"]
+[connection signal="button_up" from="Quit" to="." method="_on_quit_button_up"]

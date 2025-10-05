@@ -27,6 +27,12 @@ func _physics_process(delta: float) -> void:
 
 func _on_sucked_in_garbage() -> void:
 	$GarbageNoise.play()
+	# MAIN MENU WORKAROUND QUICK AND DIRTY, IGNORE
+	if get_tree().get_current_scene().get_name() == 'MainMenu': 
+		player_vacuum.get_node("../../../../../../../../../").create_suck_in_effect()
+		queue_free()
+		return
+	
 	player.garbage_sucked()
 	player_vacuum.get_node("../../../../../../../../../").create_suck_in_effect()
 	queue_free()

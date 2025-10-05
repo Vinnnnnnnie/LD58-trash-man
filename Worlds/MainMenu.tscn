@@ -1,3 +1,51 @@
-[gd_scene format=3 uid="uid://byv2kf8x2xtyj"]
+[gd_scene load_steps=6 format=3 uid="uid://byv2kf8x2xtyj"]
+
+[ext_resource type="Script" uid="uid://v5og1kr8hem" path="res://Scripts/UI/MainMenu.gd" id="1_0c04o"]
+[ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="1_64qbs"]
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="2_6xr4h"]
+[ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="3_3ghvg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ghvg"]
+font = ExtResource("2_6xr4h")
+font_size = 146
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_0c04o")
+
+[node name="Vacuum" parent="." instance=ExtResource("1_64qbs")]
+z_index = 10
+position = Vector2(-30, 544)
+scale = Vector2(7.4690194, 7.4690194)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 253.0
+offset_right = 636.0
+offset_bottom = 337.0
+theme_override_fonts/font = ExtResource("2_6xr4h")
+theme_override_font_sizes/font_size = 76
+text = "START"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 30.0
+offset_right = 977.0
+offset_bottom = 177.0
+text = "GARBAGE GAME"
+label_settings = SubResource("LabelSettings_3ghvg")
+
+[node name="Garbage" parent="." instance=ExtResource("3_3ghvg")]
+position = Vector2(1016, 184)
+
+[node name="Garbage2" parent="." instance=ExtResource("3_3ghvg")]
+position = Vector2(109, 184)
+
+[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
