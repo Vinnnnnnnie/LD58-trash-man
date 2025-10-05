@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://2bpr1ofcn26e"]
+[gd_scene load_steps=11 format=4 uid="uid://2bpr1ofcn26e"]
 
-[ext_resource type="Texture2D" uid="uid://cxt6bp5av7y64" path="res://building_atlas.png" id="1_4iu8v"]
-[ext_resource type="Texture2D" uid="uid://b70k48y5dmawo" path="res://tree_atlas.png" id="2_ixlek"]
-[ext_resource type="Texture2D" uid="uid://t1wdqbxk6qns" path="res://road_atlas.png" id="2_mj41y"]
+[ext_resource type="Texture2D" uid="uid://cxt6bp5av7y64" path="res://Images/atlases/building_atlas.png" id="1_4iu8v"]
+[ext_resource type="Texture2D" uid="uid://b70k48y5dmawo" path="res://Images/atlases/tree_atlas.png" id="2_ixlek"]
+[ext_resource type="Texture2D" uid="uid://t1wdqbxk6qns" path="res://Images/atlases/road_atlas.png" id="2_mj41y"]
 [ext_resource type="PackedScene" uid="uid://glakh53sg2yi" path="res://Actors/GarbageTruck.tscn" id="2_ydkga"]
 [ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="5_ixlek"]
 
@@ -40,13 +40,22 @@ texture_region_size = Vector2i(200, 200)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4ylc"]
+texture = ExtResource("1_4iu8v")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_tg3ck"]
 tile_size = Vector2i(200, 200)
 physics_layer_0/collision_layer = 1
 sources/21 = SubResource("TileSetAtlasSource_4iu8v")
 sources/25 = SubResource("TileSetAtlasSource_73i1u")
 sources/1 = SubResource("TileSetAtlasSource_ixlek")
-tile_proxies/coords_level = [[0, Vector2i(0, 0)], [1, Vector2i(0, 0)], [1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [7, Vector2i(1, 0)], [3, Vector2i(0, 0)], [7, Vector2i(2, 0)], [4, Vector2i(0, 0)], [6, Vector2i(1, 0)], [5, Vector2i(0, 0)], [6, Vector2i(2, 0)], [6, Vector2i(0, 0)], [9, Vector2i(0, 0)], [6, Vector2i(1, 0)], [9, Vector2i(1, 0)], [6, Vector2i(2, 0)], [9, Vector2i(2, 0)], [7, Vector2i(0, 0)], [21, Vector2i(0, 0)], [7, Vector2i(1, 0)], [21, Vector2i(1, 0)], [7, Vector2i(2, 0)], [21, Vector2i(2, 0)], [8, Vector2i(0, 0)], [9, Vector2i(3, 0)], [9, Vector2i(0, 0)], [1, Vector2i(1, 0)], [9, Vector2i(1, 0)], [1, Vector2i(2, 0)], [9, Vector2i(2, 0)], [1, Vector2i(3, 0)], [9, Vector2i(3, 0)], [1, Vector2i(4, 0)], [9, Vector2i(4, 0)], [1, Vector2i(5, 0)], [9, Vector2i(5, 0)], [1, Vector2i(6, 0)], [20, Vector2i(0, 0)], [21, Vector2i(3, 0)], [22, Vector2i(0, 0)], [25, Vector2i(0, 0)], [23, Vector2i(0, 0)], [25, Vector2i(1, 0)], [24, Vector2i(0, 0)], [25, Vector2i(2, 0)]]
+sources/5 = SubResource("TileSetAtlasSource_f4ylc")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [5, Vector2i(0, 0)], [1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [5, Vector2i(1, 0)], [3, Vector2i(0, 0)], [5, Vector2i(2, 0)], [4, Vector2i(0, 0)], [5, Vector2i(3, 0)], [5, Vector2i(0, 0)], [6, Vector2i(2, 0)], [6, Vector2i(0, 0)], [9, Vector2i(0, 0)], [6, Vector2i(1, 0)], [9, Vector2i(1, 0)], [6, Vector2i(2, 0)], [9, Vector2i(2, 0)], [7, Vector2i(0, 0)], [21, Vector2i(0, 0)], [7, Vector2i(1, 0)], [21, Vector2i(1, 0)], [7, Vector2i(2, 0)], [21, Vector2i(2, 0)], [8, Vector2i(0, 0)], [9, Vector2i(3, 0)], [9, Vector2i(0, 0)], [1, Vector2i(1, 0)], [9, Vector2i(1, 0)], [1, Vector2i(2, 0)], [9, Vector2i(2, 0)], [1, Vector2i(3, 0)], [9, Vector2i(3, 0)], [1, Vector2i(4, 0)], [9, Vector2i(4, 0)], [1, Vector2i(5, 0)], [9, Vector2i(5, 0)], [1, Vector2i(6, 0)], [20, Vector2i(0, 0)], [21, Vector2i(3, 0)], [22, Vector2i(0, 0)], [25, Vector2i(0, 0)], [23, Vector2i(0, 0)], [25, Vector2i(1, 0)], [24, Vector2i(0, 0)], [25, Vector2i(2, 0)]]
 
 [node name="VinnieTestWorld" type="Node2D"]
 

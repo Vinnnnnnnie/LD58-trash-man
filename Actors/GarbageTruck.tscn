@@ -71,11 +71,9 @@ func get_input():
 		acceleration = transform.x * braking
 	boost = 100
 	if Input.is_action_pressed(\"boost\") and boostHeld == false:
-		boostHeld = true
-		acceleration_power = acceleration_power + boost
+		boosting()
 	elif Input.is_action_just_released(\"boost\") and boostHeld == true:
-		boostHeld = false
-		acceleration_power = acceleration_power - boost
+		stop_boosting()
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2
@@ -140,6 +138,16 @@ func _on_garbage_sucked_in_garbage() -> void:
 	print('car_receiving_suck')
 	$HoseSuckSounds.play()
 	
+func boosting():
+	boostHeld = true
+	acceleration_power = acceleration_power + boost
+	boost_bar.deplete()
+
+func stop_boosting():
+	boostHeld = false
+	acceleration_power = acceleration_power - boost
+	boost_bar.regain()
+
 func upgrade(upgrade):
 	match upgrade.effect:
 		'Boost_Speed_Upgrade':
