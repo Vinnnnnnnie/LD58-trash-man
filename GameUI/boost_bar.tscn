@@ -1,14 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7hofxyabktbn"]
+[gd_scene load_steps=8 format=3 uid="uid://b7hofxyabktbn"]
 
 [ext_resource type="Script" uid="uid://cd38x3u7jc7w1" path="res://boost_bar.gd" id="1_3x8yj"]
 [ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="2_8n5ap"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3x8yj"]
-bg_color = Color(0.8974299, 0.36440295, 0.75803024, 1)
+bg_color = Color(0.37655127, 0.6310274, 0.8068658, 1)
 
 [sub_resource type="Theme" id="Theme_3x8yj"]
 resource_local_to_scene = true
 ProgressBar/styles/Background = SubResource("StyleBoxFlat_3x8yj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n5ap"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjbap"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.8117647, 0.8352941, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_wjbap"]
 font = ExtResource("2_8n5ap")
@@ -17,11 +41,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="BoostBar" type="Control" groups=["boost_bar_scene"]]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 pivot_offset = Vector2(575, 632)
 script = ExtResource("1_3x8yj")
 
@@ -39,6 +65,8 @@ grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(215, 13)
 theme = SubResource("Theme_3x8yj")
+theme_override_styles/background = SubResource("StyleBoxFlat_8n5ap")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wjbap")
 value = 100.0
 show_percentage = false
 
@@ -58,3 +86,12 @@ grow_vertical = 0
 pivot_offset = Vector2(19, 8)
 text = "Boost"
 label_settings = SubResource("LabelSettings_wjbap")
+
+[node name="DepleteTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="RegainTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="DepleteTimer" to="." method="_on_deplete_timer_timeout"]
+[connection signal="timeout" from="RegainTimer" to="." method="_on_regain_timer_timeout"]

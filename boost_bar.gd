@@ -22,3 +22,22 @@ func cool_rotation_back():
 	tween.tween_property($BoostBarLabel, 'rotation', -PI/24, 0.75)
 	
 	tween.tween_callback(cool_rotation)
+
+func deplete():
+	$DepleteTimer.start(0)
+	$RegainTimer.stop()
+	pass
+	
+func regain():
+	$DepleteTimer.stop()
+	$RegainTimer.start(0)
+	pass
+
+func _on_regain_timer_timeout() -> void:
+	$ProgressBar.value += 0.2
+	pass # Replace with function body.
+
+
+func _on_deplete_timer_timeout() -> void:
+	$ProgressBar.value -= 2
+	pass # Replace with function body.

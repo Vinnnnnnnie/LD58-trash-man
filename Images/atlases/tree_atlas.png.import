@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxt6bp5av7y64"
-path="res://.godot/imported/building_atlas.png-dfbd822e81a62de22ab4669892bfb719.ctex"
+uid="uid://b70k48y5dmawo"
+path="res://.godot/imported/tree_atlas.png-1be05c11986b22d5aa35c3f67682ff63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://building_atlas.png"
-dest_files=["res://.godot/imported/building_atlas.png-dfbd822e81a62de22ab4669892bfb719.ctex"]
+source_file="res://Images/atlases/tree_atlas.png"
+dest_files=["res://.godot/imported/tree_atlas.png-1be05c11986b22d5aa35c3f67682ff63.ctex"]
 
 [params]
 
