@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjob2bbm5tkn4"
+path="res://.godot/imported/bargain 5.mp3-38ff9b61bcf2eb0df68272fe47d4be09.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Voices/bargain 5.mp3"
+dest_files=["res://.godot/imported/bargain 5.mp3-38ff9b61bcf2eb0df68272fe47d4be09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

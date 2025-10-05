@@ -36,6 +36,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	dialogue_queue_logic()
 
+### CORE DIALOGUE LOGIC
+
 func add_to_dialogue_queue(scenes: Array):
 	dialogue_queue.append(scenes)
 
@@ -51,6 +53,9 @@ func dialogue_queue_logic() -> void:
 		if next_scene == null: return
 		
 		play_dialogue_event(next_scene)
+
+
+### Functions mostly for animations to call from below
 
 func start_key_qte() -> void:
 	$ReceivingCall.visible = true
@@ -79,12 +84,14 @@ func end_dialogue():
 	difficulty_level += 1
 	is_dialogue_playing = false
 
+### Adds on random dialogue after set time by timer
 func _on_random_event_timer_timeout() -> void:
 	var random_dialogue_joel_and_wife = []
 	random_dialogue_joel_and_wife.append(random_joel_dialogue.pick_random())
 	random_dialogue_joel_and_wife.append(random_wife_dialogue.pick_random())
 	add_to_dialogue_queue(random_dialogue_joel_and_wife)
 
+### Final call when dialogue is finished, plays final animations which ends dialogue
 func _on_in_call_dialogue_finished() -> void:
 	anim_play.play("main_dialogue_exit")
 	

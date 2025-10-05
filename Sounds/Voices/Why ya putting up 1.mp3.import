@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://uhmenrpm12v3"
+path="res://.godot/imported/Why ya putting up 1.mp3-71c20976e39323cccb10a55a92b2f43e.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Voices/Why ya putting up 1.mp3"
+dest_files=["res://.godot/imported/Why ya putting up 1.mp3-71c20976e39323cccb10a55a92b2f43e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

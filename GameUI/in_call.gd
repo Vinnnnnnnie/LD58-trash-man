@@ -42,5 +42,5 @@ func _on_audio_stream_player_finished() -> void:
 	if not len(scenes_to_play[0]) <= on_scene:
 		change_dialogue(on_scene)
 	else:
-		on_scene = 1
+		on_scene = 0
 		emit_signal("dialogue_finished")
