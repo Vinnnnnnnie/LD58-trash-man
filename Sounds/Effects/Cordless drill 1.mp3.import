@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://h5uond3sqbt0"
+path="res://.godot/imported/Cordless drill 1.mp3-8ad9d24f09d3337b1e4fa096c773e1b7.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Effects/Cordless drill 1.mp3"
+dest_files=["res://.godot/imported/Cordless drill 1.mp3-8ad9d24f09d3337b1e4fa096c773e1b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

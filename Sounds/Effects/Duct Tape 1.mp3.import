@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0r814g2j2lo2"
+path="res://.godot/imported/Duct Tape 1.mp3-aa863024c755a38b0cc08524425d265b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Effects/Duct Tape 1.mp3"
+dest_files=["res://.godot/imported/Duct Tape 1.mp3-aa863024c755a38b0cc08524425d265b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
