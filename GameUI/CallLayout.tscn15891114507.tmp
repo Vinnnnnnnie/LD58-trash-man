@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://o2n6ytyv7d7i"]
+[gd_scene load_steps=11 format=3 uid="uid://o2n6ytyv7d7i"]
 
 [ext_resource type="Texture2D" uid="uid://b6jcpeu6hxvhp" path="res://Images/ui_art/trashmans_boss_jole_final.png" id="1_8m1gh"]
 [ext_resource type="Script" uid="uid://b8khw6sasq54m" path="res://Scripts/DialogueSystem.gd" id="1_padce"]
@@ -10,109 +10,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_jx7lv"]
 font = ExtResource("3_padce")
 font_size = 41
-
-[sub_resource type="Animation" id="Animation_axps0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReceivingCall/Phone:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReceivingCall/KeyIconUI:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(211.99998, 233.99998)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ReceivingCall/Phone:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(99, 235)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ReceivingCall/Phone:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.67059225, 0.67059225)]
-}
-
-[sub_resource type="Animation" id="Animation_cijr2"]
-resource_name = "qte_passed"
-length = 1.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReceivingCall/KeyIconUI:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(211.99998, 233.99998), Vector2(230, 234), Vector2(-180, 234)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReceivingCall/Phone:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.70000005, 1.3666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(99, 235), Vector2(99, 235), Vector2(66, 547)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ReceivingCall/Phone:skew")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.3666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ReceivingCall/Phone:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.70000005, 1.3666668),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.67059225, 0.67059225), Vector2(0.67059225, 0.67059225), Vector2(1.0552961, 1.0552961)]
-}
 
 [sub_resource type="Animation" id="Animation_jx7lv"]
 resource_name = "ringing_animation"
@@ -137,7 +34,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.39999998),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -145,10 +42,24 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_axps0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReceivingCall/Phone:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_axps0"]
 _data = {
 &"RESET": SubResource("Animation_axps0"),
-&"qte_passed": SubResource("Animation_cijr2"),
 &"ringing_animation": SubResource("Animation_jx7lv")
 }
 
@@ -196,7 +107,6 @@ position = Vector2(68, 549)
 texture = ExtResource("4_hwvmr")
 
 [node name="ReceivingCall" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -214,6 +124,35 @@ visible = false
 position = Vector2(211.99998, 233.99998)
 scale = Vector2(0.3046389, 0.3046389)
 label = "D"
+pressed = null
+
+[node name="KeyIconUI2" parent="ReceivingCall" instance=ExtResource("6_jx7lv")]
+visible = false
+position = Vector2(308, 233.99998)
+scale = Vector2(0.3046389, 0.3046389)
+label = "D"
+pressed = null
+
+[node name="KeyIconUI3" parent="ReceivingCall" instance=ExtResource("6_jx7lv")]
+visible = false
+position = Vector2(399, 233.99998)
+scale = Vector2(0.3046389, 0.3046389)
+label = "D"
+pressed = null
+
+[node name="KeyIconUI4" parent="ReceivingCall" instance=ExtResource("6_jx7lv")]
+visible = false
+position = Vector2(492, 232.99998)
+scale = Vector2(0.3046389, 0.3046389)
+label = "D"
+pressed = null
+
+[node name="KeyIconUI5" parent="ReceivingCall" instance=ExtResource("6_jx7lv")]
+visible = false
+position = Vector2(592, 233.99998)
+scale = Vector2(0.3046389, 0.3046389)
+label = "D"
+pressed = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -221,7 +160,7 @@ libraries = {
 }
 
 [node name="RandomEventTimer" type="Timer" parent="."]
-wait_time = 1.54
+wait_time = 60.0
 autostart = true
 
 [connection signal="timeout" from="RandomEventTimer" to="." method="_on_random_event_timer_timeout"]

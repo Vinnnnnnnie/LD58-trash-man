@@ -31,6 +31,6 @@ func _on_vacuum_area_area_shape_exited(area_rid: RID, area: Area2D, area_shape_i
 		return
 		
 	if area.get_parent().is_in_group('garbage'):
-		area.get_parent().getting_sucked = false	
+		area.get_parent().getting_sucked = false
 	
 	

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dfqi605e63c3n" path="res://Scripts/SuckInEffectLogic.gd" id="1_qdgo4"]
 
 [node name="PathFollow2D" type="PathFollow2D"]
+z_index = 30
 progress = 93.2955
 loop = false
 script = ExtResource("1_qdgo4")

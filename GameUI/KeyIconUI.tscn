@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqlpr01adabrv"]
+
+[ext_resource type="Texture2D" uid="uid://crdw41rxrs2fn" path="res://Images/key_icon.png" id="1_prxu6"]
+[ext_resource type="Script" uid="uid://co8n6o1248mo8" path="res://Scripts/UI/KeyIconUILogic.gd" id="1_wlihl"]
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="2_argc3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wlihl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wlihl"]
+font = ExtResource("2_argc3")
+font_size = 151
+font_color = Color(0.11119685, 0.11119684, 0.11119684, 1)
+
+[sub_resource type="Animation" id="Animation_wlihl"]
+resource_name = "new_button_label_anim"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.10000001, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [291, 322, 219, 146, 151]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.13333334, 0.16666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.110271424, 0.110271424), Vector2(0.110271424, 0.110271424), Vector2(0.14, 0.14), Vector2(0.165, 0.165), Vector2(0.11, 0.11)]
+}
+
+[sub_resource type="Animation" id="Animation_pmyf8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [151]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KeyIcon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.110271424, 0.110271424)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pmyf8"]
+_data = {
+&"RESET": SubResource("Animation_pmyf8"),
+&"new_button_label_anim": SubResource("Animation_wlihl")
+}
+
+[node name="KeyIconUI" type="Node2D"]
+script = ExtResource("1_wlihl")
+
+[node name="KeyIcon" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_wlihl")
+position = Vector2(-2.7285748, 21.218525)
+scale = Vector2(0.110271424, 0.110271424)
+texture = ExtResource("1_prxu6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -78.0
+offset_top = -77.0
+offset_right = 83.0
+offset_bottom = 89.0
+text = "g"
+label_settings = SubResource("LabelSettings_wlihl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationTree" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pmyf8")
+}
