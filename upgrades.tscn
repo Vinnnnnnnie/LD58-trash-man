@@ -1,6 +1,24 @@
 [gd_scene load_steps=2 format=3 uid="uid://dh7r2ecwpnmed"]
 
-[ext_resource type="Script" uid="uid://bnlw23lkimugr" path="res://upgrades.gd" id="1_alr6r"]
+[sub_resource type="GDScript" id="GDScript_cjgx3"]
+script/source = "extends Control
+@onready var upgrade_card = load(\"res://GameUI/card.tscn\")
+
+var card
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	generate_upgrades()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+func generate_upgrades():
+	for n in 3:
+		var card_instance = upgrade_card.instantiate()
+		$Grid.add_child(card_instance)
+	
+"
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -11,7 +29,9 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_alr6r")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = SubResource("GDScript_cjgx3")
 
 [node name="Grid" type="HBoxContainer" parent="."]
 layout_mode = 1

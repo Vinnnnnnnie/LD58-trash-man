@@ -22,8 +22,9 @@ script/source = "extends CharacterBody2D
 @export var braking = -450
 @export var max_speed_reverse = 250
 @export var slip_speed = 400  # Speed where traction is reduced
-
-@onready var vacuum = get_tree().get_nodes_in_group('player_vacuum')
+@onready var boost_bar = get_tree().get_first_node_in_group('boost_bar_scene')
+var boostHeld = false
+@onready var vacuum = get_tree().get_first_node_in_group('vacuum_scene')
 var traction_fast = 0.5 # High-speed traction
 var traction_slow = 10  # Low-speed traction
 signal drift
@@ -32,6 +33,7 @@ var lastFrameTurn
 var acceleration = Vector2.ZERO
 var steer_direction
 var turn
+var boost = 0
 
 @onready var level = get_tree().get_first_node_in_group('')
 	
@@ -67,6 +69,13 @@ func get_input():
 		acceleration = transform.x * acceleration_power
 	if Input.is_action_pressed(\"backward\"):
 		acceleration = transform.x * braking
+	boost = 100
+	if Input.is_action_pressed(\"boost\") and boostHeld == false:
+		boostHeld = true
+		acceleration_power = acceleration_power + boost
+	elif Input.is_action_just_released(\"boost\") and boostHeld == true:
+		boostHeld = false
+		acceleration_power = acceleration_power - boost
 
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base / 2
@@ -136,11 +145,11 @@ func upgrade(upgrade):
 		'Boost_Speed_Upgrade':
 			speed += 100
 		'Brake_Upgrade':
-			braking += 50
+			braking -= 50
 		'Engine_Upgrade':
-			acceleration_power += 300
+			acceleration_power += 100
 		'Gearbox_Upgrade':
-			acceleration_power += 300
+			acceleration_power += 100
 		'Reverse_Gear_Upgrade':
 			max_speed_reverse += 50
 		'Speed_Upgrade':
@@ -148,11 +157,11 @@ func upgrade(upgrade):
 		'Steering_Upgrade':
 			steering_angle += 5
 		'Storage_Upgrade':
-			acceleration_power += 300
+			acceleration_power += 100
 		'Suction_Upgrade':
 			vacuum.sucking_force += 2
 		'Suction_Distance_Upgrade':
-			vacuum.sucking_distance += 4
+			vacuum.suck_in_distance += 4
 		'Glasses_Upgrade':
 			$MainCamera.zoom -= Vector2(0.2, 0.2)
 		

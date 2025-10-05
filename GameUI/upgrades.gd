@@ -1,5 +1,5 @@
 extends Control
-@onready var upgrade_card = load("res://card.tscn")
+@onready var upgrade_card = load("res://GameUI/card.tscn")
 
 var card
 # Called when the node enters the scene tree for the first time.

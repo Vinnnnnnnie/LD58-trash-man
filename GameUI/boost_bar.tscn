@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7hofxyabktbn"]
+
+[ext_resource type="Script" uid="uid://cd38x3u7jc7w1" path="res://boost_bar.gd" id="1_3x8yj"]
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="2_8n5ap"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3x8yj"]
+bg_color = Color(0.8974299, 0.36440295, 0.75803024, 1)
+
+[sub_resource type="Theme" id="Theme_3x8yj"]
+resource_local_to_scene = true
+ProgressBar/styles/Background = SubResource("StyleBoxFlat_3x8yj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjbap"]
+font = ExtResource("2_8n5ap")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="BoostBar" type="Control" groups=["boost_bar_scene"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(575, 632)
+script = ExtResource("1_3x8yj")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -27.0
+offset_right = 215.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(215, 13)
+theme = SubResource("Theme_3x8yj")
+value = 100.0
+show_percentage = false
+
+[node name="BoostBarLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -41.0
+offset_right = 20.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(19, 8)
+text = "Boost"
+label_settings = SubResource("LabelSettings_wjbap")
