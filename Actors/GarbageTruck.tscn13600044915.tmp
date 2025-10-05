@@ -71,8 +71,10 @@ func get_input():
 	if Input.is_action_pressed(\"backward\"):
 		acceleration = transform.x * braking
 	boost = 100
-	
+	print('PROGREESS',boost_bar.get_node('ProgressBar').value)
 	if boost_bar.get_node('ProgressBar').value < 5:
+		print('IM HERE')
+	if boost_bar.get_node('ProgressBar').value < 4:
 		stop_boosting()
 	if Input.is_action_pressed(\"boost\") and boostHeld == false and boost_bar.get_node('ProgressBar').value > 5:
 		boosting()

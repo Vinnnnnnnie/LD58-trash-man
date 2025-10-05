@@ -41,13 +41,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="BoostBar" type="Control" groups=["boost_bar_scene"]]
 layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
 pivot_offset = Vector2(575, 632)
 script = ExtResource("1_3x8yj")
 
@@ -58,11 +58,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -215.0
+offset_left = -251.0
 offset_top = -27.0
-offset_right = 215.0
+offset_right = 179.0
 grow_horizontal = 2
 grow_vertical = 0
+rotation = -1.5707964
+scale = Vector2(0.52, 0.76)
 pivot_offset = Vector2(215, 13)
 theme = SubResource("Theme_3x8yj")
 theme_override_styles/background = SubResource("StyleBoxFlat_8n5ap")
@@ -77,10 +79,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -19.0
-offset_top = -41.0
-offset_right = 20.0
-offset_bottom = -25.0
+offset_left = -54.0
+offset_top = -141.0
+offset_right = -15.0
+offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(19, 8)
@@ -93,5 +95,9 @@ wait_time = 0.1
 [node name="RegainTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="RegainDelay" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="DepleteTimer" to="." method="_on_deplete_timer_timeout"]
 [connection signal="timeout" from="RegainTimer" to="." method="_on_regain_timer_timeout"]
+[connection signal="timeout" from="RegainDelay" to="." method="_on_regain_delay_timeout"]
