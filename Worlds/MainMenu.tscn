@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://byv2kf8x2xtyj"]
+[gd_scene load_steps=11 format=3 uid="uid://byv2kf8x2xtyj"]
 
 [ext_resource type="Script" uid="uid://v5og1kr8hem" path="res://Scripts/UI/MainMenu.gd" id="1_0c04o"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="1_64qbs"]
 [ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="3_3ghvg"]
 [ext_resource type="Texture2D" uid="uid://d2cvfvy6lkc7l" path="res://Images/ui_art/new_game.png" id="3_xt3es"]
 [ext_resource type="Texture2D" uid="uid://3vwako0id15t" path="res://Images/ui_art/quit.png" id="4_glbkd"]
-[ext_resource type="Texture2D" uid="uid://cn2amq2kqh510" path="res://Images/ui_art/settings.png" id="5_kp6bd"]
+[ext_resource type="Texture2D" uid="uid://clvr2pw7c25eh" path="res://Images/ui_art/tutorial.png" id="5_3fel3"]
 [ext_resource type="Texture2D" uid="uid://uefjudu0ivcc" path="res://Images/title screen.png" id="6_kp6bd"]
+[ext_resource type="PackedScene" uid="uid://bqu50dwkkfb6m" path="res://instructions.tscn" id="7_11o0m"]
 [ext_resource type="Script" uid="uid://ddjvpjki8ivag" path="res://Worlds/garbage_spawn_1.gd" id="8_kp6bd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fel3"]
@@ -102,7 +103,7 @@ grow_vertical = 2
 rotation = 0.17362644
 scale = Vector2(1.2897664, 1.2897664)
 theme_override_font_sizes/font_size = 76
-icon = ExtResource("5_kp6bd")
+icon = ExtResource("5_3fel3")
 
 [node name="Button2" type="Button" parent="Control"]
 z_index = 1000
@@ -121,6 +122,15 @@ grow_vertical = 2
 scale = Vector2(1.2897664, 1.2897664)
 theme_override_font_sizes/font_size = 76
 icon = ExtResource("4_glbkd")
+
+[node name="Instructions" parent="Control" instance=ExtResource("7_11o0m")]
+visible = false
+z_index = 1000
+layout_mode = 1
+offset_left = 630.1609
+offset_top = 297.6727
+offset_right = 630.1609
+offset_bottom = 297.6727
 
 [node name="Garbage" parent="." instance=ExtResource("3_3ghvg")]
 position = Vector2(1016, 184)
@@ -157,6 +167,7 @@ position = Vector2(591.86383, 323.78433)
 zoom = Vector2(1.69, 1.69)
 
 [connection signal="button_up" from="Control/NewGame" to="." method="_on_button_button_up"]
+[connection signal="button_down" from="Control/Button3" to="." method="_on_button_3_button_down"]
 [connection signal="timeout" from="GarbageSpawn1/Timer" to="GarbageSpawn1" method="_on_timer_timeout"]
 
 [editable path="Vacuum"]
