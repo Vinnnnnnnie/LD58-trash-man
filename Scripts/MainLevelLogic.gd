@@ -105,9 +105,42 @@ func end_game(reason: String = ""):
 
 # CHECKS PROGRESSION ON GARBAGE DUMP, THIS IS WHERE STORY DIALOGUE GETS PLAYED
 func progression_check_logic():
-	if overall_amount_dumped >= 5 and overall_amount_dumped < 20:
+	### FIRST COMBO SEQUENCE <40 TOTAL
+	if overall_amount_dumped >= 5 and overall_amount_dumped < 20 and story_sequence_number == 1:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 1'])
-
+		story_sequence_number += 1
+		
+	if overall_amount_dumped >= 20 and overall_amount_dumped < 40 and story_sequence_number == 2:
+		dialogue_system.add_story_dialogue_to_queue(['Quit attempt 1'])
+		story_sequence_number += 1
+	
+	### SECOND COMBO SEQUENCE <80 TOTAL
+	if overall_amount_dumped >= 40 and overall_amount_dumped < 60 and story_sequence_number == 3:
+		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 2'])
+		story_sequence_number += 1
+		
+	if overall_amount_dumped >= 60 and overall_amount_dumped < 80 and story_sequence_number == 4:
+		dialogue_system.add_story_dialogue_to_queue(['Quit attempt 2'])
+		story_sequence_number += 1
+	
+	### THIRD COMBO SEQUENCE <120 TOTAL
+	if overall_amount_dumped >= 80 and overall_amount_dumped < 100 and story_sequence_number == 5:
+		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 3'])
+		story_sequence_number += 1
+		
+	if overall_amount_dumped >= 100 and overall_amount_dumped < 120 and story_sequence_number == 6:
+		dialogue_system.add_story_dialogue_to_queue(['Quit attempt 3'])
+		story_sequence_number += 1
+	
+	### SECOND COMBO SEQUENCE <160 TOTAL
+	if overall_amount_dumped >= 120 and overall_amount_dumped < 140 and story_sequence_number == 7:
+		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 4'])
+		story_sequence_number += 1
+		
+	if overall_amount_dumped >= 140 and overall_amount_dumped < 160 and story_sequence_number == 8:
+		dialogue_system.add_story_dialogue_to_queue(['Quit attempt 4'])
+		story_sequence_number += 1
+	
 func _on_dumped_garbage(amount_dumped: Variant) -> void:
 	print('DUMPED: ', amount_dumped)
 	overall_amount_dumped += amount_dumped

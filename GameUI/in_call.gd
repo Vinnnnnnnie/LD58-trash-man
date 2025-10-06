@@ -2,6 +2,7 @@ extends Control
 
 @export var joel_logo = preload("res://Images/ui_art/trashmans_boss_jole_final.png")
 @export var wife_logo = preload("res://Images/ui_art/My_Bitch_Wife.png")
+@export var ratman_logo = preload("res://Images/ui_art/My_Bitch_Wife.png")
 
 var audio_player : AudioStreamPlayer
 
@@ -28,6 +29,8 @@ func change_dialogue(scene_number):
 	if scene_logo == 'Joel':
 		character_logo.texture = joel_logo
 	elif  scene_logo == 'Joels Wife':
+		character_logo.texture = wife_logo
+	elif scene_logo == 'The Rat':
 		character_logo.texture = wife_logo
 	
 	$Label.text = scene_text
