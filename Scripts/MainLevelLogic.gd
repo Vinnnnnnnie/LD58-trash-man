@@ -87,11 +87,17 @@ func _ready() -> void:
 	
 func pause_timers() -> void:
 	for timer in get_tree().get_nodes_in_group("timer_cutscene_pausable"):
-		timer.paused = true
+		if timer is AudioStreamPlayer:
+			timer.stop()
+		else:
+			timer.paused = true
 	
 func resume_timers() -> void:
 	for timer in get_tree().get_nodes_in_group("timer_cutscene_pausable"):
-		timer.paused = false
+		if timer is AudioStreamPlayer:
+			timer.play()
+		else:
+			timer.paused = false
 	
 func _process(delta: float) -> void:
 	main_game_logic()
