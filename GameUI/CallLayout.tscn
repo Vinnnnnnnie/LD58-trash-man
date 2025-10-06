@@ -89,7 +89,7 @@ libraries = {
 &"": ExtResource("8_cijr2")
 }
 
-[node name="RandomEventTimer" type="Timer" parent="."]
+[node name="RandomEventTimer" type="Timer" parent="." groups=["timer_cutscene_pausable"]]
 wait_time = 119.334
 autostart = true
 

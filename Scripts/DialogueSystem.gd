@@ -8,6 +8,11 @@ var dialogue_json
 var dialogue_queue = [] #this queues the relevant dialogue
 
 var is_dialogue_playing = false
+var is_main_dialogue_playing = false
+
+signal phone_ringing_started
+signal phone_answered
+signal phone_call_dialogue_started
 
 var random_dialogue : Array
 var random_joel_dialogue : Array
@@ -35,12 +40,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	dialogue_queue_logic()
-	
-func pause_timer() -> void:
-	$RandomEventTimer.paused = true
-	
-func resume_timer() -> void:
-	$RandomEventTimer.paused = false
 
 ### CORE DIALOGUE LOGIC
 
@@ -60,6 +59,7 @@ func play_dialogue_event(scenes):
 	current_scenes_at_play.append(scenes)
 	is_dialogue_playing = true
 	$ReceivingCall.visible = true
+	emit_signal('phone_ringing_started')
 	anim_play.play("ringing_animation")
 
 func dialogue_queue_logic() -> void:
@@ -78,6 +78,7 @@ func start_key_qte() -> void:
 
 func qte_passed() -> void:
 	$InCall/AudioStreamPlayer.stop()
+	emit_signal('phone_answered')
 	anim_play.play("qte_passed")
 	
 func qte_failed() -> void:
@@ -85,6 +86,8 @@ func qte_failed() -> void:
 	print('failed qte')
 	
 func start_main_dialogue() -> void:
+	is_main_dialogue_playing = true
+	emit_signal("phone_call_dialogue_started")
 	anim_play.play("main_dialogue_start")
 	pass
 
@@ -99,6 +102,7 @@ func end_dialogue() -> void:
 	reset_animation_player()
 	current_scenes_at_play = []
 	difficulty_level += 1
+	is_main_dialogue_playing = false
 	is_dialogue_playing = false
 	
 func end_game():
