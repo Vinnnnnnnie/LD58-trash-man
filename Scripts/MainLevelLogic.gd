@@ -135,6 +135,7 @@ func progression_check_logic():
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 1'])
 		story_sequence_number += 1
 		new_area_unlocked.new_area('City blockades down!')
+		timer_menu.gain_time(15)
 		clear_barriers('blockade_city')
 		
 	if overall_amount_dumped >= 20 and overall_amount_dumped < 40 and story_sequence_number == 2:
@@ -146,6 +147,7 @@ func progression_check_logic():
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 2'])
 		story_sequence_number += 1
 		new_area_unlocked.new_area('Park blockades removed to the east!')
+		timer_menu.gain_time(30)
 		clear_barriers('blockade_park')
 		
 	if overall_amount_dumped >= 60 and overall_amount_dumped < 80 and story_sequence_number == 4:
@@ -157,6 +159,7 @@ func progression_check_logic():
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 3'])
 		story_sequence_number += 1
 		new_area_unlocked.new_area('Docks now free of disease!')
+		timer_menu.gain_time(40)
 		clear_barriers('blockade_docks')
 		
 	if overall_amount_dumped >= 100 and overall_amount_dumped < 120 and story_sequence_number == 6:

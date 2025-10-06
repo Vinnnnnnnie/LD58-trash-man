@@ -6,9 +6,8 @@ var x
 var y
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for n in 300:
+	for n in 100:
 		make_garbage()
-
  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
