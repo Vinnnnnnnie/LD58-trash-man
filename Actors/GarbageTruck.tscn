@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://glakh53sg2yi"]
+[gd_scene load_steps=25 format=3 uid="uid://glakh53sg2yi"]
 
 [ext_resource type="Texture2D" uid="uid://cds3exyraywkp" path="res://Images/cars/Top_Down_View.png" id="1_eo6ux"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="2_eo6ux"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cf8e3uqii0h2d" path="res://Sounds/Effects/bins 4.mp3" id="12_hsprs"]
 [ext_resource type="AudioStream" uid="uid://xxxaota8i3xk" path="res://Sounds/Effects/Upgrade_Sound_1.mp3" id="13_hsprs"]
 [ext_resource type="AudioStream" uid="uid://0ajrsdlpurh7" path="res://Sounds/Effects/Upgrade_Sound_2.mp3" id="14_nmbvf"]
+[ext_resource type="Texture2D" uid="uid://cf34sn1snl82j" path="res://Images/Dial_Arrow.png" id="15_nmbvf"]
 
 [sub_resource type="GDScript" id="GDScript_7822p"]
 script/source = "extends CharacterBody2D
@@ -51,7 +52,7 @@ var storage = 0
 @onready var scoreNode = get_node('MainCamera/CanvasLayer/UI/Score/ScoreNumber')
 
 @onready var level = get_tree().get_first_node_in_group('')
-
+@onready var dump = get_tree().get_first_node_in_group('dumping_ground')
 var game_over = false
 
 func _ready() -> void:
@@ -59,6 +60,13 @@ func _ready() -> void:
 	bar = storageNode.get_node('ProgressBar')
 	empty_garbage()
 
+func _process(_delta) -> void:
+	print('Dump position = '+str(dump.global_position))
+	print('Arrow position = '+str($ArrowToDump.global_position))
+	print('Angle = '+str(global_position.direction_to(dump.global_position).angle()))
+
+
+	$ArrowToDump.global_rotation = global_position.direction_to(dump.global_position).angle() - PI/2
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	if game_over:
@@ -403,6 +411,10 @@ stream = SubResource("AudioStreamRandomizer_nmbvf")
 [node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_m66w2")
 volume_db = -33.878
+
+[node name="ArrowToDump" type="Sprite2D" parent="."]
+rotation = -1.5707964
+texture = ExtResource("15_nmbvf")
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
