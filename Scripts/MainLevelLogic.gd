@@ -5,6 +5,7 @@ extends Node2D
 @onready var upgrade_menu = get_tree().get_first_node_in_group('upgrade_menu')
 @onready var timer_menu = get_tree().get_first_node_in_group('timer_menu')
 @onready var ui_scene = get_tree().get_first_node_in_group('ui_scene')
+@onready var rat_menu = get_tree().get_first_node_in_group('rat_menu')
 @onready var game_music = get_tree().get_first_node_in_group('game_music')
 @onready var story_dialogue = dialogue_system.story_dialogue
 
@@ -83,11 +84,12 @@ var story_sequence_number = 1
 
 var overall_amount_dumped = 0
 
-const time_gained_from_each_garbage = 2.0
+const time_gained_from_each_garbage = 3.0
 
 func _ready() -> void:
-	dialogue_system.add_story_dialogue_to_queue(['Introduction'])
-	
+	if GlobalScript.tutorial_finished == false:
+		dialogue_system.add_story_dialogue_to_queue(['Introduction'])
+		
 	player.connect('dumped_garbage', _on_dumped_garbage)
 	
 	dialogue_system.connect('phone_ringing_started', _on_phone_ringing_started)
@@ -116,6 +118,9 @@ func _process(delta: float) -> void:
 	
 func main_game_logic() -> void:
 	pass
+	
+func accepted_rat_offer():
+	end_game('The Rat claims another...')
 		
 func end_game(reason: String = ""):
 	pause_timers()
@@ -199,6 +204,7 @@ func _on_phone_call_ended() -> void:
 	print(dialogue_system.difficulty_level)
 	
 	if dialogue_system.difficulty_level == 1:
+		GlobalScript.tutorial_finished = true
 		player.paused_player_movement = false
 		dialogue_system.difficulty_level += 1
 	
@@ -207,6 +213,8 @@ func _on_phone_call_ended() -> void:
 func _on_failed_qte() -> void:
 	if dialogue_system.difficulty_level == 1:
 		end_game("PICK UP THE TUTORIAL PHONE CALL NUMB NUTS")
+	else:
+		end_game(game_timeout_lines.pick_random())
 		
 func on_game_timeout() -> void:
 	end_game(game_timeout_lines.pick_random())
