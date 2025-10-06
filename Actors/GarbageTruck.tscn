@@ -238,27 +238,27 @@ func stop_boosting():
 func upgrade(upgrade):
 	match upgrade.effect:
 		'Boost_Speed_Upgrade':
-			boost += 200 /upgrade.level
+			boost += 300 
 		'Brake_Upgrade':
-			braking -= 75 /upgrade.level
+			braking -= 75
 		'Engine_Upgrade':
-			acceleration_power += 75 /upgrade.level
+			acceleration_power += 50 
 		'Gearbox_Upgrade':
 			acceleration_power += 100
 		'Reverse_Gear_Upgrade':
-			max_speed_reverse += 100 /upgrade.level
+			max_speed_reverse += 150 
 		'Speed_Upgrade':
 			speed += 150 /upgrade.level
 		'Steering_Upgrade':
-			steering_angle += 5 /upgrade.level
+			steering_angle += 5 
 		'Storage_Upgrade':
 			storageTotal += 5
 			label.text = str(storage) + '/' + str(storageTotal)
 			bar.max_value = storageTotal
 		'Suction_Upgrade':
-			vacuum.sucking_force += 4 /upgrade.level
+			vacuum.sucking_force += 6 
 		'Sucker_Reach_Upgrade':
-			vacuum.suck_in_distance += 6 /upgrade.level
+			vacuum.suck_in_distance += 8 
 		'Glasses_Upgrade':
 			$MainCamera.zoom -= Vector2(0.15, 0.15) /upgrade.level
 	$UpgradeSound.play()
