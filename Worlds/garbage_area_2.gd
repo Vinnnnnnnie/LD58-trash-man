@@ -6,7 +6,7 @@ var x
 var y
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for n in 100:
+	for n in 120:
 		make_garbage()
 
  
@@ -21,9 +21,8 @@ func _on_timer_timeout() -> void:
 func make_garbage():
 	x = randi_range(self.position.x - $CollisionShape2D.shape.radius, self.position.x + $CollisionShape2D.shape.radius)
 	y = randi_range(self.position.y - $CollisionShape2D.shape.radius, self.position.y + $CollisionShape2D.shape.radius)
-	rand_point = global_position + Vector2(x,y)
-	
+	rand_point = Vector2(x,y)
 	garbage_instance = garbageScene
 	var garbage = garbage_instance.instantiate()
-	garbage.global_position = rand_point
+	garbage.position = rand_point + Vector2(-3000,0)
 	self.add_child(garbage)

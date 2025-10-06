@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bakbrol7s14fq"]
+[gd_scene load_steps=9 format=3 uid="uid://cddbjwc0mqpg2"]
 
 [ext_resource type="Texture2D" uid="uid://ccb6ydt4xd7i4" path="res://Images/dirt_roads/Alternative Ref tile/oh lord he comen.png" id="1_0vwgx"]
 [ext_resource type="Script" uid="uid://b8d5s5qr6pr2l" path="res://Scripts/Barrier.gd" id="1_w40x0"]
 [ext_resource type="Texture2D" uid="uid://deta1sqjnkl7s" path="res://Images/road tiles/Dead_End_Roadblock.png" id="2_v35un"]
+[ext_resource type="Texture2D" uid="uid://bxufahdwg7jm1" path="res://Images/road tiles/coppa.png" id="3_pphxf"]
+[ext_resource type="Texture2D" uid="uid://cy4p33jtqd2aj" path="res://Images/road tiles/fire man in action.png" id="4_kftpm"]
+[ext_resource type="Texture2D" uid="uid://cwbd8mbensk0q" path="res://Images/road tiles/stop.png" id="5_6qcts"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v35un"]
 animations = [{
@@ -12,6 +15,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_v35un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pphxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kftpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6qcts")
 }],
 "loop": false,
 "name": &"default",
@@ -21,13 +33,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w40x0"]
 size = Vector2(200, 201)
 
-[node name="Barrier" type="Node2D"]
-script = ExtResource("1_w40x0")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Barrier" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_v35un")
 frame = 1
 speed_scale = 0.0
+script = ExtResource("1_w40x0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
