@@ -73,9 +73,11 @@ WASD to move around
 Shift to Boost
 
 Drive around the map and collect garbage until your storage is full.
+
+Empty your garbage at the dump indicated by the arrow underneath you.
+
  - Don't run out of time
  - Answer calls from your boss
- - Hit the Quota on Screen
 "
 label_settings = SubResource("LabelSettings_dt5x2")
 metadata/_tab_index = 0
