@@ -61,9 +61,6 @@ func _ready() -> void:
 	empty_garbage()
 
 func _process(_delta) -> void:
-	#print('Dump position = '+str(dump.global_position))
-	#print('Arrow position = '+str($ArrowToDump.global_position))
-	#print('Angle = '+str(global_position.direction_to(dump.global_position).angle()))
 	
 	var distance = (dump.global_position - $ArrowToDump.global_position).length()
 	if distance < 600:
@@ -196,6 +193,7 @@ func add_garbage():
 		vacuum.disabled = true
 	
 func empty_garbage():
+	var old_score = score
 	if (storage != 0):
 		var temp_score = 0
 		for n in storage:
@@ -208,6 +206,15 @@ func empty_garbage():
 		bar.value = storage
 		$EmptySound.play()
 		vacuum.disabled = false
+		print('Old score'+ str(old_score / 100))
+		print('New score'+ str(score / 100))
+		if old_score / 100 != score / 100:
+			show_upgrades()
+			
+		
+func show_upgrades():
+	$MainCamera/CanvasLayer/UI/Upgrades/Grid.show()
+	$MainCamera/CanvasLayer/UI/Upgrades.generate_upgrades()
 func modify_score(new_score):
 	score += new_score 
 	scoreNode.text = '$'+str(score)
@@ -228,7 +235,7 @@ func stop_boosting():
 func upgrade(upgrade):
 	match upgrade.effect:
 		'Boost_Speed_Upgrade':
-			speed += 100
+			boost += 100
 		'Brake_Upgrade':
 			braking -= 50
 		'Engine_Upgrade':
@@ -411,14 +418,19 @@ shape = SubResource("RectangleShape2D_e2tdl")
 
 [node name="EmptySound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_nmbvf")
+volume_db = -9.886
 
 [node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_m66w2")
 volume_db = -33.878
 
 [node name="ArrowToDump" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.5254902)
 rotation = -1.5707964
 texture = ExtResource("15_nmbvf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
@@ -427,3 +439,4 @@ texture = ExtResource("15_nmbvf")
 [connection signal="not_drift" from="." to="SkidLeft" method="_on_car_not_drift"]
 [connection signal="not_drift" from="." to="TyreScreech" method="_on_car_not_drift"]
 [connection signal="area_entered" from="DumpingHitbox" to="." method="_on_dumping_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="show_upgrades"]
