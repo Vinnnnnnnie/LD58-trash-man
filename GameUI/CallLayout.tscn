@@ -90,7 +90,7 @@ libraries = {
 }
 
 [node name="RandomEventTimer" type="Timer" parent="." groups=["timer_cutscene_pausable"]]
-wait_time = 119.334
+wait_time = 43.47
 autostart = true
 
 [connection signal="dialogue_finished" from="InCall" to="." method="_on_in_call_dialogue_finished"]

@@ -4,6 +4,7 @@ extends Node2D
 @onready var dialogue_system = get_tree().get_first_node_in_group('dialogue_system')
 @onready var upgrade_menu = get_tree().get_first_node_in_group('upgrade_menu')
 @onready var timer_menu = get_tree().get_first_node_in_group('timer_menu')
+@onready var ui_scene = get_tree().get_first_node_in_group('ui_scene')
 @onready var story_dialogue = dialogue_system.story_dialogue
 
 var upgrades = [{
@@ -68,7 +69,6 @@ var upgrades = [{
 	}
 ]
 
-
 var introduction_difficulty = 1
 var story_sequence_number = 1
 
@@ -76,9 +76,14 @@ var overall_amount_dumped = 0
 
 func _ready() -> void:
 	dialogue_system.add_story_dialogue_to_queue(['Introduction'])
+	player.connect('dumped_garbage', _on_dumped_garbage)
 	dialogue_system.connect('phone_ringing_started', _on_phone_ringing_started)
 	dialogue_system.connect('phone_answered', _on_phone_answered)
 	dialogue_system.connect('phone_call_dialogue_started', _on_phone_call_dialogue_started)
+	dialogue_system.connect('phone_call_ended', _on_phone_call_ended)
+	dialogue_system.connect('failed_qte', _on_failed_qte)
+	
+	dialogue_system.difficulty_level = introduction_difficulty
 	
 func pause_timers() -> void:
 	for timer in get_tree().get_nodes_in_group("timer_cutscene_pausable"):
@@ -92,15 +97,31 @@ func _process(delta: float) -> void:
 	main_game_logic()
 	
 func main_game_logic() -> void:
-	if dialogue_system.is_dialogue_playing:
-		pause_timers()
-	else:
-		resume_timers()
+	pass
+		
+func end_game(reason: String = ""):
+	pause_timers()
+	ui_scene.fail_screen_start(reason)
 
-func _on_car_dumped_garbage(amount_dumped: Variant) -> void:
+# CHECKS PROGRESSION ON GARBAGE DUMP, THIS IS WHERE STORY DIALOGUE GETS PLAYED
+func progression_check_logic():
+	if overall_amount_dumped >= 5 and overall_amount_dumped < 20:
+		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 1'])
+
+func _on_dumped_garbage(amount_dumped: Variant) -> void:
+	print('DUMPED: ', amount_dumped)
 	overall_amount_dumped += amount_dumped
 	
+	progression_check_logic()
+	
 func _on_phone_ringing_started() -> void:
+	pause_timers()
+	
+	print(dialogue_system.difficulty_level)
+	
+	if dialogue_system.difficulty_level == 1:
+		player.paused_player_movement = true
+	
 	print('phone started')
 	
 func _on_phone_answered() -> void:
@@ -108,3 +129,17 @@ func _on_phone_answered() -> void:
 	
 func _on_phone_call_dialogue_started() -> void:
 	print('yapping begins')
+	
+func _on_phone_call_ended() -> void:
+	resume_timers()
+	print(dialogue_system.difficulty_level)
+	
+	if dialogue_system.difficulty_level == 1:
+		player.paused_player_movement = false
+		dialogue_system.difficulty_level += 1
+	
+	print('yapping ended')
+	
+func _on_failed_qte() -> void:
+	if dialogue_system.difficulty_level == 1:
+		end_game('PICK UP THE TUTORIAL PHONE CALL NUMB NUTS')

@@ -13,6 +13,8 @@ var is_main_dialogue_playing = false
 signal phone_ringing_started
 signal phone_answered
 signal phone_call_dialogue_started
+signal phone_call_ended
+signal failed_qte
 
 var random_dialogue : Array
 var random_joel_dialogue : Array
@@ -82,7 +84,7 @@ func qte_passed() -> void:
 	anim_play.play("qte_passed")
 	
 func qte_failed() -> void:
-	end_game()
+	emit_signal('failed_qte')
 	print('failed qte')
 	
 func start_main_dialogue() -> void:
@@ -101,18 +103,20 @@ func get_current_scenes() -> Array:
 func end_dialogue() -> void:
 	reset_animation_player()
 	current_scenes_at_play = []
-	difficulty_level += 1
+	emit_signal("phone_call_ended")
 	is_main_dialogue_playing = false
 	is_dialogue_playing = false
 	
-func end_game():
-	get_parent().fail_screen_start()
+func end_game(reason: String = ""):
+	get_parent().fail_screen_start(reason)
 
 ### Adds on random dialogue after set time by timer
 func _on_random_event_timer_timeout() -> void:
 	var random_dialogue_joel_and_wife = []
 	random_dialogue_joel_and_wife.append(random_joel_dialogue.pick_random())
 	random_dialogue_joel_and_wife.append(random_wife_dialogue.pick_random())
+	
+	difficulty_level += 1
 	add_to_dialogue_queue(random_dialogue_joel_and_wife)
 
 ### Final call when dialogue is finished, plays final animations which ends dialogue
