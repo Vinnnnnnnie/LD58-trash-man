@@ -303,9 +303,8 @@ shape = SubResource("CircleShape2D_j3qog")
 [node name="Timer" type="Timer" parent="GarbageArea3" groups=["timer_cutscene_pausable"]]
 autostart = true
 
-[node name="Music" type="AudioStreamPlayer" parent="." groups=["timer_cutscene_pausable"]]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_ucnns")
-volume_db = -20.085
 autoplay = true
 
 [connection signal="dumped_garbage" from="car" to="." method="_on_car_dumped_garbage"]
