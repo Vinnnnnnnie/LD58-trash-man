@@ -81,6 +81,8 @@ var overall_amount_dumped = 0
 
 const time_gained_from_each_garbage = 5.0
 
+var rat_ringing = false
+
 func _ready() -> void:
 	if GlobalScript.tutorial_finished == false:
 		dialogue_system.add_story_dialogue_to_queue(['Introduction'])
@@ -112,6 +114,7 @@ func _process(delta: float) -> void:
 	main_game_logic()
 	
 func main_game_logic() -> void:
+	print(story_sequence_number)
 	pass
 	
 func accepted_rat_offer():
@@ -184,9 +187,11 @@ func _on_phone_ringing_started() -> void:
 	game_music.volume_db = -32
 	if dialogue_system.difficulty_level == 1:
 		pause_timers()
+		
+	if story_sequence_number == 9:
+		rat_ringing = true
 	
-	
-	if dialogue_system.difficulty_level == 1:
+	if dialogue_system.difficulty_level == 1 and GlobalScript.tutorial_finished == false:
 		player.paused_player_movement = true
 	
 	
@@ -205,7 +210,8 @@ func _on_phone_call_ended() -> void:
 		player.paused_player_movement = false
 		dialogue_system.difficulty_level += 1
 		
-	if story_sequence_number == 3 or story_sequence_number == 5 or story_sequence_number == 7 or story_sequence_number == 9:
+	if story_sequence_number == 9 and rat_ringing == true:
+		rat_ringing = false
 		rat_menu.visible = true
 	
 func _on_failed_qte() -> void:
