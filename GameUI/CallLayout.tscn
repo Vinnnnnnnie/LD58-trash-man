@@ -1,18 +1,117 @@
-[gd_scene load_steps=11 format=3 uid="uid://o2n6ytyv7d7i"]
+[gd_scene load_steps=22 format=3 uid="uid://o2n6ytyv7d7i"]
 
 [ext_resource type="Script" uid="uid://b8khw6sasq54m" path="res://Scripts/DialogueSystem.gd" id="1_padce"]
 [ext_resource type="Script" uid="uid://junncipdmep" path="res://GameUI/in_call.gd" id="2_2va6q"]
 [ext_resource type="Texture2D" uid="uid://dmrt61k04n282" path="res://Images/ui_art/dialogue_background.png" id="2_hwvmr"]
-[ext_resource type="Texture2D" uid="uid://bo0nc33i1pqoa" path="res://Images/ui_art/joel_compressed.png" id="3_2va6q"]
+[ext_resource type="Texture2D" uid="uid://capvqtw3nuphh" path="res://Images/ui_art/My Bitch Wife mouth open copressed.png" id="3_4tdrv"]
+[ext_resource type="Texture2D" uid="uid://jv8noofukt0r" path="res://Images/ui_art/trashmans boss jole final open mouth.png" id="3_7s7fb"]
 [ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="3_padce"]
+[ext_resource type="Texture2D" uid="uid://21xrts8tv0uy" path="res://Images/ui_art/trashmans boss jole final closed mouth compressed.png" id="3_wbtyl"]
+[ext_resource type="Texture2D" uid="uid://d144pi3070hlm" path="res://Images/ui_art/My_Bitch_Wife_compressed.png" id="4_24dam"]
 [ext_resource type="Texture2D" uid="uid://bpg41hol63uhd" path="res://Images/ui_art/Phone.png" id="4_hwvmr"]
+[ext_resource type="Texture2D" uid="uid://bcyamf14cxvog" path="res://Images/ui_art/trashmans boss jole final closed mouth eyebrows up compressed.png" id="5_ejt48"]
+[ext_resource type="Texture2D" uid="uid://cij3jh6v5nol" path="res://Images/ui_art/My Bitch Wife mouth open eyborw up compressed.png" id="5_h8st2"]
+[ext_resource type="Texture2D" uid="uid://jnjpmdnmcdwb" path="res://Images/ui_art/Rat man closed mouth Compressed.png" id="6_7s7fb"]
 [ext_resource type="Script" uid="uid://bvrad0qggkoad" path="res://GameUI/receiving_call.gd" id="6_axps0"]
+[ext_resource type="Texture2D" uid="uid://bvhf78hggavnm" path="res://Images/ui_art/trashmans boss jole final closed mouth eyebrows down compressed.png" id="6_f2h7p"]
 [ext_resource type="PackedScene" uid="uid://dqlpr01adabrv" path="res://GameUI/KeyIconUI.tscn" id="6_jx7lv"]
+[ext_resource type="Texture2D" uid="uid://dm3nali0nrpsc" path="res://Images/ui_art/Rat man Compressed.png" id="7_5gmis"]
+[ext_resource type="Texture2D" uid="uid://cmnavdyuaxkvl" path="res://Images/ui_art/Rat man closed mouth eyebrows up mouth closed  Compressed.png" id="8_4lfiy"]
 [ext_resource type="AnimationLibrary" uid="uid://xhaqhog2ht12" path="res://Animations/CallLayoutAnimations.res" id="8_cijr2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5q3k4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7s7fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wbtyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7s7fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ejt48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7s7fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ejt48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7s7fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f2h7p")
+}],
+"loop": true,
+"name": &"Joel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7s7fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5gmis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7s7fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5gmis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4lfiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5gmis")
+}],
+"loop": true,
+"name": &"RatMan",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4tdrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_24dam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h8st2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h8st2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_24dam")
+}],
+"loop": true,
+"name": &"Wife",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jx7lv"]
 font = ExtResource("3_padce")
 font_size = 21
+
+[sub_resource type="GDScript" id="GDScript_2va6q"]
+script/source = "extends Label
+
+func _process(delta: float) -> void:
+	if len(text) > 40:
+		label_settings.font_size = 20
+	else:
+		label_settings.font_size = 21
+"
 
 [node name="CallLayout" type="Control" groups=["dialogue_system"]]
 layout_mode = 3
@@ -33,10 +132,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_2va6q")
 
-[node name="CharacterLogo" type="Sprite2D" parent="InCall"]
+[node name="CharacterLogo" type="AnimatedSprite2D" parent="InCall"]
 position = Vector2(984, 523)
 scale = Vector2(0.3352131, 0.25093612)
-texture = ExtResource("3_2va6q")
+sprite_frames = SubResource("SpriteFrames_5q3k4")
+animation = &"Joel"
+frame_progress = 0.89858526
 
 [node name="DialogueBackground" type="Sprite2D" parent="InCall"]
 position = Vector2(462, 553.00006)
@@ -45,13 +146,14 @@ texture = ExtResource("2_hwvmr")
 
 [node name="Label" type="Label" parent="InCall"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 512.0
-offset_right = 738.0
-offset_bottom = 599.0
+offset_left = 170.0
+offset_top = 500.0
+offset_right = 734.0
+offset_bottom = 612.0
 label_settings = SubResource("LabelSettings_jx7lv")
 vertical_alignment = 1
 autowrap_mode = 3
+script = SubResource("GDScript_2va6q")
 
 [node name="Phone" type="Sprite2D" parent="InCall"]
 position = Vector2(68, 549)

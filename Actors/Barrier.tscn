@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bakbrol7s14fq"]
+[gd_scene load_steps=6 format=3 uid="uid://bakbrol7s14fq"]
 
 [ext_resource type="Texture2D" uid="uid://ccb6ydt4xd7i4" path="res://Images/dirt_roads/Alternative Ref tile/oh lord he comen.png" id="1_0vwgx"]
 [ext_resource type="Script" uid="uid://b8d5s5qr6pr2l" path="res://Scripts/Barrier.gd" id="1_w40x0"]
@@ -14,14 +14,22 @@ animations = [{
 "texture": ExtResource("2_v35un")
 }],
 "loop": false,
-"name": &"new_animation",
+"name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w40x0"]
+size = Vector2(200, 201)
 
 [node name="Barrier" type="Node2D"]
 script = ExtResource("1_w40x0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v35un")
-animation = &"new_animation"
 speed_scale = 0.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_w40x0")

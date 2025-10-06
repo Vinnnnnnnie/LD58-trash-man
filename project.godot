@@ -39,6 +39,9 @@ timer_cutscene_pausable="pauses the timer when dialogue is started"
 dumping_ground=""
 main_map=""
 ui_scene=""
+blockade_docks="blockade group for docks"
+blockade_city="blockade group for city"
+blockade_park="blockade group for park"
 
 [input]
 

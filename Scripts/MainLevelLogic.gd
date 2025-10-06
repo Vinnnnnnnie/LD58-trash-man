@@ -69,7 +69,13 @@ var upgrades = [{
 	}
 ]
 
-var game_timeout_lines = ["PICK UP THE TUTORIAL PHONE CALL NUMB NUTS",""]
+var game_timeout_lines = ["MY GRANNY DRIVES FASTER THAN YOU AND SHE'S A PARAPLEGIC",
+						"DO YOU WANT A FASTER TRUCK NEXT TIME? TOUGH LUCK","WE TESTED THIS ON CHIMPANZEES AND THEY DRIVE FASTER THAN YOU",
+						"HOW DOES IT FEEL TO BE REPLACED BY A RAT?","MAKE SURE TO TELL YOUR PARENTS THAT YOU'RE A DISAPPOINTMENT",
+						"YOU'RE ABOUT AS MUCH USE AS A FISH WITH TITS","YOU THOUGHT WE WERE UGLY YOU LOOK LIKE THE ARTISTS DREW YOU WITH THEIR LEFT HAND!",
+						"LOOK AT ALL THIS TRASH JUST LAYIN AROUND! YOU'RE ONE LAZY SON OF A BITCH","MY WIFES ALWAYS GETTING ON AT ME ABOUT BEING LAZY BUT HERES YOU TAKIN FIRST PLACE",
+						"I THINK YOU WOULD HAVE A BETTER TIME WORKING AT THAT HAPPY SHOPPER UP THE ROAD AS A FLOOR CLEANER"] 
+
 
 var introduction_difficulty = 1
 var story_sequence_number = 1
@@ -192,7 +198,7 @@ func _on_phone_call_ended() -> void:
 	
 func _on_failed_qte() -> void:
 	if dialogue_system.difficulty_level == 1:
-		end_game(game_timeout_lines.pick_random())
+		end_game("PICK UP THE TUTORIAL PHONE CALL NUMB NUTS")
 		
 func on_game_timeout() -> void:
-	end_game('Wow, you really were slow, now you are unemployed')
+	end_game(game_timeout_lines.pick_random())
