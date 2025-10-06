@@ -105,7 +105,7 @@ func end_game(reason: String = ""):
 
 # CHECKS PROGRESSION ON GARBAGE DUMP, THIS IS WHERE STORY DIALOGUE GETS PLAYED
 func progression_check_logic():
-	if overall_amount_dumped > 5 and overall_amount_dumped < 20:
+	if overall_amount_dumped >= 5 and overall_amount_dumped < 20:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 1'])
 
 func _on_dumped_garbage(amount_dumped: Variant) -> void:
