@@ -28,11 +28,5 @@ func cool_rotation_back():
 	
 	tween.tween_callback(cool_rotation)
 	
-func pause_timer() -> void:
-	$Timer.paused = true
-	
-func resume_timer() -> void:
-	$Timer.paused = false
-	
 func _on_timer_timeout() -> void:
 	emit_signal('game_over')

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://jmpin0rvwy7q" path="res://Images/atlases/rocks_atlas.png" id="13_2sqcg"]
 [ext_resource type="Texture2D" uid="uid://dxn2b00muhjat" path="res://Images/atlases/dirt_atlas.png" id="13_n73vu"]
 [ext_resource type="Texture2D" uid="uid://deta1sqjnkl7s" path="res://Images/road tiles/Dead_End_Roadblock.png" id="16_j3qog"]
-[ext_resource type="Script" path="res://Worlds/garbage_spawn_1.gd" id="19_y8dtt"]
+[ext_resource type="Script" uid="uid://ddjvpjki8ivag" path="res://Worlds/garbage_spawn_1.gd" id="19_y8dtt"]
 [ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="20_n73vu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcibb"]
