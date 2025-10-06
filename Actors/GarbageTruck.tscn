@@ -191,7 +191,8 @@ func add_garbage():
 	storage += 1
 	label.text = str(storage) + '/' + str(storageTotal)
 	bar.value = storage
-	if storage == storageTotal:
+	if storage >= storageTotal:
+		storageNode.storage_full()
 		vacuum.disabled = true
 	
 func empty_garbage():
