@@ -5,6 +5,7 @@ extends Node2D
 @onready var upgrade_menu = get_tree().get_first_node_in_group('upgrade_menu')
 @onready var timer_menu = get_tree().get_first_node_in_group('timer_menu')
 @onready var ui_scene = get_tree().get_first_node_in_group('ui_scene')
+@onready var game_music = get_tree().get_first_node_in_group('game_music')
 @onready var story_dialogue = dialogue_system.story_dialogue
 
 var upgrades = [{
@@ -101,10 +102,7 @@ func _ready() -> void:
 	
 func pause_timers() -> void:
 	for timer in get_tree().get_nodes_in_group("timer_cutscene_pausable"):
-		if timer is AudioStreamPlayer:
-			timer.stop()
-		else:
-			timer.paused = true
+		timer.paused = true
 	
 func resume_timers() -> void:
 	for timer in get_tree().get_nodes_in_group("timer_cutscene_pausable"):
@@ -123,12 +121,17 @@ func end_game(reason: String = ""):
 	pause_timers()
 	ui_scene.fail_screen_start(reason)
 
+func clear_barriers(group_name):
+	for barrier in get_tree().get_nodes_in_group(group_name):
+		barrier.clear_blockade()
+
 # CHECKS PROGRESSION ON GARBAGE DUMP, THIS IS WHERE STORY DIALOGUE GETS PLAYED
 func progression_check_logic():
 	### FIRST COMBO SEQUENCE <40 TOTAL
 	if overall_amount_dumped >= 5 and overall_amount_dumped < 20 and story_sequence_number == 1:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 1'])
 		story_sequence_number += 1
+		clear_barriers('blockade_city')
 		
 	if overall_amount_dumped >= 20 and overall_amount_dumped < 40 and story_sequence_number == 2:
 		dialogue_system.add_story_dialogue_to_queue(['Quit attempt 1'])
@@ -138,6 +141,7 @@ func progression_check_logic():
 	if overall_amount_dumped >= 40 and overall_amount_dumped < 60 and story_sequence_number == 3:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 2'])
 		story_sequence_number += 1
+		clear_barriers('blockade_park')
 		
 	if overall_amount_dumped >= 60 and overall_amount_dumped < 80 and story_sequence_number == 4:
 		dialogue_system.add_story_dialogue_to_queue(['Quit attempt 2'])
@@ -147,6 +151,7 @@ func progression_check_logic():
 	if overall_amount_dumped >= 80 and overall_amount_dumped < 100 and story_sequence_number == 5:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 3'])
 		story_sequence_number += 1
+		clear_barriers('blockade_docks')
 		
 	if overall_amount_dumped >= 100 and overall_amount_dumped < 120 and story_sequence_number == 6:
 		dialogue_system.add_story_dialogue_to_queue(['Quit attempt 3'])
@@ -171,7 +176,9 @@ func _on_dumped_garbage(amount_dumped: Variant) -> void:
 	progression_check_logic()
 	
 func _on_phone_ringing_started() -> void:
-	pause_timers()
+	game_music.volume_db = -32
+	if dialogue_system.difficulty_level == 1:
+		pause_timers()
 	
 	print(dialogue_system.difficulty_level)
 	
@@ -187,6 +194,7 @@ func _on_phone_call_dialogue_started() -> void:
 	print('yapping begins')
 	
 func _on_phone_call_ended() -> void:
+	game_music.volume_db = -18
 	resume_timers()
 	print(dialogue_system.difficulty_level)
 	

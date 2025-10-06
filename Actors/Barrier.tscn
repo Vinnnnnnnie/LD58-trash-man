@@ -35,6 +35,7 @@ size = Vector2(200, 201)
 
 [node name="Barrier" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_v35un")
+frame = 1
 speed_scale = 0.0
 script = ExtResource("1_w40x0")
 

@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://deta1sqjnkl7s" path="res://Images/road tiles/Dead_End_Roadblock.png" id="16_j3qog"]
 [ext_resource type="Script" uid="uid://ddjvpjki8ivag" path="res://Worlds/garbage_spawn_1.gd" id="19_y8dtt"]
 [ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="20_n73vu"]
-[ext_resource type="Script" uid="uid://ckmrbb2topeab" path="res://Worlds/garbage_area_2.gd" id="21_y8dtt"]
-[ext_resource type="Script" uid="uid://b2qqopwwty0hq" path="res://Worlds/garbage_area_3.gd" id="22_ucnns"]
+[ext_resource type="Script" path="res://Worlds/garbage_area_2.gd" id="21_y8dtt"]
+[ext_resource type="Script" path="res://Worlds/garbage_area_3.gd" id="22_ucnns"]
 [ext_resource type="AudioStream" uid="uid://sk0bor1bwuoe" path="res://Sounds/Music/Gameplay ver1 trimmed for looping.mp3" id="23_ucnns"]
 [ext_resource type="PackedScene" uid="uid://cddbjwc0mqpg2" path="res://Actors/Barrier.tscn" id="26_egiwf"]
 
@@ -332,10 +332,11 @@ shape = SubResource("CircleShape2D_egiwf")
 wait_time = 0.25
 autostart = true
 
-[node name="Music" type="AudioStreamPlayer" parent="." groups=["timer_cutscene_pausable"]]
+[node name="Music" type="AudioStreamPlayer" parent="." groups=["game_music"]]
 stream = ExtResource("23_ucnns")
 volume_db = -20.085
 autoplay = true
+parameters/looping = true
 
 [node name="Barrier" parent="." groups=["blockade_park"] instance=ExtResource("26_egiwf")]
 position = Vector2(1900, -99)

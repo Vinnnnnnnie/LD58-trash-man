@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byv2kf8x2xtyj"]
+[gd_scene load_steps=11 format=3 uid="uid://byv2kf8x2xtyj"]
 
 [ext_resource type="Script" uid="uid://v5og1kr8hem" path="res://Scripts/UI/MainMenu.gd" id="1_0c04o"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="1_64qbs"]
@@ -7,12 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://d2cvfvy6lkc7l" path="res://Images/ui_art/new_game.png" id="3_xt3es"]
 [ext_resource type="Texture2D" uid="uid://3vwako0id15t" path="res://Images/ui_art/quit.png" id="4_glbkd"]
 [ext_resource type="Texture2D" uid="uid://cn2amq2kqh510" path="res://Images/ui_art/settings.png" id="5_kp6bd"]
+[ext_resource type="Script" uid="uid://ddjvpjki8ivag" path="res://Worlds/garbage_spawn_1.gd" id="8_kp6bd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ghvg"]
 font = ExtResource("2_6xr4h")
 font_size = 146
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fel3"]
+radius = 721.15
+
 [node name="MainMenu" type="Node2D"]
+scale = Vector2(0.57445645, 0.57445645)
 script = ExtResource("1_0c04o")
 
 [node name="Vacuum" parent="." instance=ExtResource("1_64qbs")]
@@ -21,7 +26,29 @@ position = Vector2(-83, 544)
 scale = Vector2(7.4690194, 7.4690194)
 
 [node name="PathFollow2D" parent="Vacuum/Path2D" index="0"]
-position = Vector2(93.297226, 0)
+position = Vector2(93.29552, 0)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D" index="0"]
+scale = Vector2(1.0000005, 1.0000005)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D" index="0"]
+position = Vector2(14.999999, 0)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(1.0000019, 1.0000019)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D" index="0"]
+position = Vector2(15.000914, 0)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(0.9999997, 0.9999997)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(0.99999964, 0.99999964)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(0.9999993, 0.9999993)
 
 [node name="VacuumArea" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D" index="2"]
 scale = Vector2(0.23914301, 0.23914301)
@@ -52,23 +79,6 @@ scale = Vector2(1.2897664, 1.2897664)
 theme_override_font_sizes/font_size = 76
 icon = ExtResource("3_xt3es")
 
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 868.00006
-offset_top = 520.0
-offset_right = 1076.0001
-offset_bottom = 578.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2897664, 1.2897664)
-theme_override_font_sizes/font_size = 76
-icon = ExtResource("4_glbkd")
-
 [node name="Button3" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
@@ -86,6 +96,23 @@ rotation = 0.17362644
 scale = Vector2(1.2897664, 1.2897664)
 theme_override_font_sizes/font_size = 76
 icon = ExtResource("5_kp6bd")
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 868.0001
+offset_top = 520.0
+offset_right = 1076.0002
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2897664, 1.2897664)
+theme_override_font_sizes/font_size = 76
+icon = ExtResource("4_glbkd")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
@@ -114,6 +141,23 @@ rotation = 0.95757115
 position = Vector2(1003, 535)
 rotation = 0.95757115
 
+[node name="GarbageSpawn1" type="Area2D" parent="."]
+position = Vector2(53.96402, 349.89597)
+script = ExtResource("8_kp6bd")
+garbageScene = ExtResource("3_3ghvg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageSpawn1"]
+shape = SubResource("CircleShape2D_3fel3")
+
+[node name="Timer" type="Timer" parent="GarbageSpawn1" groups=["timer_cutscene_pausable"]]
+wait_time = 1.5
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(591.86383, 323.78433)
+zoom = Vector2(1.69, 1.69)
+
 [connection signal="button_up" from="Control/NewGame" to="." method="_on_button_button_up"]
+[connection signal="timeout" from="GarbageSpawn1/Timer" to="GarbageSpawn1" method="_on_timer_timeout"]
 
 [editable path="Vacuum"]
