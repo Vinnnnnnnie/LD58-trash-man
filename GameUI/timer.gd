@@ -32,7 +32,6 @@ func gain_time(time_gained):
 	$GainAmount.text = "+ " + str(time_gained)
 	$AnimationPlayer.play("gain_time")
 	$Timer.start($Timer.time_left + time_gained)
-	print('Waittime:'+str($Timer.time_left))
 
 func _on_timer_timeout() -> void:
 	emit_signal('game_over')

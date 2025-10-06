@@ -11,6 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 func clear_grid():
-	print('All my children', self.get_children())
 	for child in self.get_children():
 		child.queue_free()

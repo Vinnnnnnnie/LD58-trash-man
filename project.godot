@@ -43,6 +43,7 @@ blockade_docks="blockade group for docks"
 blockade_city="blockade group for city"
 blockade_park="blockade group for park"
 game_music=""
+area_unlocked=""
 
 [input]
 

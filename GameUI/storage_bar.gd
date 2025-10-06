@@ -26,7 +26,6 @@ func _process(delta: float) -> void:
 	pass
 	
 func storage_full():
-	print('FULL')
 	$StorageLabel.text = 'FULL'
 	tween_speed = 0.25
 	rotation_disabled = false
@@ -35,7 +34,6 @@ func storage_full():
 	
 
 func storage_empty():
-	print('NOT FULL')
 	
 	tween_speed = 0.25
 	rotation_disabled = true
