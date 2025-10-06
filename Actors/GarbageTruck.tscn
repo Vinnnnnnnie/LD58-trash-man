@@ -61,9 +61,6 @@ func _ready() -> void:
 	empty_garbage()
 
 func _process(_delta) -> void:
-	print('Dump position = '+str(dump.global_position))
-	print('Arrow position = '+str($ArrowToDump.global_position))
-	print('Angle = '+str(global_position.direction_to(dump.global_position).angle()))
 	
 	var distance = (dump.global_position - $ArrowToDump.global_position).length()
 	if distance < 600:
@@ -196,6 +193,7 @@ func add_garbage():
 		vacuum.disabled = true
 	
 func empty_garbage():
+	var old_score = score
 	if (storage != 0):
 		var temp_score = 0
 		for n in storage:
@@ -208,6 +206,14 @@ func empty_garbage():
 		bar.value = storage
 		$EmptySound.play()
 		vacuum.disabled = false
+		print('Old score'+ str(old_score / 100))
+		print('New score'+ str(score / 100))
+		if old_score / 100 != score / 100:
+			
+			$MainCamera/CanvasLayer/UI/Upgrades/Grid.show()
+			$MainCamera/CanvasLayer/UI/Upgrades.generate_upgrades()
+			
+		
 func modify_score(new_score):
 	score += new_score 
 	scoreNode.text = '$'+str(score)
@@ -411,6 +417,7 @@ shape = SubResource("RectangleShape2D_e2tdl")
 
 [node name="EmptySound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_nmbvf")
+volume_db = -9.886
 
 [node name="UpgradeSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_m66w2")

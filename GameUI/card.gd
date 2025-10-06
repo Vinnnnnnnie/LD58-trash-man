@@ -6,7 +6,7 @@ var player
 var upgrade_ui
 var upgrade_description
 var upgrade_level
-var UPGRADES := [
+@onready var UPGRADES := [
 	{
 		"image":"res://Images/upgrades/Brake_Upgrade.png",
 		"effect":"Brake_Upgrade",
@@ -58,7 +58,7 @@ var UPGRADES := [
 	{
 		"image":"res://Images/upgrades/Reverse_Gear_Upgrade.png",
 		"effect":"Reverse_Gear_Upgrade",
-		"description": "Caught the end of one of those racing movies tryina watch last night's to wrestling championship. If you could drive backwards like that, you wouldn't have to waste time turning.",
+		"description": "Caught the end of one of those racing movies tryina watch last night's wrestling. If you could drive backwards like that, you wouldn't have to waste time turning.",
 		"level":1
 	},
 	{
@@ -93,6 +93,8 @@ func _process(delta: float) -> void:
 func _on_button_down() -> void:
 	player.upgrade(upgrade)
 	upgrade_ui.hide()
+	for child in upgrade_ui.get_children():
+		child.queue_free()
 	upgrade_level += 1
 	
 	

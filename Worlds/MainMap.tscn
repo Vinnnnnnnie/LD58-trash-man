@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cq8dodue411k5"]
+[gd_scene load_steps=43 format=4 uid="uid://cq8dodue411k5"]
 
 [ext_resource type="PackedScene" uid="uid://glakh53sg2yi" path="res://Actors/GarbageTruck.tscn" id="1_foosq"]
 [ext_resource type="Script" uid="uid://cwxvxp2axrafe" path="res://Scripts/MainLevelLogic.gd" id="1_i2jb3"]
@@ -18,8 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://jmpin0rvwy7q" path="res://Images/atlases/rocks_atlas.png" id="13_2sqcg"]
 [ext_resource type="Texture2D" uid="uid://dxn2b00muhjat" path="res://Images/atlases/dirt_atlas.png" id="13_n73vu"]
 [ext_resource type="Texture2D" uid="uid://deta1sqjnkl7s" path="res://Images/road tiles/Dead_End_Roadblock.png" id="16_j3qog"]
-[ext_resource type="Script" path="res://Worlds/garbage_spawn_1.gd" id="19_y8dtt"]
+[ext_resource type="Script" uid="uid://ddjvpjki8ivag" path="res://Worlds/garbage_spawn_1.gd" id="19_y8dtt"]
 [ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="20_n73vu"]
+[ext_resource type="Script" uid="uid://ckmrbb2topeab" path="res://Worlds/garbage_area_2.gd" id="21_y8dtt"]
+[ext_resource type="Script" uid="uid://b2qqopwwty0hq" path="res://Worlds/garbage_area_3.gd" id="22_ucnns"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcibb"]
 texture = ExtResource("2_bp4l6")
@@ -273,12 +275,32 @@ garbageScene = ExtResource("20_n73vu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageSpawn1"]
 shape = SubResource("CircleShape2D_j3qog")
 
-[node name="Timer" type="Timer" parent="GarbageSpawn1"]
+[node name="Timer" type="Timer" parent="GarbageSpawn1" groups=["timer_cutscene_pausable"]]
 autostart = true
 
 [node name="GarbageArea2" type="Area2D" parent="."]
+script = ExtResource("21_y8dtt")
+garbageScene = ExtResource("20_n73vu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageArea2"]
+position = Vector2(1648, -100)
+scale = Vector2(1.443907, 1.0060464)
+shape = SubResource("CircleShape2D_j3qog")
+
+[node name="Timer" type="Timer" parent="GarbageArea2" groups=["timer_cutscene_pausable"]]
+autostart = true
 
 [node name="GarbageArea3" type="Area2D" parent="."]
+position = Vector2(-1636, -618)
+scale = Vector2(2.8379514, 1.8781416)
+script = ExtResource("22_ucnns")
+garbageScene = ExtResource("20_n73vu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageArea3"]
+shape = SubResource("CircleShape2D_j3qog")
+
+[node name="Timer" type="Timer" parent="GarbageArea3" groups=["timer_cutscene_pausable"]]
+autostart = true
 
 [connection signal="dumped_garbage" from="car" to="." method="_on_car_dumped_garbage"]
 [connection signal="timeout" from="GarbageSpawn1/Timer" to="GarbageSpawn1" method="_on_timer_timeout"]
