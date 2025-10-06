@@ -191,7 +191,7 @@ func _on_phone_ringing_started() -> void:
 	if story_sequence_number == 9:
 		rat_ringing = true
 	
-	if dialogue_system.difficulty_level == 1:
+	if dialogue_system.difficulty_level == 1 and GlobalScript.tutorial_finished == false:
 		player.paused_player_movement = true
 	
 	
