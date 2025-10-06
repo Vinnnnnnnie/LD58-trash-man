@@ -296,12 +296,11 @@ wait_time = 1.5
 autostart = true
 
 [node name="GarbageArea2" type="Area2D" parent="."]
-position = Vector2(295, -269)
+position = Vector2(3157, 0)
 script = ExtResource("21_y8dtt")
 garbageScene = ExtResource("20_n73vu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageArea2"]
-position = Vector2(2933, 195)
 shape = SubResource("CircleShape2D_j3qog")
 
 [node name="Timer" type="Timer" parent="GarbageArea2" groups=["timer_cutscene_pausable"]]
@@ -309,12 +308,12 @@ wait_time = 0.6
 autostart = true
 
 [node name="GarbageArea3" type="Area2D" parent="."]
-position = Vector2(-4762, -922)
+position = Vector2(-5257, -1216)
 script = ExtResource("22_ucnns")
 garbageScene = ExtResource("20_n73vu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageArea3"]
-position = Vector2(-144.47041, -29.816696)
+position = Vector2(0, -1216)
 shape = SubResource("CircleShape2D_egiwf")
 
 [node name="Timer" type="Timer" parent="GarbageArea3" groups=["timer_cutscene_pausable"]]
@@ -328,3 +327,5 @@ autoplay = true
 
 [connection signal="dumped_garbage" from="car" to="." method="_on_car_dumped_garbage"]
 [connection signal="timeout" from="GarbageSpawn1/Timer" to="GarbageSpawn1" method="_on_timer_timeout"]
+[connection signal="timeout" from="GarbageArea2/Timer" to="GarbageArea2" method="_on_timer_timeout"]
+[connection signal="timeout" from="GarbageArea3/Timer" to="GarbageArea3" method="_on_timer_timeout"]
