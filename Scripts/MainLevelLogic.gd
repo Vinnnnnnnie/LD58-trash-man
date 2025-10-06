@@ -85,7 +85,7 @@ var overall_amount_dumped = 0
 const time_gained_from_each_garbage = 2.0
 
 func _ready() -> void:
-	#dialogue_system.add_story_dialogue_to_queue(['Introduction'])
+	dialogue_system.add_story_dialogue_to_queue(['Introduction'])
 	
 	player.connect('dumped_garbage', _on_dumped_garbage)
 	
