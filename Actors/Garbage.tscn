@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drccq6fkpgosi"]
+[gd_scene load_steps=14 format=3 uid="uid://drccq6fkpgosi"]
 
 [ext_resource type="Texture2D" uid="uid://c118ecght81ss" path="res://Images/atlases/Garbage_Atlas.png" id="1_0cw4x"]
 [ext_resource type="Script" uid="uid://uaqow8xvb0r1" path="res://Scripts/GarbageLogic.gd" id="1_n3opu"]
@@ -16,13 +16,51 @@ stream_0/stream = ExtResource("3_vtsen")
 stream_1/stream = ExtResource("4_sqjqv")
 stream_2/stream = ExtResource("5_nlepa")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqjqv"]
+atlas = ExtResource("1_0cw4x")
+region = Rect2(6, 0, 177, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlepa"]
+atlas = ExtResource("1_0cw4x")
+region = Rect2(183, 0, 177, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br0vj"]
+atlas = ExtResource("1_0cw4x")
+region = Rect2(6, 176, 177, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffc37"]
+atlas = ExtResource("1_0cw4x")
+region = Rect2(183, 176, 177, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbmmv"]
+atlas = ExtResource("1_0cw4x")
+region = Rect2(372, 0, 124, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbmmv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqjqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlepa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br0vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffc37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbmmv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Garbage" type="Node2D" groups=["garbage"]]
 script = ExtResource("1_n3opu")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_0cw4x")
-region_enabled = true
-region_rect = Rect2(-1, -0.5, 199, 167)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -32,5 +70,9 @@ shape = SubResource("RectangleShape2D_82t7b")
 
 [node name="GarbageNoise" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_vtsen")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gbmmv")
+speed_scale = 0.0
 
 [connection signal="sucked_in_garbage" from="." to="." method="_on_sucked_in_garbage"]

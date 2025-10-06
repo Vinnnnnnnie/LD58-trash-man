@@ -316,7 +316,7 @@ stream_1/stream = ExtResource("7_e2tdl")
 stream_2/stream = ExtResource("8_33fjo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2tdl"]
-size = Vector2(82, 28)
+size = Vector2(104, 38)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nmbvf"]
 streams_count = 3
@@ -336,12 +336,13 @@ script = SubResource("GDScript_7822p")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
 rotation = 1.5707964
-scale = Vector2(0.28381437, 0.36483884)
+scale = Vector2(0.47499287, 0.5791904)
 texture = ExtResource("1_eo6ux")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.3555584, 1.5541952e-08)
 rotation = 1.5707964
-scale = Vector2(0.109375, 0.15625)
+scale = Vector2(0.20812427, 0.23526329)
 polygon = PackedVector2Array(53.5, -231.5, -54.5, -231.5, -54.5, -228.5, -56, -223.5, -93.3, -223.5, -96.5, -220.3, -96.5, -215, -101.6, -213.5, -104.5, -213.5, -104.5, -111.5, -109.3, -111.5, -112.5, -108.3, -112.5, -103.5, -117.3, -103.5, -120.5, -100.3, -120.5, -95, -125.6, -93.5, -126.5, -93.5, -126.5, -73.399994, -126.3, -71.5, -104.5, -71.5, -104.5, 221.29999, -101.3, 224.5, -96.5, 224.5, -96.5, 229.29999, -93.3, 232.5, -88, 232.5, -86.5, 237.5, -86.5, 240.5, 84.3, 240.5, 87.5, 237.29999, 87.5, 232.5, 92.3, 232.5, 95.5, 229.29999, 95.5, 223.9, 100.600006, 222.5, 103.5, 222.5, 103.5, -71.7, 124.7, -73.5, 126.5, -73.5, 126.5, -93.3, 124.3, -95.5, 119.5, -95.5, 119.5, -100.3, 116.3, -103.5, 111, -103.5, 109.100006, -111.5, 103.5, -111.5, 103.5, -212.3, 100.3, -215.5, 95, -215.5, 93.5, -220.5, 93.5, -223.5, 55, -223.5, 53.5, -228.5)
 
 [node name="SkidRight" type="Line2D" parent="." node_paths=PackedStringArray("target")]
@@ -365,10 +366,10 @@ script = SubResource("GDScript_h4y3w")
 target = NodePath("../RearLeftWheel")
 
 [node name="RearRightWheel" type="Marker2D" parent="."]
-position = Vector2(-30, 9)
+position = Vector2(-44, 15)
 
 [node name="RearLeftWheel" type="Marker2D" parent="."]
-position = Vector2(-30, -8)
+position = Vector2(-44, -15)
 
 [node name="Vacuum" parent="." instance=ExtResource("2_eo6ux")]
 z_index = 30
@@ -380,6 +381,7 @@ volume_db = -20.0
 script = ExtResource("4_vsqci")
 
 [node name="MainCamera" parent="." instance=ExtResource("2_vigmq")]
+zoom = Vector2(0.995, 0.995)
 
 [node name="HoseSuckSounds" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_gvevi")

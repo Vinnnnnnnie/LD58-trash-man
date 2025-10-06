@@ -10,7 +10,10 @@ var suck_in_distance = 10
 
 signal sucked_in_garbage
 
+
 func _ready() -> void:
+	$AnimatedSprite2D.frame = randi() % 5
+
 	if player_vacuum == null:
 		player_vacuum = get_tree().get_first_node_in_group('player_vacuum')
 	player = get_tree().get_first_node_in_group('player')
