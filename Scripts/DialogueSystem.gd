@@ -35,6 +35,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	dialogue_queue_logic()
+	
+func pause_timer() -> void:
+	$RandomEventTimer.paused = true
+	
+func resume_timer() -> void:
+	$RandomEventTimer.paused = false
 
 ### CORE DIALOGUE LOGIC
 

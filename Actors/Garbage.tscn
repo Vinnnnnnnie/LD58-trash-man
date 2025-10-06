@@ -60,6 +60,7 @@ animations = [{
 }]
 
 [node name="Garbage" type="Node2D" groups=["garbage"]]
+scale = Vector2(0.34820807, 0.34820807)
 script = ExtResource("1_n3opu")
 
 [node name="Area2D" type="Area2D" parent="."]
