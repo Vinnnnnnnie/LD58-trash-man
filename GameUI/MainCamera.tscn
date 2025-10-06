@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://she2eapydd2m"]
+[gd_scene load_steps=11 format=3 uid="uid://she2eapydd2m"]
 
 [ext_resource type="Script" uid="uid://blg3hpd6xk6aw" path="res://GameUI/control.gd" id="1_0o8tf"]
 [ext_resource type="Script" uid="uid://ba3ahtcrtmn1y" path="res://GameUI/main_camera.gd" id="1_gxubn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b7hofxyabktbn" path="res://GameUI/boost_bar.tscn" id="7_o5f5x"]
 [ext_resource type="PackedScene" uid="uid://c3b8uyxwxqkri" path="res://GameUI/storage_bar.tscn" id="8_4lprt"]
 [ext_resource type="PackedScene" uid="uid://c5l4p36yrt33b" path="res://GameUI/FailScreen.tscn" id="9_0ywo4"]
+[ext_resource type="PackedScene" uid="uid://uj02wksdp0on" path="res://GameUI/arrow_to_dump.tscn" id="10_dffdu"]
 
 [node name="MainCamera" type="Camera2D"]
 zoom = Vector2(1.36, 1.36)
@@ -44,11 +45,6 @@ layout_mode = 1
 
 [node name="Upgrades" parent="CanvasLayer/UI" instance=ExtResource("6_nj31o")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 
 [node name="Timer" parent="CanvasLayer/UI" groups=["timer_menu"] instance=ExtResource("5_r63es")]
 layout_mode = 1
@@ -70,3 +66,17 @@ offset_bottom = 50.0
 [node name="FailScreen" parent="CanvasLayer/UI" instance=ExtResource("9_0ywo4")]
 process_mode = 1
 layout_mode = 1
+
+[node name="ArrowToDump" parent="CanvasLayer/UI" instance=ExtResource("10_dffdu")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 1
+grow_vertical = 1
