@@ -26,6 +26,7 @@ script = ExtResource("1_w40x0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v35un")
+frame = 1
 speed_scale = 0.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LD58-New-Trash_City"
-run/main_scene="uid://cq8dodue411k5"
+run/main_scene="uid://byv2kf8x2xtyj"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -42,6 +42,7 @@ ui_scene=""
 blockade_docks="blockade group for docks"
 blockade_city="blockade group for city"
 blockade_park="blockade group for park"
+game_music=""
 
 [input]
 

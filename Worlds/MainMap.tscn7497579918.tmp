@@ -321,11 +321,10 @@ shape = SubResource("CircleShape2D_egiwf")
 wait_time = 0.25
 autostart = true
 
-[node name="Music" type="AudioStreamPlayer" parent="." groups=["game_music"]]
+[node name="Music" type="AudioStreamPlayer" parent="." groups=["timer_cutscene_pausable"]]
 stream = ExtResource("23_ucnns")
 volume_db = -20.085
 autoplay = true
-parameters/looping = true
 
 [connection signal="dumped_garbage" from="car" to="." method="_on_car_dumped_garbage"]
 [connection signal="timeout" from="GarbageSpawn1/Timer" to="GarbageSpawn1" method="_on_timer_timeout"]
