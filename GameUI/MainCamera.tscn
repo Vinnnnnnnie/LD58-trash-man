@@ -50,7 +50,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
-[node name="Timer" parent="CanvasLayer/UI" instance=ExtResource("5_r63es")]
+[node name="Timer" parent="CanvasLayer/UI" groups=["timer_menu"] instance=ExtResource("5_r63es")]
 layout_mode = 1
 anchors_preset = 0
 anchor_left = 0.0

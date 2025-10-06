@@ -34,6 +34,8 @@ vacuum_scene=""
 boost_bar_scene=""
 Score=""
 storage_bar=""
+timer_menu=""
+timer_cutscene_pausable="pauses the timer when dialogue is started"
 
 [input]
 
