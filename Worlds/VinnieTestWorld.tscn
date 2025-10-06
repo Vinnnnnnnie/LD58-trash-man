@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://2bpr1ofcn26e"]
+[gd_scene load_steps=11 format=4 uid="uid://2bpr1ofcn26e"]
 
 [ext_resource type="Texture2D" uid="uid://cxt6bp5av7y64" path="res://Images/atlases/building_atlas.png" id="1_4iu8v"]
 [ext_resource type="Texture2D" uid="uid://b70k48y5dmawo" path="res://Images/atlases/tree_atlas.png" id="2_ixlek"]
 [ext_resource type="Texture2D" uid="uid://t1wdqbxk6qns" path="res://Images/atlases/road_atlas.png" id="2_mj41y"]
 [ext_resource type="PackedScene" uid="uid://glakh53sg2yi" path="res://Actors/GarbageTruck.tscn" id="2_ydkga"]
-[ext_resource type="PackedScene" uid="uid://drccq6fkpgosi" path="res://Actors/Garbage.tscn" id="5_ixlek"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixlek"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mj41y"]
 texture = ExtResource("2_mj41y")
 texture_region_size = Vector2i(200, 200)
 0:0/0 = 0
@@ -19,7 +18,7 @@ texture_region_size = Vector2i(200, 200)
 5:0/0 = 0
 6:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4iu8v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixlek"]
 texture = ExtResource("1_4iu8v")
 texture_region_size = Vector2i(200, 200)
 0:0/0 = 0
@@ -31,6 +30,14 @@ texture_region_size = Vector2i(200, 200)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4ylc"]
+texture = ExtResource("1_4iu8v")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73i1u"]
 texture = ExtResource("2_ixlek")
 texture_region_size = Vector2i(200, 200)
@@ -40,23 +47,21 @@ texture_region_size = Vector2i(200, 200)
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-100, -100, 100, -100, 100, 100, -100, 100)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4ylc"]
-texture = ExtResource("1_4iu8v")
-texture_region_size = Vector2i(200, 200)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
 3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_tg3ck"]
 tile_size = Vector2i(200, 200)
 physics_layer_0/collision_layer = 1
-sources/21 = SubResource("TileSetAtlasSource_4iu8v")
-sources/25 = SubResource("TileSetAtlasSource_73i1u")
-sources/1 = SubResource("TileSetAtlasSource_ixlek")
+sources/21 = SubResource("TileSetAtlasSource_ixlek")
+sources/1 = SubResource("TileSetAtlasSource_mj41y")
 sources/5 = SubResource("TileSetAtlasSource_f4ylc")
-tile_proxies/coords_level = [[0, Vector2i(0, 0)], [5, Vector2i(0, 0)], [1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [5, Vector2i(1, 0)], [3, Vector2i(0, 0)], [5, Vector2i(2, 0)], [4, Vector2i(0, 0)], [5, Vector2i(3, 0)], [5, Vector2i(0, 0)], [6, Vector2i(2, 0)], [6, Vector2i(0, 0)], [9, Vector2i(0, 0)], [6, Vector2i(1, 0)], [9, Vector2i(1, 0)], [6, Vector2i(2, 0)], [9, Vector2i(2, 0)], [7, Vector2i(0, 0)], [21, Vector2i(0, 0)], [7, Vector2i(1, 0)], [21, Vector2i(1, 0)], [7, Vector2i(2, 0)], [21, Vector2i(2, 0)], [8, Vector2i(0, 0)], [9, Vector2i(3, 0)], [9, Vector2i(0, 0)], [1, Vector2i(1, 0)], [9, Vector2i(1, 0)], [1, Vector2i(2, 0)], [9, Vector2i(2, 0)], [1, Vector2i(3, 0)], [9, Vector2i(3, 0)], [1, Vector2i(4, 0)], [9, Vector2i(4, 0)], [1, Vector2i(5, 0)], [9, Vector2i(5, 0)], [1, Vector2i(6, 0)], [20, Vector2i(0, 0)], [21, Vector2i(3, 0)], [22, Vector2i(0, 0)], [25, Vector2i(0, 0)], [23, Vector2i(0, 0)], [25, Vector2i(1, 0)], [24, Vector2i(0, 0)], [25, Vector2i(2, 0)]]
+sources/9 = SubResource("TileSetAtlasSource_73i1u")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [5, Vector2i(0, 0)], [1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [9, Vector2i(0, 0)], [2, Vector2i(1, 0)], [9, Vector2i(1, 0)], [2, Vector2i(2, 0)], [9, Vector2i(2, 0)], [2, Vector2i(3, 0)], [9, Vector2i(3, 0)], [3, Vector2i(0, 0)], [9, Vector2i(4, 0)], [4, Vector2i(0, 0)], [9, Vector2i(5, 0)], [5, Vector2i(0, 0)], [6, Vector2i(2, 0)], [6, Vector2i(0, 0)], [9, Vector2i(6, 0)], [6, Vector2i(1, 0)], [9, Vector2i(1, 0)], [6, Vector2i(2, 0)], [9, Vector2i(2, 0)], [7, Vector2i(0, 0)], [9, Vector2i(7, 0)], [7, Vector2i(1, 0)], [21, Vector2i(1, 0)], [7, Vector2i(2, 0)], [21, Vector2i(2, 0)], [8, Vector2i(0, 0)], [9, Vector2i(8, 0)], [9, Vector2i(0, 0)], [1, Vector2i(1, 0)], [9, Vector2i(1, 0)], [1, Vector2i(2, 0)], [9, Vector2i(2, 0)], [1, Vector2i(3, 0)], [9, Vector2i(3, 0)], [1, Vector2i(4, 0)], [9, Vector2i(4, 0)], [1, Vector2i(5, 0)], [9, Vector2i(5, 0)], [1, Vector2i(6, 0)], [20, Vector2i(0, 0)], [21, Vector2i(3, 0)], [22, Vector2i(0, 0)], [25, Vector2i(0, 0)], [23, Vector2i(0, 0)], [25, Vector2i(1, 0)], [24, Vector2i(0, 0)], [25, Vector2i(2, 0)], [25, Vector2i(0, 0)], [2, Vector2i(0, 0)], [25, Vector2i(1, 0)], [2, Vector2i(1, 0)], [25, Vector2i(2, 0)], [2, Vector2i(2, 0)], [30, Vector2i(0, 0)], [2, Vector2i(3, 0)]]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ixlek"]
 radius = 310.0
@@ -74,40 +79,8 @@ slip_speed = 325
 tile_map_data = PackedByteArray("AAACAP7/FQACAAAAAAD///3/FQADAAAAAAD+//7/FQABAAAAAAADAP7/FQABAAAAAAABAP3/FQACAAAAAAD+/wAAFQAAAAAAAAD//wEAFQAAAAAAAAACAAAAFQABAAAAAAADAAAAFQAAAAAAAAADAAEAFQACAAAAAAADAAIAFQACAAAAAAABAAIAFQABAAAAAAABAAEAFQACAAAAAAD//wIAFQAAAAAAAAD9/wAAFQADAAAAAAD9//7/FQABAAAAAAD///z/FQACAAAAAAABAPz/FQAAAAAAAAADAP3/FQAAAAAAAAADAPz/FQABAAAAAAACAPz/FQADAAAAAAD+//z/FQABAAAAAAD9//z/FQAAAAAAAAD9//3/FQABAAAAAAAFAPz/FQAAAAAAAAAFAP3/FQAAAAAAAAAFAP7/FQADAAAAAAAGAP7/FQAAAAAAAAAHAP7/FQABAAAAAAAHAP3/FQAAAAAAAAAHAPz/FQACAAAAAAAGAPz/FQAAAAAAAAAFAAAAFQACAAAAAAAFAAEAFQACAAAAAAAFAAIAFQABAAAAAAAGAAIAFQABAAAAAAAHAAIAFQABAAAAAAAHAAEAFQAAAAAAAAAHAAAAFQAAAAAAAAAGAAAAFQAAAAAAAAACAAIAFQACAAAAAAD+/wIAFQADAAAAAAD9/wIAFQADAAAAAAD9/wEAFQADAAAAAAD5//z/FQABAAAAAAD6//z/FQABAAAAAAD7//z/FQADAAAAAAD5//7/FQABAAAAAAD6//7/FQAAAAAAAAD7//7/FQABAAAAAAD7//3/FQADAAAAAAD5//3/FQADAAAAAAD5/wAAFQABAAAAAAD6/wAAFQAAAAAAAAD7/wAAFQAAAAAAAAD5/wEAFQADAAAAAAD7/wEAFQABAAAAAAD5/wIAFQAAAAAAAAD6/wIAFQADAAAAAAD7/wIAFQADAAAAAAD9//j/FQAAAAAAAAD+//j/FQADAAAAAAD///j/FQABAAAAAAD9//r/FQADAAAAAAD+//r/FQABAAAAAAD///r/FQADAAAAAAD///n/FQABAAAAAAD9//n/FQADAAAAAAABAPj/FQABAAAAAAACAPj/FQADAAAAAAADAPj/FQABAAAAAAABAPr/FQAAAAAAAAACAPr/FQADAAAAAAADAPr/FQAAAAAAAAADAPn/FQACAAAAAAABAPn/FQABAAAAAAABAAQAFQABAAAAAAACAAQAFQACAAAAAAADAAQAFQACAAAAAAABAAYAFQADAAAAAAACAAYAFQACAAAAAAADAAYAFQACAAAAAAADAAUAFQABAAAAAAABAAUAFQAAAAAAAAD9/wQAFQABAAAAAAD+/wQAFQADAAAAAAD//wQAFQAAAAAAAAD9/wYAFQACAAAAAAD+/wYAFQADAAAAAAD//wYAFQABAAAAAAD//wUAFQAAAAAAAAD9/wUAFQAAAAAAAAD+//n/GQABAAAAAAD+/wEAGQAAAAAAAAD6/wEAGQABAAAAAAD6//3/GQACAAAAAAD+//3/GQABAAAAAAACAP3/GQAAAAAAAAAGAP3/GQABAAAAAAAGAAEAGQAAAAAAAAACAAEAGQACAAAAAAACAPn/GQAAAAAAAAD+/wUAGQACAAAAAAACAAUAGQACAAAAAAD3//r/GQABAAAAAAD3//v/GQACAAAAAAD3//z/GQACAAAAAAD3//3/GQABAAAAAAD3//7/GQACAAAAAAD3////GQAAAAAAAAD3/wAAGQABAAAAAAD3/wEAGQAAAAAAAAD3/wIAGQABAAAAAAD3/wMAGQAAAAAAAAD3/wQAGQAAAAAAAAD4/wQAGQACAAAAAAD5/wQAGQABAAAAAAD6/wQAGQACAAAAAAD7/wQAGQAAAAAAAAD7/wUAGQABAAAAAAD7/wYAGQACAAAAAAD7/wcAGQABAAAAAAD7/wgAGQACAAAAAAD8/wgAGQABAAAAAAD9/wgAGQAAAAAAAAD+/wgAGQABAAAAAAD//wgAGQABAAAAAAAAAAgAGQACAAAAAAABAAgAGQAAAAAAAAACAAgAGQABAAAAAAADAAgAGQABAAAAAAAEAAgAGQACAAAAAAAFAAgAGQABAAAAAAAFAAcAGQAAAAAAAAAFAAYAGQAAAAAAAAAFAAUAGQAAAAAAAAAFAAQAGQAAAAAAAAAGAAQAGQABAAAAAAAHAAQAGQAAAAAAAAAIAAQAGQABAAAAAAAJAAQAGQACAAAAAAAJAAMAGQAAAAAAAAAJAAIAGQAAAAAAAAAJAAEAGQABAAAAAAAJAAAAGQACAAAAAAAJAP//GQAAAAAAAAAJAP7/GQAAAAAAAAAJAP3/GQABAAAAAAAJAPz/GQAAAAAAAAAJAPv/GQAAAAAAAAAJAPr/GQACAAAAAAAIAPr/GQABAAAAAAAHAPr/GQAAAAAAAAAGAPr/GQABAAAAAAAFAPr/GQACAAAAAAAFAPn/GQABAAAAAAAFAPj/GQAAAAAAAAAFAPf/GQACAAAAAAAFAPb/GQACAAAAAAAEAPb/GQACAAAAAAADAPb/GQABAAAAAAACAPb/GQABAAAAAAABAPb/GQABAAAAAAAAAPb/GQACAAAAAAD///b/GQACAAAAAAD+//b/GQACAAAAAAD9//b/GQABAAAAAAD8//b/GQABAAAAAAD7//b/GQABAAAAAAD7//f/GQABAAAAAAD7//j/GQABAAAAAAD7//n/GQAAAAAAAAD7//r/GQAAAAAAAAD6//r/GQACAAAAAAD5//r/GQABAAAAAAD4//r/GQACAAAAAAA=")
 tile_set = SubResource("TileSet_tg3ck")
 
-[node name="Garbage" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(631, 684)
-
-[node name="Garbage2" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(915, 523)
-
-[node name="Garbage3" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(1028, 688)
-
-[node name="Garbage4" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(837, 676)
-
-[node name="Garbage5" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(933, 895)
-
 [node name="DumpingGround" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DumpingGround"]
 position = Vector2(95, -81)
 shape = SubResource("CircleShape2D_ixlek")
-
-[node name="Garbage6" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(100, 844)
-
-[node name="Garbage7" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(139, 685)
-
-[node name="Garbage8" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(302, 671)
-
-[node name="Garbage9" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(438, 675)
-
-[node name="Garbage10" parent="." instance=ExtResource("5_ixlek")]
-position = Vector2(1211, 703)
-
-[connection signal="sucked_in_garbage" from="Garbage" to="car" method="_on_garbage_sucked_in_garbage"]
