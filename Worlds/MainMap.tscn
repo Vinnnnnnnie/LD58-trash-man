@@ -25,7 +25,7 @@
 [ext_resource type="Script" uid="uid://ckmrbb2topeab" path="res://Worlds/garbage_area_2.gd" id="21_y8dtt"]
 [ext_resource type="Script" uid="uid://b2qqopwwty0hq" path="res://Worlds/garbage_area_3.gd" id="22_ucnns"]
 [ext_resource type="AudioStream" uid="uid://sk0bor1bwuoe" path="res://Sounds/Music/Gameplay ver1 trimmed for looping.mp3" id="23_ucnns"]
-[ext_resource type="PackedScene" path="res://Actors/Barrier.tscn" id="26_egiwf"]
+[ext_resource type="PackedScene" uid="uid://cddbjwc0mqpg2" path="res://Actors/Barrier.tscn" id="26_egiwf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j3qog"]
 texture = ExtResource("3_cbdh2")
@@ -345,9 +345,73 @@ rotation = 1.5707964
 position = Vector2(1096, -1699)
 rotation = 1.5707964
 
-[node name="Barrier3" parent="." groups=["blockade_park"] instance=ExtResource("26_egiwf")]
+[node name="Barrier3" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
 position = Vector2(899, 1101)
 rotation = -3.1415925
+frame = 1
+
+[node name="Barrier11" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(901, -1102)
+rotation = -3.1415925
+frame = 1
+
+[node name="Barrier12" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(99, -1089)
+rotation = -3.1415925
+frame = 1
+
+[node name="Barrier13" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(-904, -99)
+rotation = 4.712389
+frame = 1
+
+[node name="Barrier16" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(-901, 700)
+rotation = 4.712389
+frame = 1
+
+[node name="Barrier14" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(-697, -1103)
+rotation = -3.1415925
+frame = 1
+
+[node name="Barrier15" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(-908, -900)
+rotation = 4.712389
+frame = 2
+
+[node name="Barrier4" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(101, 901)
+rotation = -3.1415925
+frame = 2
+
+[node name="Barrier5" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(-699, 900)
+rotation = -3.1415925
+frame = 3
+
+[node name="Barrier6" parent="." groups=["blockade_city"] instance=ExtResource("26_egiwf")]
+position = Vector2(-299, 899)
+rotation = -3.1415925
+
+[node name="Barrier7" parent="." groups=["blockade_docks"] instance=ExtResource("26_egiwf")]
+position = Vector2(-1700, 699)
+rotation = 1.5707964
+frame = 1
+
+[node name="Barrier8" parent="." groups=["blockade_docks"] instance=ExtResource("26_egiwf")]
+position = Vector2(-1702, -101)
+rotation = 4.712389
+
+[node name="Barrier9" parent="." groups=["blockade_docks"] instance=ExtResource("26_egiwf")]
+position = Vector2(-1696, -2300)
+rotation = 4.712389
+frame = 1
+
+[node name="Barrier10" parent="." groups=["blockade_docks"] instance=ExtResource("26_egiwf")]
+position = Vector2(-1495, -2300)
+rotation = 4.712389
+frame = 1
 
 [connection signal="dumped_garbage" from="car" to="." method="_on_car_dumped_garbage"]
 [connection signal="timeout" from="GarbageSpawn1/Timer" to="GarbageSpawn1" method="_on_timer_timeout"]
