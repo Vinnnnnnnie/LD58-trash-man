@@ -58,6 +58,7 @@ position = Vector2(68, 549)
 texture = ExtResource("4_hwvmr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="InCall"]
+volume_db = -12.204
 
 [node name="ReceivingCall" type="Control" parent="."]
 visible = false
@@ -81,6 +82,7 @@ scale = Vector2(0.3046389, 0.3046389)
 label = "D"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ReceivingCall"]
+volume_db = -17.26
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -88,7 +90,7 @@ libraries = {
 }
 
 [node name="RandomEventTimer" type="Timer" parent="."]
-wait_time = 1.54
+wait_time = 119.334
 autostart = true
 
 [connection signal="dialogue_finished" from="InCall" to="." method="_on_in_call_dialogue_finished"]

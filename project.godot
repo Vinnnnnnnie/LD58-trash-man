@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="LD58-New-Trash_City"
-run/main_scene="uid://65tkp4i51twv"
+run/main_scene="uid://cq8dodue411k5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+general/default_playback_type.web=0
 
 [display]
 
@@ -25,10 +29,10 @@ garbage=""
 player_vacuum=""
 player=""
 upgrade_menu=""
+dialogue_system=""
 vacuum_scene=""
 boost_bar_scene=""
 Score=""
-dialogue_system=""
 storage_bar=""
 
 [input]
