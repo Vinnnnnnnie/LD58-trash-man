@@ -6,7 +6,7 @@ var x
 var y
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for n in 120:
+	for n in 60:
 		make_garbage()
 
  
