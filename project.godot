@@ -34,9 +34,10 @@ vacuum_scene=""
 boost_bar_scene=""
 Score=""
 storage_bar=""
+dumping_ground=""
 timer_menu=""
 timer_cutscene_pausable="pauses the timer when dialogue is started"
-dumping_ground=""
+main_map=""
 
 [input]
 

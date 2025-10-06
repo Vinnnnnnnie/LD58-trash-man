@@ -245,7 +245,7 @@ radius = 310.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3qog"]
 radius = 2545.0332
 
-[node name="MainMap" type="Node2D"]
+[node name="MainMap" type="Node2D" groups=["main_map"]]
 script = ExtResource("1_i2jb3")
 
 [node name="car" parent="." instance=ExtResource("1_foosq")]

@@ -209,11 +209,12 @@ func empty_garbage():
 		print('Old score'+ str(old_score / 100))
 		print('New score'+ str(score / 100))
 		if old_score / 100 != score / 100:
-			
-			$MainCamera/CanvasLayer/UI/Upgrades/Grid.show()
-			$MainCamera/CanvasLayer/UI/Upgrades.generate_upgrades()
+			show_upgrades()
 			
 		
+func show_upgrades():
+	$MainCamera/CanvasLayer/UI/Upgrades/Grid.show()
+	$MainCamera/CanvasLayer/UI/Upgrades.generate_upgrades()
 func modify_score(new_score):
 	score += new_score 
 	scoreNode.text = '$'+str(score)
@@ -234,7 +235,7 @@ func stop_boosting():
 func upgrade(upgrade):
 	match upgrade.effect:
 		'Boost_Speed_Upgrade':
-			speed += 100
+			boost += 100
 		'Brake_Upgrade':
 			braking -= 50
 		'Engine_Upgrade':
@@ -427,6 +428,9 @@ volume_db = -33.878
 rotation = -1.5707964
 texture = ExtResource("15_nmbvf")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]
 [connection signal="drift" from="." to="TyreScreech" method="_on_car_drift"]
@@ -434,3 +438,4 @@ texture = ExtResource("15_nmbvf")
 [connection signal="not_drift" from="." to="SkidLeft" method="_on_car_not_drift"]
 [connection signal="not_drift" from="." to="TyreScreech" method="_on_car_not_drift"]
 [connection signal="area_entered" from="DumpingHitbox" to="." method="_on_dumping_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="show_upgrades"]
