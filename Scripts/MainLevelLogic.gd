@@ -201,7 +201,9 @@ func _on_phone_call_ended() -> void:
 		GlobalScript.tutorial_finished = true
 		player.paused_player_movement = false
 		dialogue_system.difficulty_level += 1
-	
+		
+	if story_sequence_number == 3 or story_sequence_number == 5 or story_sequence_number == 7 or story_sequence_number == 9:
+		rat_menu.visible = true
 	
 func _on_failed_qte() -> void:
 	if dialogue_system.difficulty_level == 1:
