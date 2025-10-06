@@ -12,7 +12,7 @@ var qte_enabled = false
 var difficulty_level
 
 func _ready() -> void:
-	random_characters.append_array(['l', 'p', 'i', '9'])
+	random_characters.append_array(['l', 'p', 'i', '9', '6', 'm', 'z', 'g', 'x', 'v'])
 	$AudioStreamPlayer.stream = button_press_tone_audio
 
 func _physics_process(delta: float) -> void:

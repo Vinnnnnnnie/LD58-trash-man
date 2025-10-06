@@ -1,8 +1,8 @@
 extends Control
 
-@export var joel_logo = preload("res://Images/ui_art/trashmans_boss_jole_final.png")
-@export var wife_logo = preload("res://Images/ui_art/My_Bitch_Wife.png")
-@export var ratman_logo = preload("res://Images/ui_art/My_Bitch_Wife.png")
+@export var joel_logo = preload("res://Images/ui_art/joel_compressed.png")
+@export var wife_logo = preload("res://Images/ui_art/My_Bitch_Wife_compressed.png")
+@export var ratman_logo = preload("res://Images/ui_art/Rat_man_Compressed.png")
 
 var audio_player : AudioStreamPlayer
 
@@ -31,7 +31,7 @@ func change_dialogue(scene_number):
 	elif  scene_logo == 'Joels Wife':
 		character_logo.texture = wife_logo
 	elif scene_logo == 'The Rat':
-		character_logo.texture = wife_logo
+		character_logo.texture = ratman_logo
 	
 	$Label.text = scene_text
 	audio_player.stream = scene_audio
