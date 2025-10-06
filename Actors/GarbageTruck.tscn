@@ -54,6 +54,7 @@ var storage = 0
 @onready var level = get_tree().get_first_node_in_group('')
 @onready var dump = get_tree().get_first_node_in_group('dumping_ground')
 var game_over = false
+var paused_player_movement = false
 
 func _ready() -> void:
 	label = storageNode.get_node('StorageLabel')
@@ -75,7 +76,8 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	acceleration = Vector2.ZERO
-	get_input()
+	if not paused_player_movement:
+		get_input()
 	apply_friction(delta)
 	new_calculate_steering(delta)
 	pitch_sounds(delta)
@@ -265,7 +267,7 @@ func _on_dumping_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == 'DumpingGround':
 		var storage_before_emptied = storage
 		empty_garbage()
-		emit_signal('dumped_garbage', storage)
+		emit_signal('dumped_garbage', storage_before_emptied)
 "
 
 [sub_resource type="Gradient" id="Gradient_eo6ux"]

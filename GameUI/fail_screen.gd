@@ -5,7 +5,8 @@ extends Control
 func _ready() -> void:
 	pass
 	
-func start_fail_game():
+func start_fail_game(reason: String = ""):
+	$Reason.text = reason
 	$Score.text = str(player.score)
 	$AnimationPlayer.play("EndGameAnim")
 

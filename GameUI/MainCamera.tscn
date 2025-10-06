@@ -19,7 +19,7 @@ script = ExtResource("1_gxubn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer" groups=["ui_scene"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
