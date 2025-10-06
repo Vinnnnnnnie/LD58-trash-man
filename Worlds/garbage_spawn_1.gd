@@ -19,8 +19,8 @@ func _on_timer_timeout() -> void:
 	make_garbage()
 	
 func make_garbage():
-	x = randi_range(self.position.x - $CollisionShape2D.shape.radius, self.position.x + $CollisionShape2D.shape.radius,)
-	y = randi_range(self.position.y - $CollisionShape2D.shape.radius, self.position.y + $CollisionShape2D.shape.radius,)
+	x = randi_range(self.position.x - $CollisionShape2D.shape.radius, self.position.x + $CollisionShape2D.shape.radius)
+	y = randi_range(self.position.y - $CollisionShape2D.shape.radius, self.position.y + $CollisionShape2D.shape.radius)
 	rand_point = global_position + Vector2(x,y)
 	
 	garbage_instance = garbageScene

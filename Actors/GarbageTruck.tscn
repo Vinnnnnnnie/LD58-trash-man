@@ -64,8 +64,12 @@ func _process(_delta) -> void:
 	print('Dump position = '+str(dump.global_position))
 	print('Arrow position = '+str($ArrowToDump.global_position))
 	print('Angle = '+str(global_position.direction_to(dump.global_position).angle()))
-
-
+	
+	var distance = (dump.global_position - $ArrowToDump.global_position).length()
+	if distance < 600:
+		$ArrowToDump.hide()
+	else:
+		$ArrowToDump.show()
 	$ArrowToDump.global_rotation = global_position.direction_to(dump.global_position).angle() - PI/2
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
