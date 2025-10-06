@@ -34,8 +34,7 @@ func _process(delta: float) -> void:
 func _on_button_down() -> void:
 	player.upgrade(upgrade)
 	upgrade_ui.hide()
-	for child in upgrade_ui.get_children():
-		child.queue_free()
+	upgrade_ui.clear_grid()
 	upgrade_level += 1
 	upgrade_json[upgrade_index]['level'] += 1
 	

@@ -256,7 +256,7 @@ func upgrade(upgrade):
 			bar.max_value = storageTotal
 		'Suction_Upgrade':
 			vacuum.sucking_force += 2
-		'Suction_Distance_Upgrade':
+		'Sucker_Reach_Upgrade':
 			vacuum.suck_in_distance += 4
 		'Glasses_Upgrade':
 			$MainCamera.zoom -= Vector2(0.2, 0.2)
@@ -432,7 +432,7 @@ rotation = -1.5707964
 texture = ExtResource("15_nmbvf")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [connection signal="drift" from="." to="SkidRight" method="_on_car_drift"]
 [connection signal="drift" from="." to="SkidLeft" method="_on_car_drift"]

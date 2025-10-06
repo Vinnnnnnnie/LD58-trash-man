@@ -20,12 +20,6 @@ var upgrades = [{
 		"level":1
 	},
 	{
-		"image":"res://Images/upgrades/Gearbox_Upgrade.png",
-		"effect":"Gearbox_Upgrade",
-		"description": "Took out a few springs that were too heavy, cut some wires that didn’t do squat. Should go much faster now.",
-		"level":1
-	},
-	{
 		"image":"res://Images/upgrades/Speed_Upgrade.png",
 		"effect":"Speed_Upgrade",
 		"description": "My wife spilled her fancy-schmancy extra strength chest hair glue all over the tires this morning. Oh well, can’t let it go to waste.",
@@ -47,6 +41,12 @@ var upgrades = [{
 		"image":"res://Images/upgrades/Suction_Upgrade.png",
 		"effect":"Suction_Upgrade",
 		"description": "Buddy got me a military strength jet engine as a congrats for my niece’s fifth wedding. Could bolt it on your truck if you’ve got the cash.",
+		"level":1
+	},
+	{
+		"image":"res://Images/upgrades/Sucker_Reach_Upgrade.png",
+		"effect":"Sucker_Reach_Upgrade",
+		"description": "Found me one of those novelty magnets from cartoons to add more reach to your Sucker!",
 		"level":1
 	},
 	{

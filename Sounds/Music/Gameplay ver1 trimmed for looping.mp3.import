@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sk0bor1bwuoe"
+path="res://.godot/imported/Gameplay ver1 trimmed for looping.mp3-6a2b1dd77c0d51800b4ab1ae3858f544.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Gameplay ver1 trimmed for looping.mp3"
+dest_files=["res://.godot/imported/Gameplay ver1 trimmed for looping.mp3-6a2b1dd77c0d51800b4ab1ae3858f544.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -29,7 +29,7 @@ text = "30"
 label_settings = SubResource("LabelSettings_o6fnk")
 
 [node name="Timer" type="Timer" parent="." groups=["timer_cutscene_pausable"]]
-wait_time = 30.0
+wait_time = 60.0
 one_shot = true
 autostart = true
 
