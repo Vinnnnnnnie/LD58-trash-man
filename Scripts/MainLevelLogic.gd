@@ -114,7 +114,6 @@ func _process(delta: float) -> void:
 	main_game_logic()
 	
 func main_game_logic() -> void:
-	print(story_sequence_number)
 	pass
 	
 func accepted_rat_offer():
