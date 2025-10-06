@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://she2eapydd2m"]
+[gd_scene load_steps=14 format=3 uid="uid://she2eapydd2m"]
 
 [ext_resource type="Script" uid="uid://blg3hpd6xk6aw" path="res://GameUI/control.gd" id="1_0o8tf"]
 [ext_resource type="Script" uid="uid://ba3ahtcrtmn1y" path="res://GameUI/main_camera.gd" id="1_gxubn"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://uj02wksdp0on" path="res://GameUI/arrow_to_dump.tscn" id="10_dffdu"]
 [ext_resource type="PackedScene" uid="uid://bqu50dwkkfb6m" path="res://instructions.tscn" id="11_bw1rq"]
 [ext_resource type="PackedScene" uid="uid://4u1rc8cptelp" path="res://Actors/RatMenu.tscn" id="12_x0381"]
+[ext_resource type="PackedScene" path="res://area_unlocked.tscn" id="13_tx5i2"]
 
 [node name="MainCamera" type="Camera2D"]
 zoom = Vector2(1.36, 1.36)
@@ -88,4 +89,8 @@ layout_mode = 1
 
 [node name="RatMenu" parent="CanvasLayer/UI" instance=ExtResource("12_x0381")]
 z_index = 1000
+layout_mode = 1
+
+[node name="AreaUnlocked" parent="CanvasLayer/UI" instance=ExtResource("13_tx5i2")]
+visible = false
 layout_mode = 1

@@ -6,6 +6,7 @@ extends Node2D
 @onready var timer_menu = get_tree().get_first_node_in_group('timer_menu')
 @onready var ui_scene = get_tree().get_first_node_in_group('ui_scene')
 @onready var rat_menu = get_tree().get_first_node_in_group('rat_menu')
+@onready var new_area_unlocked = get_tree().get_first_node_in_group('area_unlocked')
 @onready var game_music = get_tree().get_first_node_in_group('game_music')
 @onready var story_dialogue = dialogue_system.story_dialogue
 
@@ -19,12 +20,6 @@ var upgrades = [{
 		"image":"res://Images/upgrades/Engine_Upgrade.png",
 		"effect":"Engine_Upgrade",
 		"description": "Joel JR JR taped the gas pedal down last night playing “Hide the Body”. Smart kid. Now you get faster FASTER.",
-		"level":1
-	},
-	{
-		"image":"res://Images/upgrades/Speed_Upgrade.png",
-		"effect":"Speed_Upgrade",
-		"description": "My wife spilled her fancy-schmancy extra strength chest hair glue all over the tires this morning. Oh well, can’t let it go to waste.",
 		"level":1
 	},
 	{
@@ -60,7 +55,7 @@ var upgrades = [{
 	{
 		"image":"res://Images/upgrades/Reverse_Gear_Upgrade.png",
 		"effect":"Reverse_Gear_Upgrade",
-		"description": "Caught the end of one of those racing movies tryina watch last night's wrestling. If you could drive backwards like that, you wouldn't have to waste time turning.",
+		"description": "Caught the end of one of those racing movies last night. If you could drive backwards like that, you wouldn't have to waste time turning.",
 		"level":1
 	},
 	{
@@ -136,6 +131,7 @@ func progression_check_logic():
 	if overall_amount_dumped >= 5 and overall_amount_dumped < 20 and story_sequence_number == 1:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 1'])
 		story_sequence_number += 1
+		new_area_unlocked.new_area('City blockades down!')
 		clear_barriers('blockade_city')
 		
 	if overall_amount_dumped >= 20 and overall_amount_dumped < 40 and story_sequence_number == 2:
@@ -146,6 +142,7 @@ func progression_check_logic():
 	if overall_amount_dumped >= 40 and overall_amount_dumped < 60 and story_sequence_number == 3:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 2'])
 		story_sequence_number += 1
+		new_area_unlocked.new_area('Park blockades removed to the east!')
 		clear_barriers('blockade_park')
 		
 	if overall_amount_dumped >= 60 and overall_amount_dumped < 80 and story_sequence_number == 4:
@@ -156,6 +153,7 @@ func progression_check_logic():
 	if overall_amount_dumped >= 80 and overall_amount_dumped < 100 and story_sequence_number == 5:
 		dialogue_system.add_story_dialogue_to_queue(['Bargaining part 3'])
 		story_sequence_number += 1
+		new_area_unlocked.new_area('Docks now free of disease!')
 		clear_barriers('blockade_docks')
 		
 	if overall_amount_dumped >= 100 and overall_amount_dumped < 120 and story_sequence_number == 6:
@@ -172,7 +170,6 @@ func progression_check_logic():
 		story_sequence_number += 1
 	
 func _on_dumped_garbage(amount_dumped: Variant) -> void:
-	print('DUMPED: ', amount_dumped)
 	overall_amount_dumped += amount_dumped
 	
 	if amount_dumped > 0:
@@ -185,30 +182,26 @@ func _on_phone_ringing_started() -> void:
 	if dialogue_system.difficulty_level == 1:
 		pause_timers()
 	
-	print(dialogue_system.difficulty_level)
 	
 	if dialogue_system.difficulty_level == 1:
 		player.paused_player_movement = true
 	
-	print('phone started')
 	
 func _on_phone_answered() -> void:
-	print('phone answered')
+	pass
 	
 func _on_phone_call_dialogue_started() -> void:
-	print('yapping begins')
+	pass
 	
 func _on_phone_call_ended() -> void:
 	game_music.volume_db = -18
 	resume_timers()
-	print(dialogue_system.difficulty_level)
 	
 	if dialogue_system.difficulty_level == 1:
 		GlobalScript.tutorial_finished = true
 		player.paused_player_movement = false
 		dialogue_system.difficulty_level += 1
 	
-	print('yapping ended')
 	
 func _on_failed_qte() -> void:
 	if dialogue_system.difficulty_level == 1:

@@ -25,7 +25,5 @@ func make_garbage():
 	garbage_instance = garbageScene
 	var garbage = garbage_instance.instantiate()
 	garbage.position = rand_point + Vector2(5000,1000)
-	print('Spawned DOck Garbage at ', garbage.position)
-	print('Spawned GLOBAL DOck Garbage at ', garbage.global_position)
 
 	self.add_child(garbage)

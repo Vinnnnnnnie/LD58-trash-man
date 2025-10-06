@@ -48,6 +48,7 @@ blockade_city="blockade group for city"
 blockade_park="blockade group for park"
 game_music=""
 rat_menu=""
+area_unlocked=""
 
 [input]
 

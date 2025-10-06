@@ -85,7 +85,6 @@ func qte_passed() -> void:
 	
 func qte_failed() -> void:
 	emit_signal('failed_qte')
-	print('failed qte')
 	
 func start_main_dialogue() -> void:
 	is_main_dialogue_playing = true
