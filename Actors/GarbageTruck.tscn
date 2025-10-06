@@ -197,6 +197,7 @@ func add_garbage():
 	
 func empty_garbage():
 	var old_score = score
+	storageNode.storage_empty()
 	if (storage != 0):
 		var temp_score = 0
 		for n in storage:
