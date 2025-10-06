@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://byv2kf8x2xtyj"]
+[gd_scene load_steps=11 format=3 uid="uid://byv2kf8x2xtyj"]
 
 [ext_resource type="Script" uid="uid://v5og1kr8hem" path="res://Scripts/UI/MainMenu.gd" id="1_0c04o"]
 [ext_resource type="PackedScene" uid="uid://b3hodl73dbyq7" path="res://Actors/TentacleVacuum.tscn" id="1_64qbs"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cn2amq2kqh510" path="res://Images/ui_art/settings.png" id="5_kp6bd"]
 [ext_resource type="Texture2D" uid="uid://uefjudu0ivcc" path="res://Images/title screen.png" id="6_kp6bd"]
 [ext_resource type="Script" uid="uid://ddjvpjki8ivag" path="res://Worlds/garbage_spawn_1.gd" id="8_kp6bd"]
+[ext_resource type="AudioStream" uid="uid://sk0bor1bwuoe" path="res://Sounds/Music/Gameplay ver1 trimmed for looping.mp3" id="9_3fel3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fel3"]
 radius = 721.15
@@ -155,6 +156,11 @@ autostart = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(591.86383, 323.78433)
 zoom = Vector2(1.69, 1.69)
+
+[node name="GameplayVer1TrimmedForLooping" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_3fel3")
+autoplay = true
+parameters/looping = true
 
 [connection signal="button_up" from="Control/NewGame" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="GarbageSpawn1/Timer" to="GarbageSpawn1" method="_on_timer_timeout"]
