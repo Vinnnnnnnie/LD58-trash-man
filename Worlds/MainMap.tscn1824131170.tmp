@@ -305,7 +305,6 @@ autostart = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_ucnns")
-volume_db = -20.085
 autoplay = true
 
 [connection signal="dumped_garbage" from="car" to="." method="_on_car_dumped_garbage"]
