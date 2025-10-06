@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqu50dwkkfb6m"]
+
+[ext_resource type="FontFile" uid="uid://ca27mwtgp0kcv" path="res://Fonts/superstar_memesbruh03.ttf" id="1_7ls63"]
+[ext_resource type="Script" uid="uid://536hmegs1eju" path="res://instructions.gd" id="1_h8hbf"]
+
+[sub_resource type="Theme" id="Theme_ne5nb"]
+default_font = ExtResource("1_7ls63")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ls63"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.6645854, 0.55873847, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8hbf"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_top = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_jh4dl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dt5x2"]
+font = ExtResource("1_7ls63")
+
+[sub_resource type="Theme" id="Theme_gosh8"]
+default_font = ExtResource("1_7ls63")
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h8hbf")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -96.0
+offset_right = 249.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ne5nb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ls63")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_h8hbf")
+current_tab = 0
+
+[node name="Instructions" type="Label" parent="TabContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jh4dl")
+text = "Mouse to control your Vacuum to suck up garbage
+WASD to move around
+Shift to Boost
+
+Drive around the map and collect garbage until your storage is full.
+ - Don't run out of time
+ - Answer calls from your boss
+ - Hit the Quota on Screen
+"
+label_settings = SubResource("LabelSettings_dt5x2")
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 71.0
+offset_right = 238.0
+offset_bottom = 102.0
+theme = SubResource("Theme_gosh8")
+text = "Close
+"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
