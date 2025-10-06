@@ -235,29 +235,29 @@ func stop_boosting():
 func upgrade(upgrade):
 	match upgrade.effect:
 		'Boost_Speed_Upgrade':
-			boost += 100
+			boost += 200 /upgrade.level
 		'Brake_Upgrade':
-			braking -= 50
+			braking -= 75 /upgrade.level
 		'Engine_Upgrade':
-			acceleration_power += 100
+			acceleration_power += 75 /upgrade.level
 		'Gearbox_Upgrade':
 			acceleration_power += 100
 		'Reverse_Gear_Upgrade':
-			max_speed_reverse += 50
+			max_speed_reverse += 100 /upgrade.level
 		'Speed_Upgrade':
-			speed += 150
+			speed += 150 /upgrade.level
 		'Steering_Upgrade':
-			steering_angle += 5
+			steering_angle += 5 /upgrade.level
 		'Storage_Upgrade':
 			storageTotal += 5
 			label.text = str(storage) + '/' + str(storageTotal)
 			bar.max_value = storageTotal
 		'Suction_Upgrade':
-			vacuum.sucking_force += 2
+			vacuum.sucking_force += 4 /upgrade.level
 		'Sucker_Reach_Upgrade':
-			vacuum.suck_in_distance += 4
+			vacuum.suck_in_distance += 6 /upgrade.level
 		'Glasses_Upgrade':
-			$MainCamera.zoom -= Vector2(0.2, 0.2)
+			$MainCamera.zoom -= Vector2(0.15, 0.15) /upgrade.level
 	$UpgradeSound.play()
 
 func _on_dumping_hitbox_area_entered(area: Area2D) -> void:
