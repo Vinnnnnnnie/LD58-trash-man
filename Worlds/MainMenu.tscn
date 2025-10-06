@@ -26,7 +26,29 @@ position = Vector2(-83, 544)
 scale = Vector2(7.4690194, 7.4690194)
 
 [node name="PathFollow2D" parent="Vacuum/Path2D" index="0"]
-position = Vector2(93.29584, 0)
+position = Vector2(93.29552, 0)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D" index="0"]
+scale = Vector2(1.0000005, 1.0000005)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D" index="0"]
+position = Vector2(14.999999, 0)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(1.0000019, 1.0000019)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D" index="0"]
+position = Vector2(15.000914, 0)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(0.9999997, 0.9999997)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(0.99999964, 0.99999964)
+
+[node name="Bone2D" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D" index="0"]
+scale = Vector2(0.9999993, 0.9999993)
 
 [node name="VacuumArea" parent="Vacuum/Skeleton2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D/Bone2D" index="2"]
 scale = Vector2(0.23914301, 0.23914301)
@@ -57,23 +79,6 @@ scale = Vector2(1.2897664, 1.2897664)
 theme_override_font_sizes/font_size = 76
 icon = ExtResource("3_xt3es")
 
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 868.00006
-offset_top = 520.0
-offset_right = 1076.0001
-offset_bottom = 578.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2897664, 1.2897664)
-theme_override_font_sizes/font_size = 76
-icon = ExtResource("4_glbkd")
-
 [node name="Button3" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
@@ -91,6 +96,23 @@ rotation = 0.17362644
 scale = Vector2(1.2897664, 1.2897664)
 theme_override_font_sizes/font_size = 76
 icon = ExtResource("5_kp6bd")
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 868.0001
+offset_top = 520.0
+offset_right = 1076.0002
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2897664, 1.2897664)
+theme_override_font_sizes/font_size = 76
+icon = ExtResource("4_glbkd")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
