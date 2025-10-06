@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 			$AnimationTree.play("new_button_label_anim")
 		elif difficulty_level == 0:
 			get_parent().get_parent().qte_passed()
-			print('done')
+			
 			qte_enabled = false
 
 func qte_start(difficulty) -> void:

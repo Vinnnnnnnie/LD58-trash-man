@@ -34,6 +34,7 @@ vacuum_scene=""
 boost_bar_scene=""
 Score=""
 storage_bar=""
+dumping_ground=""
 
 [input]
 
