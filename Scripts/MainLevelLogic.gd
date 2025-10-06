@@ -69,19 +69,27 @@ var upgrades = [{
 	}
 ]
 
+var game_timeout_lines = ["PICK UP THE TUTORIAL PHONE CALL NUMB NUTS",""]
+
 var introduction_difficulty = 1
 var story_sequence_number = 1
 
 var overall_amount_dumped = 0
 
+const time_gained_from_each_garbage = 2.0
+
 func _ready() -> void:
 	dialogue_system.add_story_dialogue_to_queue(['Introduction'])
+	
 	player.connect('dumped_garbage', _on_dumped_garbage)
+	
 	dialogue_system.connect('phone_ringing_started', _on_phone_ringing_started)
 	dialogue_system.connect('phone_answered', _on_phone_answered)
 	dialogue_system.connect('phone_call_dialogue_started', _on_phone_call_dialogue_started)
 	dialogue_system.connect('phone_call_ended', _on_phone_call_ended)
 	dialogue_system.connect('failed_qte', _on_failed_qte)
+	
+	timer_menu.get_node('Timer').connect('timeout', on_game_timeout)
 	
 	dialogue_system.difficulty_level = introduction_difficulty
 	
@@ -151,6 +159,9 @@ func _on_dumped_garbage(amount_dumped: Variant) -> void:
 	print('DUMPED: ', amount_dumped)
 	overall_amount_dumped += amount_dumped
 	
+	if amount_dumped > 0:
+		timer_menu.gain_time(amount_dumped * time_gained_from_each_garbage)
+	
 	progression_check_logic()
 	
 func _on_phone_ringing_started() -> void:
@@ -181,4 +192,7 @@ func _on_phone_call_ended() -> void:
 	
 func _on_failed_qte() -> void:
 	if dialogue_system.difficulty_level == 1:
-		end_game('PICK UP THE TUTORIAL PHONE CALL NUMB NUTS')
+		end_game(game_timeout_lines.pick_random())
+		
+func on_game_timeout() -> void:
+	end_game('Wow, you really were slow, now you are unemployed')

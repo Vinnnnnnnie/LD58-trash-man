@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bakbrol7s14fq"]
+
+[ext_resource type="Texture2D" uid="uid://ccb6ydt4xd7i4" path="res://Images/dirt_roads/Alternative Ref tile/oh lord he comen.png" id="1_0vwgx"]
+[ext_resource type="Script" uid="uid://b8d5s5qr6pr2l" path="res://Scripts/Barrier.gd" id="1_w40x0"]
+[ext_resource type="Texture2D" uid="uid://deta1sqjnkl7s" path="res://Images/road tiles/Dead_End_Roadblock.png" id="2_v35un"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v35un"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0vwgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v35un")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Barrier" type="Node2D"]
+script = ExtResource("1_w40x0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v35un")
+animation = &"new_animation"
+speed_scale = 0.0

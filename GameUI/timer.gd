@@ -27,6 +27,11 @@ func cool_rotation_back():
 	tween2.tween_property($TimerLabel.get('label_settings'), 'font_size', 64, 1)
 	
 	tween.tween_callback(cool_rotation)
-	
+
+func gain_time(time_gained):
+	$GainAmount.text = "+ " + str(time_gained)
+	$AnimationPlayer.play("gain_time")
+	$Timer.wait_time = $Timer.wait_time + time_gained
+
 func _on_timer_timeout() -> void:
 	emit_signal('game_over')
