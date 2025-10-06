@@ -51,7 +51,6 @@ var storageTotal = 5
 var storage = 0
 @onready var scoreNode = get_node('MainCamera/CanvasLayer/UI/Score/ScoreNumber')
 
-@onready var level = get_tree().get_first_node_in_group('')
 @onready var dump = get_tree().get_first_node_in_group('dumping_ground')
 var game_over = false
 var paused_player_movement = false

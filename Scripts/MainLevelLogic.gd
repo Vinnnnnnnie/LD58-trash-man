@@ -79,7 +79,7 @@ var story_sequence_number = 1
 
 var overall_amount_dumped = 0
 
-const time_gained_from_each_garbage = 3.0
+const time_gained_from_each_garbage = 5.0
 
 func _ready() -> void:
 	if GlobalScript.tutorial_finished == false:
